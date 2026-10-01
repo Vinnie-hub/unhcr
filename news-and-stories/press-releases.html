@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNHCR sounds the alarm as 8.3 million risk losing their lifeline | UNHCR</title>
+  <meta name="description" content="Continued severe funding cuts are pushing refugee support and protection structures towards breaking point, UNHCR warns." />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="UNHCR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="UNHCR sounds the alarm as 8.3 million risk losing their lifeline" />
+  <meta property="og:description" content="Continued severe funding cuts are pushing refugee support and protection structures towards breaking point, UNHCR warns." />
+  <meta property="og:image" content="images/news/RF1499861.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------- Reset & Base ---------- */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --unhcr-blue: #0072bc;
+      --unhcr-dark-blue: #005a9c;
+      --unhcr-navy: #18375f;
+      --unhcr-light-blue: #8ebeff;
+      --unhcr-pale-blue: #e8f1f8;
+      --unhcr-gray: #f4f5f7;
+      --unhcr-mid-gray: #d8dde3;
+      --unhcr-text: #1e2a35;
+      --unhcr-text-light: #5a6b7b;
+      --unhcr-white: #ffffff;
+      --unhcr-red: #ef4a60;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius: 6px;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      color: var(--unhcr-text);
+      background: var(--unhcr-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--unhcr-blue); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--unhcr-dark-blue); text-decoration: underline; }
+    ul { list-style: none; }
+
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-block; padding: 10px 22px; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.9rem; text-align: center; cursor: pointer;
+      border: 2px solid transparent; transition: all var(--transition);
+      text-decoration: none; line-height: 1.4;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+    .btn-primary { background: var(--unhcr-blue); color: var(--unhcr-white); border-color: var(--unhcr-blue); }
+    .btn-primary:hover { background: var(--unhcr-dark-blue); border-color: var(--unhcr-dark-blue); color: var(--unhcr-white); }
+    .btn-secondary { background: var(--unhcr-navy); color: var(--unhcr-white); border-color: var(--unhcr-navy); }
+    .btn-secondary:hover { background: #0f1a25; border-color: #0f1a25; color: var(--unhcr-white); }
+    .btn-outline-dark { background: transparent; color: var(--unhcr-text); border-color: var(--unhcr-text); }
+    .btn-outline-dark:hover { background: var(--unhcr-text); color: var(--unhcr-white); }
+    .btn-outline-light { background: transparent; color: var(--unhcr-white); border-color: var(--unhcr-white); }
+    .btn-outline-light:hover { background: var(--unhcr-white); color: var(--unhcr-navy); }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      background: var(--unhcr-white); border-bottom: 1px solid var(--unhcr-mid-gray);
+      position: sticky; top: 0; z-index: 1000;
+    }
+    .header-top { background: var(--unhcr-navy); color: var(--unhcr-white); font-size: 0.8rem; padding: 6px 0; }
+    .header-top .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .header-top a { color: var(--unhcr-white); text-decoration: none; font-weight: 500; }
+    .header-top a:hover { text-decoration: underline; }
+    .header-top .lang-links { display: flex; gap: 12px; }
+    .header-top .lang-links a { opacity: 0.8; }
+    .header-top .lang-links a.active { opacity: 1; font-weight: 700; }
+
+    .header-main { padding: 14px 0; }
+    .header-main .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .logo-text span { display: block; font-weight: 400; color: var(--unhcr-text-light); font-size: 0.65rem; }
+    .header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .header-actions .btn { padding: 8px 18px; font-size: 0.85rem; }
+
+    /* ---------- Nav ---------- */
+    .main-nav { background: var(--unhcr-navy); position: relative; }
+    .main-nav .container { display: flex; align-items: center; }
+    .nav-list { display: flex; flex-wrap: wrap; gap: 0; width: 100%; }
+    .nav-list > li { position: relative; }
+    .nav-list > li > a {
+      display: block; color: var(--unhcr-white); padding: 14px 18px;
+      font-size: 0.9rem; font-weight: 500; text-decoration: none;
+      transition: background var(--transition);
+    }
+    .nav-list > li > a:hover,
+    .nav-list > li > a.active { background: rgba(255,255,255,0.1); text-decoration: none; }
+    .nav-list > li > a::after {
+      content: ''; display: inline-block; width: 6px; height: 6px;
+      border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+      transform: rotate(45deg); margin-left: 8px; position: relative; top: -2px; opacity: 0.7;
+    }
+    .nav-list > li.no-drop > a::after { display: none; }
+    .nav-toggle {
+      display: none; background: none; border: none; color: var(--unhcr-white);
+      font-size: 1.6rem; cursor: pointer; padding: 12px 16px;
+    }
+
+    /* ---------- Breadcrumbs ---------- */
+    .breadcrumbs-bar { background: var(--unhcr-gray); border-bottom: 1px solid var(--unhcr-mid-gray); padding: 12px 0; }
+    .breadcrumb { display: flex; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--unhcr-text-light); align-items: center; }
+    .breadcrumb a { color: var(--unhcr-blue); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb .sep { color: var(--unhcr-text-light); opacity: 0.6; }
+
+    /* ---------- Article Header ---------- */
+    .article-header { background: var(--unhcr-navy); color: var(--unhcr-white); padding: 60px 0 40px; }
+    .article-header .container { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: center; }
+    .article-header-content { max-width: 520px; }
+    .article-tag {
+      display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: #8ec8f0; background: rgba(255,255,255,0.1);
+      padding: 4px 12px; border-radius: 2px; margin-bottom: 14px;
+    }
+    .article-header h1 { font-size: 2rem; font-weight: 700; line-height: 1.25; margin-bottom: 16px; }
+    .article-meta { font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+    .article-meta .sep { margin: 0 8px; opacity: 0.6; }
+    .article-meta a { color: #8ec8f0; }
+
+    .article-hero { border-radius: 8px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+    .article-hero img { width: 100%; height: 340px; object-fit: cover; }
+    .article-hero-caption {
+      font-size: 0.7rem; color: rgba(255,255,255,0.7);
+      padding: 8px 12px; background: rgba(0,0,0,0.4);
+      display: flex; justify-content: space-between; gap: 12px;
+    }
+    .article-hero-caption .credit { white-space: nowrap; }
+
+    /* ---------- Article Body ---------- */
+    .article-body-wrap { padding: 50px 0 60px; }
+    .article-body-grid { display: grid; grid-template-columns: 200px 1fr 200px; gap: 40px; }
+    .article-body { font-size: 1.05rem; line-height: 1.75; }
+    .article-body > p { margin-bottom: 1.25em; }
+    .article-body > p:first-of-type::first-letter {
+      font-size: 3em; float: left; line-height: 0.9;
+      padding: 4px 10px 0 0; color: var(--unhcr-navy); font-weight: 700;
+    }
+    .article-body h2 {
+      font-size: 1.3rem; color: var(--unhcr-navy);
+      margin: 2em 0 0.75em; padding-bottom: 8px;
+      border-bottom: 1px solid var(--unhcr-mid-gray);
+    }
+    .article-body blockquote {
+      border-left: 4px solid var(--unhcr-blue);
+      background: var(--unhcr-pale-blue);
+      padding: 20px 24px; margin: 1.5em 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 1.05rem; font-style: italic; color: var(--unhcr-navy);
+    }
+    .article-body blockquote cite {
+      display: block; margin-top: 12px; font-style: normal;
+      font-size: 0.85rem; font-weight: 600; color: var(--unhcr-text-light);
+    }
+    .article-body ul { list-style: disc; padding-left: 24px; margin-bottom: 1.25em; }
+    .article-body ul li { margin-bottom: 0.5em; }
+
+    /* ---------- Sidebar ---------- */
+    .article-sidebar { position: sticky; top: 100px; align-self: start; }
+    .sidebar-block { margin-bottom: 24px; }
+    .sidebar-block h3 {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--unhcr-text-light);
+      margin-bottom: 12px;
+    }
+    .share-links { display: flex; gap: 10px; }
+    .share-links a {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--unhcr-gray); color: var(--unhcr-navy);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.85rem; text-decoration: none;
+      transition: all var(--transition);
+    }
+    .share-links a:hover { background: var(--unhcr-navy); color: var(--unhcr-white); text-decoration: none; }
+    .donate-cta {
+      background: var(--unhcr-pale-blue); padding: 20px;
+      border-radius: var(--radius); text-align: center;
+    }
+    .donate-cta h3 { color: var(--unhcr-navy); }
+    .donate-cta p { font-size: 0.85rem; color: var(--unhcr-text-light); margin: 8px 0 14px; }
+    .donate-cta .btn { width: 100%; }
+
+    /* ---------- Related News ---------- */
+    .section-related { background: var(--unhcr-gray); padding: 60px 0; }
+    .section-related h2 { font-size: 1.6rem; font-weight: 700; color: var(--unhcr-navy); margin-bottom: 30px; }
+    .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .related-card {
+      background: var(--unhcr-white); border-radius: 8px; overflow: hidden;
+      box-shadow: var(--shadow); transition: transform var(--transition);
+      display: flex; flex-direction: column;
+    }
+    .related-card:hover { transform: translateY(-4px); }
+    .related-card .related-image img { width: 100%; height: 170px; object-fit: cover; }
+    .related-card .related-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+    .related-category {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--unhcr-blue); margin-bottom: 6px;
+    }
+    .related-card h3 { font-size: 0.95rem; font-weight: 600; line-height: 1.4; }
+    .related-card h3 a { color: var(--unhcr-navy); text-decoration: none; }
+    .related-card h3 a:hover { color: var(--unhcr-blue); }
+    .related-more { text-align: center; margin-top: 32px; }
+
+    /* ---------- Footer ---------- */
+    .site-footer { background: var(--unhcr-navy); color: var(--unhcr-white); padding: 50px 0 30px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 40px; }
+    .footer-col h3 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; color: var(--unhcr-white); }
+    .footer-col p { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-bottom: 14px; line-height: 1.6; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a { color: rgba(255,255,255,0.8); font-size: 0.9rem; text-decoration: none; transition: color var(--transition); }
+    .footer-col ul a:hover { color: var(--unhcr-white); text-decoration: underline; }
+    .footer-col .btn { margin-top: 6px; font-size: 0.85rem; padding: 8px 18px; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo-mark {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--unhcr-white); font-weight: 700; font-size: 0.85rem;
+    }
+    .footer-logo-mark .logo-mark { background: var(--unhcr-white); color: var(--unhcr-navy); }
+    .footer-bottom .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-bottom .footer-links a { color: rgba(255,255,255,0.7); font-size: 0.85rem; text-decoration: none; }
+    .footer-bottom .footer-links a:hover { color: var(--unhcr-white); }
+    .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 992px) {
+      .article-header .container { grid-template-columns: 1fr; gap: 28px; }
+      .article-header h1 { font-size: 1.6rem; }
+      .article-hero img { height: 260px; }
+      .article-body-grid { grid-template-columns: 1fr; }
+      .article-sidebar { position: static; order: -1; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-list { display: none; flex-direction: column; width: 100%; }
+      .nav-list.open { display: flex; }
+      .nav-list > li > a { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 20px; }
+      .nav-toggle { display: block; }
+      .main-nav .container { justify-content: flex-end; }
+    }
+    @media (max-width: 768px) {
+      .header-main .container { flex-direction: column; align-items: flex-start; }
+      .header-actions { width: 100%; justify-content: flex-start; }
+      .related-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .article-header h1 { font-size: 1.4rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .article-hero img { height: 200px; }
+      .article-header { padding: 40px 0 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <div>UNHCR global website: <a href="#">Change site ▾</a></div>
+        <div class="lang-links">
+          <a href="#" class="active">English</a>
+          <a href="#">Français</a>
+          <a href="#">Español</a>
+          <a href="#">عربي</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container">
+         <a href="#" class="logo" aria-label="UNHCR home">
+          <img src="/images/logos/unhcr-logo.svg"
+               alt="UNHCR" />
+          <div class="logo-text">
+            UNHCR
+            <span>The UN Refugee Agency</span>
+          </div>
+        </a>
+        <div class="header-actions">
+          <a href="/donate.html" class="btn btn-primary">Donate</a>
+          <a href="/get-help.html" class="btn btn-secondary">Get help</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="container">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="/about.html">About UNHCR</a></li>
+          <li><a href="/what-we-do.html">What we do</a></li>
+          <li><a href="/where-we-work.html">Where we work</a></li>
+          <li><a href="/news-and-stories.html" class="active">News and stories</a></li>
+          <li class="no-drop"><a href="/get-involved.html">Get involved</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== BREADCRUMBS ==================== -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/news-and-stories.html">News and stories</a>
+        <span class="sep">/</span>
+        <a href="/news-and-stories/press-releases.html">Press releases</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ==================== ARTICLE HEADER ==================== -->
+  <section class="article-header">
+    <div class="container">
+      <div class="article-header-content">
+        <span class="article-tag">Press releases</span>
+        <h1>UNHCR sounds the alarm as 8.3 million risk losing their lifeline</h1>
+        <div class="article-meta">
+          <span>29 September 2026</span>
+          <span class="sep">•</span>
+          <span>Also available in:
+            <a href="#">Français</a>,
+            <a href="#">Español</a>,
+            <a href="#">عربي</a>
+          </span>
+        </div>
+      </div>
+      <figure class="article-hero">
+        <img src="/images/gallery/gallery-1.svg"
+             alt="A Burundian woman hugs four of her children standing outside a building with a huge smile on her face"
+             loading="eager" />
+        <figcaption class="article-hero-caption">
+          <span>Former refugee Jeanne and her family received reintegration support from UNHCR after returning home to Burundi from the DRC.</span>
+          <span class="credit">© UNHCR/Ala Kheir</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ==================== ARTICLE BODY ==================== -->
+  <section class="article-body-wrap">
+    <div class="container">
+      <div class="article-body-grid">
+
+        <!-- Left spacer -->
+        <div aria-hidden="true"></div>
+
+        <!-- Main body -->
+        <div class="article-body">
+          <p>GENEVA – Continued severe funding cuts are pushing refugee support and protection structures towards breaking point in the world's main displacement situations, forcing UNHCR, the UN Refugee Agency, to scale back core programmes, leaving millions without the support they need to stay safe.</p>
+
+          <p>Nearly 8.3 million refugees and other forcibly displaced and stateless people are on the brink of losing access to vital assistance, according to <a href="#">'Protection Eroded: The Human Cost of Underfunding'</a>, a UNHCR report published today.</p>
+
+          <p>Available funding fell from $5.2 billion to $3.9 billion between 2024 and 2025, and by the end of July 2026, UNHCR had received only 32 per cent of the $8.5 billion funding needed this year, even as the number of people UNHCR is mandated to protect remained at historically high levels.</p>
+
+          <blockquote>
+            "When registration stops, safe houses close or child protection services disappear, the very risks that people fled – violence, exploitation and abuse – reappear in displacement, trapping families in a cycle of vulnerability and forcing some to move again in search of safety or fall prey to traffickers."
+            <cite>— Dominique Hyde, UNHCR's Director of External Relations</cite>
+          </blockquote>
+
+          <p>"Protection cannot be reduced indefinitely without systems collapsing. Below a certain threshold, services do not simply reach fewer people; they can stop functioning altogether, leaving those most at risk without the protection they need."</p>
+
+          <p>In Chad, 319,000 refugees face registration delays, leaving them without documentation to access services and exposed to detention risks; up to 200,000 women and girls risk losing access to safe spaces and prevention programmes; and around 233,000 children could lose child protection services. In Ethiopia, capacity at safe houses for survivors of gender-based violence has more than halved in a year, while child protection coverage in some areas has fallen by as much as 85 per cent. In Sudan, tens of thousands of survivors of sexual violence and children at serious risk could lose access to critical protection services.</p>
+
+          <p>Faced with sharply declining resources, UNHCR has undertaken significant reforms and difficult prioritization measures to protect its most critical work. But the scale and persistence of the funding shortfall mean that even UNHCR's highest-priority protection and solutions work is now being affected.</p>
+
+          <p>Funding cuts are also undermining efforts to help displaced people move away from long-term reliance on humanitarian aid. In Chad, livelihoods, vocational training and business development opportunities are at risk for approximately 395,000 refugees and host-community members. In Iraq, up to 350,000 refugees and asylum-seekers risk losing access to economic inclusion opportunities.</p>
+
+          <p>The same pressures are affecting people at the critical point when they seek to rebuild their lives back home, whether returning voluntarily or under duress. In Syria, 162,500 vulnerable internally displaced people and refugee returnees will not receive financial assistance during the initial stages of return unless additional funding is quickly received, reducing their ability to meet their basic needs and rebuild their lives at a pivotal moment in the country's recovery. In Afghanistan, reintegration grants have reached just 175 households so far in 2026, compared with 5,300 in 2024.</p>
+
+          <p>At the same time, UNHCR has less flexibility to deploy increasingly scarce resources where they are needed most. The proportion of UNHCR funding tied to specific activities or projects has risen from 19 per cent in 2022 to 51 per cent in 2026.</p>
+
+          <blockquote>
+            "Flexible funding helps us move the right expertise and funds to where they are needed most. It lets our teams move quickly as needs change, protect essential services and stay on the ground when crises intensify. Importantly, it helps us respond to new emergencies without forgetting the crises that have fallen out of the headlines."
+            <cite>— Dominique Hyde</cite>
+          </blockquote>
+
+          <p>UNHCR is urging donors and partners to provide urgent support now and expand flexible funding to protect progress already made, help people move beyond reliance on humanitarian aid, and rebuild their lives.</p>
+
+          <h2>For more information, please contact:</h2>
+          <ul>
+            <li>In Geneva, Eujin Byun, <a href="mailto:eujin.byun@unhcr.org">eujin.byun@unhcr.org</a>, +41 79 747 8719</li>
+          </ul>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="article-sidebar" aria-label="Article tools">
+          <div class="sidebar-block">
+            <h3>Share</h3>
+            <div class="share-links">
+              <a href="https://twitter.com/intent/tweet?text=UNHCR+sounds+the+alarm+as+8.3+million+risk+losing+their+lifeline"
+                 target="_blank" rel="noopener noreferrer" aria-label="Share on X">X</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.unhcr.org%2Fnews%2Fpress-releases%2Funhcr-sounds-alarm-8-3-million-risk-losing-their-lifeline"
+                 target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">f</a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.unhcr.org%2Fnews%2Fpress-releases%2Funhcr-sounds-alarm-8-3-million-risk-losing-their-lifeline"
+                 target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">in</a>
+            </div>
+          </div>
+          <div class="sidebar-block donate-cta">
+            <h3>Donate</h3>
+            <p>Please help refugees in need.</p>
+            <a href="https://donate.unhcr.org/int/en/general" class="btn btn-primary" target="_blank" rel="noopener">Donate</a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RELATED NEWS ==================== -->
+  <section class="section-related">
+    <div class="container">
+      <h2>Related news and stories</h2>
+      <div class="related-grid">
+
+        <article class="related-card">
+          <div class="related-image">
+            <img src="images/news/RF1510275.jpg"
+                 alt="Mamadou Dian Balde sits on the floor, speaking with two Sudanese refugees."
+                 loading="lazy" />
+          </div>
+          <div class="related-body">
+            <div class="related-category">Briefing notes</div>
+            <h3><a href="#">UNHCR: In its fourth year, Sudan conflict drives new displacement into Chad as funding falls short</a></h3>
+          </div>
+        </article>
+
+        <article class="related-card">
+          <div class="related-image">
+            <img src="images/news/RF1508997.jpg"
+                 alt="Tents in a camp for internally displaced people"
+                 loading="lazy" />
+          </div>
+          <div class="related-body">
+            <div class="related-category">Briefing notes</div>
+            <h3><a href="#">Escalating conflict in Yemen could fuel more displacement, refugee movement</a></h3>
+          </div>
+        </article>
+
+        <article class="related-card">
+          <div class="related-image">
+            <img src="images/news/RF1499569.jpg"
+                 alt="Afghanistan. UNHCR-supported carpet weaving centre creates livelihood opportunities for women"
+                 loading="lazy" />
+          </div>
+          <div class="related-body">
+            <div class="related-category">Press releases</div>
+            <h3><a href="#">UNDP and UNHCR chiefs urge sustained investment as Afghanistan faces unprecedented refugee returnee influx</a></h3>
+          </div>
+        </article>
+
+        <article class="related-card">
+          <div class="related-image">
+            <img src="images/news/RF1486639.jpg"
+                 alt="A woman in a colourful dress and a black headscarf sits on the floor leaning against a red-painted, pockmarked wall"
+                 loading="lazy" />
+          </div>
+          <div class="related-body">
+            <div class="related-category">Stories</div>
+            <h3><a href="#">Funding cuts push refugee families in Egypt to the brink</a></h3>
+          </div>
+        </article>
+
+      </div>
+      <div class="related-more">
+        <a href="/news-and-stories.html" class="btn btn-outline-dark">More news and stories</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <h3>Support our work</h3>
+          <p>Please help refugees in need.</p>
+          <a href="https://donate.unhcr.org/int/en/general" class="btn btn-outline-light" target="_blank" rel="noopener">Donate now</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay connected</h3>
+          <p>Follow us on</p>
+          <ul>
+            <li><a href="https://x.com/refugees" target="_blank" rel="noopener">X</a></li>
+            <li><a href="https://www.facebook.com/UNHCR" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.instagram.com/refugees/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.youtube.com/c/unhcr" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="https://www.tiktok.com/@refugees" target="_blank" rel="noopener">TikTok</a></li>
+            <li><a href="https://www.linkedin.com/company/unhcr/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.threads.net/@refugees" target="_blank" rel="noopener">Threads</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay informed</h3>
+          <p>Sign up to our newsletter to learn more about people forced to flee and how you can support them.</p>
+          <a href="/get-involved/sign-and-stay-informed.html" class="btn btn-outline-light">Subscribe</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact us</h3>
+          <ul>
+            <li><a href="#">Frequently asked questions</a></li>
+            <li><a href="#">Contact UNHCR</a></li>
+            <li><a href="#">Media centre</a></li>
+            <li><a href="#">Report misconduct or abuse</a></li>
+            <li><a href="#">Report a fraudulent site or email</a></li>
+            <li><a href="#">Become a supplier</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-logo-mark">
+          <span class="logo-mark" aria-hidden="true">UN</span>
+          <span>UNHCR · The UN Refugee Agency</span>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy notice</a>
+          <a href="#">Terms and conditions of use</a>
+          <a href="#">Copyright</a>
+        </div>
+        <div class="footer-copy">© UNHCR 2001–<span id="year">2026</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    (function () {
+      // Mobile nav toggle
+      var toggle = document.querySelector('.nav-toggle');
+      var navList = document.querySelector('.nav-list');
+      if (toggle && navList) {
+        toggle.addEventListener('click', function () {
+          var expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          navList.classList.toggle('open');
+        });
+      }
+      // Dynamic year
+      var yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+</body>
+</html>

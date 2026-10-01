@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get help | UNHCR</title>
+  <meta name="description" content="Helpful information on asylum procedures, rights and duties in 130+ countries. Provided by UNHCR for refugees, asylum-seekers and stateless people." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <style>
+    /* ---------- Reset & Base ---------- */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --unhcr-blue: #0072bc;
+      --unhcr-dark-blue: #005a9c;
+      --unhcr-navy: #18375f;
+      --unhcr-light-blue: #8ebeff;
+      --unhcr-pale-blue: #e8f1f8;
+      --unhcr-gray: #f4f5f7;
+      --unhcr-mid-gray: #d8dde3;
+      --unhcr-text: #1e2a35;
+      --unhcr-text-light: #5a6b7b;
+      --unhcr-white: #ffffff;
+      --unhcr-red: #ef4a60;
+      --unhcr-teal: #00b398;
+      --unhcr-amber: #f0ad00;
+      --unhcr-green: #00a54f;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius: 6px;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--unhcr-text);
+      background: var(--unhcr-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    a { color: var(--unhcr-blue); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--unhcr-dark-blue); text-decoration: underline; }
+
+    ul { list-style: none; }
+
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-block; padding: 10px 22px; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.9rem; text-align: center; cursor: pointer;
+      border: 2px solid transparent; transition: all var(--transition);
+      text-decoration: none; line-height: 1.4;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+    .btn-primary { background: var(--unhcr-blue); color: var(--unhcr-white); border-color: var(--unhcr-blue); }
+    .btn-primary:hover { background: var(--unhcr-dark-blue); border-color: var(--unhcr-dark-blue); color: var(--unhcr-white); }
+
+    .btn-outline-dark { background: transparent; color: var(--unhcr-text); border-color: var(--unhcr-text); }
+    .btn-outline-dark:hover { background: var(--unhcr-text); color: var(--unhcr-white); }
+
+    .btn-outline-light { background: transparent; color: var(--unhcr-white); border-color: var(--unhcr-white); }
+    .btn-outline-light:hover { background: var(--unhcr-white); color: var(--unhcr-navy); }
+
+    .btn-secondary { background: var(--unhcr-navy); color: var(--unhcr-white); border-color: var(--unhcr-navy); }
+    .btn-secondary:hover { background: #0f1a25; border-color: #0f1a25; color: var(--unhcr-white); }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      background: var(--unhcr-white); border-bottom: 1px solid var(--unhcr-mid-gray);
+      position: sticky; top: 0; z-index: 1000;
+    }
+
+    .header-top {
+      background: var(--unhcr-navy); color: var(--unhcr-white);
+      font-size: 0.8rem; padding: 6px 0;
+    }
+    .header-top .container {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 8px;
+    }
+    .header-top a { color: var(--unhcr-white); text-decoration: none; font-weight: 500; }
+    .header-top a:hover { text-decoration: underline; }
+    .header-top .lang-links { display: flex; gap: 12px; }
+    .header-top .lang-links a { opacity: 0.8; }
+    .header-top .lang-links a.active { opacity: 1; font-weight: 700; }
+
+    .header-main { padding: 14px 0; }
+    .header-main .container {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo img { height: 44px; width: auto; }
+    .logo-text {
+      font-size: 0.75rem; font-weight: 700; color: var(--unhcr-navy);
+      letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.2;
+    }
+    .logo-text span { display: block; font-weight: 400; color: var(--unhcr-text-light); font-size: 0.65rem; }
+
+    .header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .header-actions .btn { padding: 8px 18px; font-size: 0.85rem; }
+
+    /* ---------- Navigation ---------- */
+    .main-nav { background: var(--unhcr-navy); position: relative; }
+    .main-nav .container { display: flex; align-items: center; }
+
+    .nav-list { display: flex; flex-wrap: wrap; gap: 0; width: 100%; }
+    .nav-list > li { position: relative; }
+    .nav-list > li > a {
+      display: block; color: var(--unhcr-white); padding: 14px 18px;
+      font-size: 0.9rem; font-weight: 500; text-decoration: none;
+      transition: background var(--transition);
+    }
+    .nav-list > li > a:hover, .nav-list > li > a.active { background: rgba(255,255,255,0.1); text-decoration: none; }
+    .nav-list > li > a::after {
+      content: ''; display: inline-block; width: 6px; height: 6px;
+      border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+      transform: rotate(45deg); margin-left: 8px; position: relative;
+      top: -2px; opacity: 0.7;
+    }
+    .nav-list > li:last-child > a::after, .nav-list > li.no-drop > a::after { display: none; }
+
+    .nav-toggle {
+      display: none; background: none; border: none; color: var(--unhcr-white);
+      font-size: 1.6rem; cursor: pointer; padding: 12px 16px;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero-help {
+      position: relative;
+      background: linear-gradient(135deg, var(--unhcr-navy) 0%, #2a4a6d 100%);
+      color: var(--unhcr-white);
+      overflow: hidden;
+      padding: 70px 0 60px;
+    }
+    .hero-help .hero-shape {
+      position: absolute;
+      bottom: -60px;
+      right: -60px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(142, 190, 255, 0.08);
+      z-index: 0;
+    }
+    .hero-help .hero-shape-2 {
+      position: absolute;
+      top: -100px;
+      left: -80px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(142, 190, 255, 0.05);
+      z-index: 0;
+    }
+    .hero-help .container { position: relative; z-index: 1; }
+    .hero-help .pre-title {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; color: #8ec8f0;
+      margin-bottom: 14px; background: rgba(255,255,255,0.1);
+      padding: 5px 14px; border-radius: 2px;
+    }
+    .hero-help h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      max-width: 780px;
+    }
+    .hero-help .hero-subtitle {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 680px;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    /* ---------- Emergency Alert ---------- */
+    .emergency-alert {
+      background: #fff5f5;
+      border-left: 6px solid var(--unhcr-red);
+      padding: 20px 0;
+      margin-top: -1px;
+    }
+    .emergency-alert .container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .emergency-alert .alert-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--unhcr-red);
+      color: var(--unhcr-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .emergency-alert .alert-content { flex: 1; min-width: 200px; }
+    .emergency-alert .alert-content h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 4px;
+    }
+    .emergency-alert .alert-content p {
+      font-size: 0.9rem;
+      color: var(--unhcr-text-light);
+      margin: 0;
+    }
+    .emergency-alert .btn { flex-shrink: 0; }
+
+    /* ---------- Quick Actions ---------- */
+    .section-quick-actions {
+      padding: 60px 0;
+      background: var(--unhcr-white);
+    }
+    .section-quick-actions h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 12px;
+    }
+    .section-quick-actions .section-sub {
+      font-size: 1rem;
+      color: var(--unhcr-text-light);
+      margin-bottom: 36px;
+      max-width: 700px;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .quick-card {
+      background: var(--unhcr-white);
+      border: 2px solid var(--unhcr-mid-gray);
+      border-radius: 10px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: all var(--transition);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .quick-card:hover {
+      border-color: var(--unhcr-blue);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,114,188,0.12);
+      text-decoration: none;
+    }
+    .quick-card .quick-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--unhcr-pale-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      transition: background var(--transition);
+    }
+    .quick-card:hover .quick-icon { background: var(--unhcr-blue); }
+    .quick-card .quick-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      line-height: 1.3;
+    }
+    .quick-card .quick-desc {
+      font-size: 0.78rem;
+      color: var(--unhcr-text-light);
+      line-height: 1.4;
+    }
+
+    /* ---------- Topics ---------- */
+    .section-topics {
+      padding: 60px 0;
+      background: var(--unhcr-gray);
+    }
+    .section-topics h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 12px;
+    }
+    .section-topics .section-sub {
+      font-size: 1rem;
+      color: var(--unhcr-text-light);
+      margin-bottom: 36px;
+      max-width: 700px;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .topic-card {
+      background: var(--unhcr-white);
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: all var(--transition);
+      text-decoration: none;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      border-left: 4px solid var(--unhcr-blue);
+    }
+    .topic-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      text-decoration: none;
+    }
+    .topic-card .topic-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: var(--unhcr-pale-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+    .topic-card .topic-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 4px;
+    }
+    .topic-card .topic-body p {
+      font-size: 0.82rem;
+      color: var(--unhcr-text-light);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ---------- Country Finder ---------- */
+    .section-country {
+      padding: 60px 0;
+      background: var(--unhcr-white);
+    }
+    .section-country h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 12px;
+    }
+    .section-country .section-sub {
+      font-size: 1rem;
+      color: var(--unhcr-text-light);
+      margin-bottom: 32px;
+      max-width: 700px;
+    }
+
+    .geo-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--unhcr-pale-blue);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .geo-card .geo-flag {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--unhcr-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+    .geo-card .geo-text { flex: 1; }
+    .geo-card .geo-text .geo-info {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+    }
+    .geo-card .geo-text .geo-link {
+      font-size: 0.85rem;
+      color: var(--unhcr-blue);
+      font-weight: 600;
+    }
+
+    .country-search {
+      display: flex;
+      gap: 12px;
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+    .country-search input {
+      flex: 1;
+      padding: 12px 18px;
+      border: 2px solid var(--unhcr-mid-gray);
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--unhcr-text);
+      transition: border-color var(--transition);
+    }
+    .country-search input:focus {
+      outline: none;
+      border-color: var(--unhcr-blue);
+    }
+    .country-search button {
+      padding: 12px 24px;
+      background: var(--unhcr-blue);
+      color: var(--unhcr-white);
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background var(--transition);
+    }
+    .country-search button:hover { background: var(--unhcr-dark-blue); }
+
+    .country-popular {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .country-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--unhcr-gray);
+      border-radius: 24px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--unhcr-navy);
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+    .country-chip:hover {
+      background: var(--unhcr-blue);
+      color: var(--unhcr-white);
+      text-decoration: none;
+    }
+
+    /* ---------- FAQ ---------- */
+    .section-faq {
+      padding: 60px 0;
+      background: var(--unhcr-gray);
+    }
+    .section-faq h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 12px;
+    }
+    .section-faq .section-sub {
+      font-size: 1rem;
+      color: var(--unhcr-text-light);
+      margin-bottom: 36px;
+      max-width: 700px;
+    }
+
+    .faq-group {
+      max-width: 820px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: var(--unhcr-white);
+      border-radius: 8px;
+      border: 1px solid var(--unhcr-mid-gray);
+      overflow: hidden;
+      transition: box-shadow var(--transition);
+    }
+    .faq-item[open] {
+      box-shadow: var(--shadow);
+    }
+    .faq-item summary {
+      padding: 18px 24px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--unhcr-navy);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background var(--transition);
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--unhcr-blue);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item summary:hover { background: var(--unhcr-pale-blue); }
+    .faq-item .faq-answer {
+      padding: 0 24px 20px;
+      font-size: 0.9rem;
+      color: var(--unhcr-text-light);
+      line-height: 1.75;
+      border-top: 1px solid var(--unhcr-mid-gray);
+      padding-top: 16px;
+    }
+
+    /* ---------- Contact ---------- */
+    .section-contact {
+      padding: 60px 0;
+      background: var(--unhcr-white);
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .contact-info h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 16px;
+    }
+    .contact-info p {
+      font-size: 0.95rem;
+      color: var(--unhcr-text-light);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    .contact-info .contact-details {
+      background: var(--unhcr-pale-blue);
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .contact-info .contact-details h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--unhcr-navy);
+      margin-bottom: 14px;
+    }
+    .contact-info .contact-details p {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      color: var(--unhcr-text);
+    }
+    .contact-info .contact-details strong { color: var(--unhcr-navy); }
+    .contact-info .contact-details a { color: var(--unhcr-blue); }
+
+    .contact-form {
+      background: var(--unhcr-gray);
+      border-radius: 10px;
+      padding: 32px;
+    }
+    .contact-form h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 6px;
+    }
+    .contact-form .form-sub {
+      font-size: 0.85rem;
+      color: var(--unhcr-text-light);
+      margin-bottom: 24px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--unhcr-navy);
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      padding: 10px 14px;
+      border: 2px solid var(--unhcr-mid-gray);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-family: inherit;
+      color: var(--unhcr-text);
+      background: var(--unhcr-white);
+      transition: border-color var(--transition);
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--unhcr-blue);
+    }
+    .form-field textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-full { grid-column: 1 / -1; }
+    .form-submit {
+      width: 100%;
+      padding: 13px;
+      background: var(--unhcr-blue);
+      color: var(--unhcr-white);
+      border: none;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background var(--transition);
+      margin-top: 8px;
+    }
+    .form-submit:hover { background: var(--unhcr-dark-blue); }
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--unhcr-text-light);
+      margin-top: 12px;
+      text-align: center;
+    }
+    .form-success {
+      display: none;
+      background: #e6f7ee;
+      border: 2px solid var(--unhcr-green);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      color: #00602f;
+    }
+    .form-success.visible { display: block; }
+
+    /* ---------- Donation CTA ---------- */
+    .donate-cta {
+      text-align: center;
+      padding: 60px 0;
+      background: var(--unhcr-navy);
+      color: var(--unhcr-white);
+    }
+    .donate-cta h2 { color: var(--unhcr-white); margin-bottom: 12px; }
+    .donate-cta p { color: rgba(255,255,255,0.85); margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+    /* ---------- Footer ---------- */
+    .site-footer { background: var(--unhcr-navy); color: var(--unhcr-white); padding: 50px 0 30px; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    .footer-col h3 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; color: var(--unhcr-white); }
+    .footer-col p { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-bottom: 14px; line-height: 1.6; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a { color: rgba(255,255,255,0.8); font-size: 0.9rem; text-decoration: none; transition: color var(--transition); }
+    .footer-col ul a:hover { color: var(--unhcr-white); text-decoration: underline; }
+    .footer-col .btn { margin-top: 6px; font-size: 0.85rem; padding: 8px 18px; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-bottom .footer-logo img { height: 40px; width: auto; }
+    .footer-bottom .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-bottom .footer-links a { color: rgba(255,255,255,0.7); font-size: 0.85rem; text-decoration: none; }
+    .footer-bottom .footer-links a:hover { color: var(--unhcr-white); }
+    .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 992px) {
+      .hero-help h1 { font-size: 1.9rem; }
+      .quick-grid { grid-template-columns: repeat(2, 1fr); }
+      .topics-grid { grid-template-columns: 1fr 1fr; }
+      .contact-layout { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-list { display: none; flex-direction: column; width: 100%; }
+      .nav-list.open { display: flex; }
+      .nav-list > li > a { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 20px; }
+      .nav-toggle { display: block; }
+      .main-nav .container { justify-content: flex-end; }
+    }
+
+    @media (max-width: 768px) {
+      .header-main .container { flex-direction: column; align-items: flex-start; }
+      .header-actions { width: 100%; justify-content: flex-start; }
+      .quick-grid { grid-template-columns: 1fr 1fr; }
+      .topics-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-help h1 { font-size: 1.5rem; }
+      .hero-help .hero-subtitle { font-size: 1rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .country-search { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-help { padding: 50px 0 40px; }
+      .hero-help h1 { font-size: 1.3rem; }
+      .quick-grid { grid-template-columns: 1fr; }
+      .section { padding: 40px 0; }
+      .emergency-alert .container { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <div>UNHCR global website: <a href="#">Change site <span style="display:inline-block;width:8px;height:8px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);margin-left:4px;position:relative;top:-2px;"></span></a></div>
+        <div class="lang-links">
+          <a href="#" class="active">English</a>
+          <a href="#">Français</a>
+          <a href="#">Español</a>
+          <a href="#">عربي</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container">
+        <a href="#" class="logo" aria-label="UNHCR Help home">
+          <img src="https://www.unhcr.org/themes/custom/project/logo.svg"
+               alt="UNHCR"
+               onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/UNHCR.svg/320px-UNHCR.svg.png';" />
+          <div class="logo-text">
+            UNHCR Help
+            <span>Information for refugees</span>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <a href="https://www.unhcr.org/" class="btn btn-outline-dark" target="_blank" rel="noopener">UNHCR.org</a>
+          <a href="https://donate.unhcr.org/int/en/general" class="btn btn-primary" target="_blank" rel="noopener">Donate</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Help navigation">
+      <div class="container">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="#topics">Topics</a></li>
+          <li><a href="#country">Find a country</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#contact">Contact us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero-help">
+    <div class="hero-shape"></div>
+    <div class="hero-shape-2"></div>
+    <div class="container">
+      <span class="pre-title">UNHCR, the UN Refugee Agency</span>
+      <h1>Information for refugees, asylum seekers, stateless and internally displaced people</h1>
+      <p class="hero-subtitle">Helpful information on asylum procedures, rights and duties in 130+ countries. Provided by UNHCR for refugees, asylum-seekers and stateless people.</p>
+      <a href="#country" class="btn btn-primary">Find information for your country</a>
+    </div>
+  </section>
+
+  <!-- ==================== EMERGENCY ALERT ==================== -->
+  <div class="emergency-alert">
+    <div class="container">
+      <div class="alert-icon">!</div>
+      <div class="alert-content">
+        <h3>In an emergency?</h3>
+        <p>If you are in immediate danger, contact local emergency services first. For urgent protection concerns, find your nearest UNHCR office.</p>
+      </div>
+      <a href="#country" class="btn btn-secondary">Find nearest office</a>
+    </div>
+  </div>
+
+  <!-- ==================== QUICK ACTIONS ==================== -->
+  <section class="section-quick-actions">
+    <div class="container">
+      <h2>How can we help you today?</h2>
+      <p class="section-sub">Choose the option that best matches your situation. All services are free of charge.</p>
+
+      <div class="quick-grid">
+        <a href="#topics" class="quick-card">
+          <div class="quick-icon">🆘</div>
+          <div class="quick-label">Seeking help from UNHCR</div>
+          <div class="quick-desc">Learn how to register and access assistance</div>
+        </a>
+        <a href="#topics" class="quick-card">
+          <div class="quick-icon">📄</div>
+          <div class="quick-label">Asylum and refugee status</div>
+          <div class="quick-desc">Understand the asylum process in your country</div>
+        </a>
+        <a href="#topics" class="quick-card">
+          <div class="quick-icon">🏠</div>
+          <div class="quick-label">Resettlement</div>
+          <div class="quick-desc">Information on third-country resettlement programmes</div>
+        </a>
+        <a href="#topics" class="quick-card">
+          <div class="quick-icon">👨‍👩‍👧</div>
+          <div class="quick-label">Family reunification</div>
+          <div class="quick-desc">Reconnect with family members across borders</div>
+        </a>
+        <a href="#topics" class="quick-card">
+          <div class="quick-icon">🎓</div>
+          <div class="quick-label">Education</div>
+          <div class="quick-desc">Access schooling and learning opportunities</div>
+        </a>
+        <a href="#topics" class="quick-card">
+          <div class="quick-icon">💼</div>
+          <div class="quick-label">Work and income</div>
+          <div class="quick-desc">Find employment and livelihood support</div>
+        </a>
+        <a href="#topics" class="quick-card">
+          <div class="quick-icon">🛂</div>
+          <div class="quick-label">Travel documents</div>
+          <div class="quick-desc">Apply for or renew travel documents</div>
+        </a>
+        <a href="#topics" class="quick-card">
+          <div class="quick-icon">⚖️</div>
+          <div class="quick-label">Rights and duties</div>
+          <div class="quick-desc">Know your rights and obligations</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TOPICS ==================== -->
+  <section class="section-topics" id="topics">
+    <div class="container">
+      <h2>Browse help by topic</h2>
+      <p class="section-sub">Detailed guidance on the most common issues. Each topic links to in-depth information for your country.</p>
+
+      <div class="topics-grid">
+
+        <a href="#" class="topic-card">
+          <div class="topic-icon">🆘</div>
+          <div class="topic-body">
+            <h3>Seeking help from UNHCR</h3>
+            <p>How to contact us, register, and access protection and assistance.</p>
+          </div>
+        </a>
+
+        <a href="#" class="topic-card">
+          <div class="topic-icon">📄</div>
+          <div class="topic-body">
+            <h3>Asylum and refugee status</h3>
+            <p>How asylum procedures work and what to expect at each stage.</p>
+          </div>
+        </a>
+
+        <a href="#" class="topic-card">
+          <div class="topic-icon">⚖️</div>
+          <div class="topic-body">
+            <h3>Rights and duties</h3>
+            <p>Your fundamental rights and obligations in your country of asylum.</p>
+          </div>
+        </a>
+
+        <a href="#" class="topic-card">
+          <div class="topic-icon">🎓</div>
+          <div class="topic-body">
+            <h3>Education</h3>
+            <p>Access to primary, secondary and tertiary education for displaced people.</p>
+          </div>
+        </a>
+
+        <a href="#" class="topic-card">
+          <div class="topic-icon">👨‍👩‍👧</div>
+          <div class="topic-body">
+            <h3>Family reunification</h3>
+            <p>Procedures to reunite with family members who are separated.</p>
+          </div>
+        </a>
+
+        <a href="#" class="topic-card">
+          <div class="topic-icon">🏠</div>
+          <div class="topic-body">
+            <h3>Resettlement</h3>
+            <p>Information on resettlement to a third country for eligible refugees.</p>
+          </div>
+        </a>
+
+        <a href="#" class="topic-card">
+          <div class="topic-icon">🚨</div>
+          <div class="topic-body">
+            <h3>Reporting fraud and misconduct</h3>
+            <p>Report fraud, sexual exploitation, abuse or other misconduct safely.</p>
+          </div>
+        </a>
+
+        <a href="#" class="topic-card">
+          <div class="topic-icon">🆔</div>
+          <div class="topic-body">
+            <h3>Statelessness</h3>
+            <p>Help for people who are not recognised as a national by any country.</p>
+          </div>
+        </a>
+
+        <a href="#" class="topic-card">
+          <div class="topic-icon">💼</div>
+          <div class="topic-body">
+            <h3>Work and income</h3>
+            <p>Access to employment, vocational training and livelihood opportunities.</p>
+          </div>
+        </a>
+
+        <a href="#" class="topic-card">
+          <div class="topic-icon">📋</div>
+          <div class="topic-body">
+            <h3>Registration</h3>
+            <p>How to register with UNHCR and obtain documentation.</p>
+          </div>
+        </a>
+
+        <a href="#" class="topic-card">
+          <div class="topic-icon">🤝</div>
+          <div class="topic-body">
+            <h3>Sponsorship programmes</h3>
+            <p>Community sponsorship and complementary pathways for refugees.</p>
+          </div>
+        </a>
+
+        <a href="#" class="topic-card">
+          <div class="topic-icon">🛂</div>
+          <div class="topic-body">
+            <h3>Travel documents</h3>
+            <p>Apply for or renew UNHCR-issued travel documents.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== COUNTRY FINDER ==================== -->
+  <section class="section-country" id="country">
+    <div class="container">
+      <h2>Find information for your country</h2>
+      <p class="section-sub">Select the country you are in to access locally relevant information on asylum, rights and services.</p>
+
+      <!-- Geolocation card -->
+      <div class="geo-card">
+        <div class="geo-flag">🇰🇪</div>
+        <div class="geo-text">
+          <div class="geo-info">It looks like you are in Kenya.</div>
+          <a href="#" class="geo-link">Visit the website for Kenya →</a>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="country-search">
+        <input type="text" placeholder="Search for a country" aria-label="Search for a country" />
+        <button type="button">Search</button>
+      </div>
+
+      <!-- Popular countries -->
+      <div class="country-popular">
+        <a href="#" class="country-chip">🇰🇪 Kenya</a>
+        <a href="#" class="country-chip">🇺🇬 Uganda</a>
+        <a href="#" class="country-chip">🇹🇿 Tanzania</a>
+        <a href="#" class="country-chip">🇪🇹 Ethiopia</a>
+        <a href="#" class="country-chip">🇸🇩 Sudan</a>
+        <a href="#" class="country-chip">🇧🇩 Bangladesh</a>
+        <a href="#" class="country-chip">🇯🇴 Jordan</a>
+        <a href="#" class="country-chip">🇱🇧 Lebanon</a>
+        <a href="#" class="country-chip">🇹🇷 Türkiye</a>
+        <a href="#" class="country-chip">🇩🇪 Germany</a>
+      </div>
+
+      <p style="margin-top: 24px;">
+        <a href="#" class="btn btn-outline-dark">View all 130+ countries</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="section-faq" id="faq">
+    <div class="container">
+      <h2>Frequently asked questions</h2>
+      <p class="section-sub">Common questions about getting help from UNHCR.</p>
+
+      <div class="faq-group">
+
+        <details class="faq-item">
+          <summary>Do I need documentation to receive assistance?</summary>
+          <div class="faq-answer">No. We provide emergency assistance regardless of documentation status. Our registration teams can also help you obtain documentation if you don't already have it.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is there a cost for any of your services?</summary>
+          <div class="faq-answer">All UNHCR services are free. If anyone asks you to pay for access to our programmes, please contact us immediately and report it.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What should I bring to a registration appointment?</summary>
+          <div class="faq-answer">Bring any identity documents you have, even if incomplete or expired. If you have none, our team can still help — just bring yourself and any family members needing registration.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can I get help if I live outside a settlement or camp?</summary>
+          <div class="faq-answer">Yes. Many of our health and education services are open to host community members as well as refugees and displaced people. Contact your nearest UNHCR office to find out what's available in your area.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How quickly can emergency assistance reach me?</summary>
+          <div class="faq-answer">Our rapid response unit aims to reach a new displacement site within 72 hours of being notified. Contact your nearest office or use the form below to alert us.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I know if I am eligible for UNHCR assistance?</summary>
+          <div class="faq-answer">UNHCR assists refugees, asylum-seekers, internally displaced people, returnees and stateless people. If you are unsure of your status, contact us and our team will help determine how we can support you.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What can I do if I believe I have been a victim of fraud?</summary>
+          <div class="faq-answer">Report it immediately through our confidential reporting channels. UNHCR never charges for its services, and any request for payment in exchange for assistance is fraudulent.</div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section class="section-contact" id="contact">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Info column -->
+        <div class="contact-info">
+          <h2>Get in touch</h2>
+          <p>Use this form for general enquiries, to request assistance, or to report a concern. For urgent emergencies, please contact your nearest office by phone.</p>
+
+          <div class="contact-details">
+            <h3>Regional office</h3>
+            <p><strong>Ngong Road</strong><br>Nairobi, Kenya</p>
+            <p><strong>Phone:</strong> <a href="tel:+254700000000">+254 700 000 000</a></p>
+            <p><strong>Email:</strong> <a href="mailto:info@unhcr.org">info@unhcr.org</a></p>
+            <p><strong>Hours:</strong> Mon–Fri, 8:00–17:00</p>
+          </div>
+        </div>
+
+        <!-- Form column -->
+        <div class="contact-form">
+          <h3>Send us a message</h3>
+          <p class="form-sub">We aim to respond within two business days.</p>
+
+          <div id="contact-success" class="form-success" role="status">Thank you — your message has been received. Our team will respond within two business days.</div>
+
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="contact-name">Full name</label>
+                <input type="text" id="contact-name" name="name" autocomplete="name" required />
+              </div>
+              <div class="form-field">
+                <label for="contact-email">Email address</label>
+                <input type="email" id="contact-email" name="email" autocomplete="email" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field form-full">
+                <label for="contact-topic">What is this about?</label>
+                <select id="contact-topic" name="topic">
+                  <option>Requesting assistance</option>
+                  <option>Asylum and refugee status</option>
+                  <option>Family reunification</option>
+                  <option>Reporting fraud or misconduct</option>
+                  <option>Volunteering</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field form-full">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" required placeholder="Please provide as much detail as possible."></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="form-submit">Send message</button>
+            <p class="form-note">This is a demonstration form; no data is transmitted or stored.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DONATE CTA ==================== -->
+  <section class="donate-cta">
+    <div class="container">
+      <h2>Support refugees today</h2>
+      <p>Your gift can help protect someone forced to flee their home due to conflict or persecution.</p>
+      <a href="https://donate.unhcr.org/int/en/general" class="btn btn-primary" target="_blank" rel="noopener">Donate now</a>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <h3>Support our work</h3>
+          <p>Please help refugees in need.</p>
+          <a href="https://donate.unhcr.org/int/en/general" class="btn btn-outline-light" target="_blank" rel="noopener">Donate now</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay connected</h3>
+          <p>Follow us on</p>
+          <ul>
+            <li><a href="https://x.com/refugees" target="_blank" rel="noopener">X</a></li>
+            <li><a href="https://www.facebook.com/UNHCR" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.instagram.com/refugees/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.youtube.com/c/unhcr" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="https://www.linkedin.com/company/unhcr/" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick links</h3>
+          <ul>
+            <li><a href="#topics">Help topics</a></li>
+            <li><a href="#country">Find a country</a></li>
+            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#contact">Contact us</a></li>
+            <li><a href="#">Report misconduct</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact us</h3>
+          <ul>
+            <li><a href="#contact">Regional office</a></li>
+            <li><a href="#">Media centre</a></li>
+            <li><a href="#">Report a fraudulent site</a></li>
+            <li><a href="#">Become a supplier</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <img src="https://www.unhcr.org/themes/custom/project/images/logo/EN-UNHCR-White.svg"
+               alt="UNHCR"
+               onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/UNHCR.svg/320px-UNHCR.svg.png';" />
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy notice</a>
+          <a href="#">Terms and conditions</a>
+          <a href="#">Copyright</a>
+        </div>
+        <div class="footer-copy">© UNHCR 2001–2026</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    // Mobile nav toggle
+    (function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var navList = document.querySelector('.nav-list');
+      if (toggle && navList) {
+        toggle.addEventListener('click', function () {
+          var expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          navList.classList.toggle('open');
+        });
+      }
+    })();
+
+    // Contact form demo handler
+    (function () {
+      var form = document.getElementById('contact-form');
+      var success = document.getElementById('contact-success');
+      if (form && success) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var name = document.getElementById('contact-name');
+          var email = document.getElementById('contact-email');
+          var message = document.getElementById('contact-message');
+
+          if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
+            alert('Please fill in all required fields.');
+            return;
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+            alert('Please enter a valid email address.');
+            return;
+          }
+
+          success.classList.add('visible');
+          form.reset();
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

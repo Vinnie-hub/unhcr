@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en-ca" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNHCR Canada | The UN Refugee Agency in Canada</title>
+  <meta name="description" content="UNHCR Canada, the UN Refugee Agency in Canada, works to save lives and build better futures for refugees, forcibly displaced communities and stateless people." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    /* ---------- Reset & Base ---------- */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --unhcr-blue: #0072bc;
+      --unhcr-dark-blue: #005a9c;
+      --unhcr-navy: #1a2a3a;
+      --unhcr-gray: #f4f5f7;
+      --unhcr-mid-gray: #d8dde3;
+      --unhcr-text: #1e2a35;
+      --unhcr-text-light: #5a6b7b;
+      --unhcr-white: #ffffff;
+      --unhcr-pale-blue: #e8f1f8;
+      --unhcr-yellow: #faeb00;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius: 6px;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      --transition: 0.2s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--unhcr-text);
+      background: var(--unhcr-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: var(--unhcr-blue);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    a:hover {
+      color: var(--unhcr-dark-blue);
+      text-decoration: underline;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-align: center;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all var(--transition);
+      text-decoration: none;
+      line-height: 1.4;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--unhcr-blue);
+      color: var(--unhcr-white);
+      border-color: var(--unhcr-blue);
+    }
+
+    .btn-primary:hover {
+      background: var(--unhcr-dark-blue);
+      border-color: var(--unhcr-dark-blue);
+      color: var(--unhcr-white);
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--unhcr-text);
+      border-color: var(--unhcr-text);
+    }
+
+    .btn-outline-dark:hover {
+      background: var(--unhcr-text);
+      color: var(--unhcr-white);
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      color: var(--unhcr-white);
+      border-color: var(--unhcr-white);
+    }
+
+    .btn-outline-light:hover {
+      background: var(--unhcr-white);
+      color: var(--unhcr-navy);
+    }
+
+    .btn-secondary {
+      background: var(--unhcr-navy);
+      color: var(--unhcr-white);
+      border-color: var(--unhcr-navy);
+    }
+
+    .btn-secondary:hover {
+      background: #0f1a25;
+      border-color: #0f1a25;
+      color: var(--unhcr-white);
+    }
+
+    .btn-yellow {
+      background: var(--unhcr-yellow);
+      color: #000000;
+      border-color: var(--unhcr-yellow);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-yellow:hover {
+      background: #e6d800;
+      border-color: #e6d800;
+      color: #000000;
+    }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      background: var(--unhcr-white);
+      border-bottom: 1px solid var(--unhcr-mid-gray);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-top {
+      background: var(--unhcr-navy);
+      color: var(--unhcr-white);
+      font-size: 0.8rem;
+      padding: 6px 0;
+    }
+
+    .header-top .container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .header-top a {
+      color: var(--unhcr-white);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .header-top a:hover {
+      text-decoration: underline;
+    }
+
+    .header-top .arrow {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid var(--unhcr-white);
+      border-bottom: 2px solid var(--unhcr-white);
+      transform: rotate(45deg);
+      margin-left: 6px;
+      position: relative;
+      top: -2px;
+    }
+
+    .header-main {
+      padding: 14px 0;
+    }
+
+    .header-main .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      display: block;
+      font-weight: 400;
+      color: var(--unhcr-text-light);
+      font-size: 0.65rem;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .header-actions .btn {
+      padding: 8px 18px;
+      font-size: 0.85rem;
+    }
+
+    /* ---------- Navigation ---------- */
+    .main-nav {
+      background: var(--unhcr-navy);
+      position: relative;
+    }
+
+    .main-nav .container {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      width: 100%;
+    }
+
+    .nav-list > li {
+      position: relative;
+    }
+
+    .nav-list > li > a {
+      display: block;
+      color: var(--unhcr-white);
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background var(--transition);
+    }
+
+    .nav-list > li > a:hover,
+    .nav-list > li > a.active {
+      background: rgba(255, 255, 255, 0.1);
+      text-decoration: none;
+    }
+
+    .nav-list > li > a::after {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      margin-left: 8px;
+      position: relative;
+      top: -2px;
+      opacity: 0.7;
+    }
+
+    .nav-list > li:last-child > a::after,
+    .nav-list > li.no-drop > a::after {
+      display: none;
+    }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--unhcr-white);
+      font-size: 1.6rem;
+      cursor: pointer;
+      padding: 12px 16px;
+    }
+
+    /* ---------- Fraud Alert Bar ---------- */
+    .fraud-alert {
+      background: var(--unhcr-yellow);
+      color: #000000;
+      padding: 12px 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .fraud-alert .container {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .fraud-alert strong {
+      font-weight: 700;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      background: var(--unhcr-navy);
+      color: var(--unhcr-white);
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    .hero-content {
+      max-width: 520px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #8ec8f0;
+      margin-bottom: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 18px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .hero-image {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .hero-image-caption {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 6px 10px;
+      background: rgba(0, 0, 0, 0.4);
+      text-align: right;
+    }
+
+    /* ---------- Emergency Slides Section ---------- */
+    .section-emergencies {
+      background: var(--unhcr-gray);
+      padding: 60px 0;
+    }
+
+    .section-emergencies h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .emergency-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .emergency-card {
+      background: var(--unhcr-white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--unhcr-blue);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .emergency-card .emergency-image {
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .emergency-card .emergency-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .emergency-card:hover .emergency-image img {
+      transform: scale(1.05);
+    }
+
+    .emergency-card .emergency-body {
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .emergency-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .emergency-card p {
+      font-size: 0.9rem;
+      color: var(--unhcr-text-light);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .emergency-card .btn {
+      align-self: flex-start;
+    }
+
+    /* ---------- Assistance Section ---------- */
+    .section-assistance {
+      background: var(--unhcr-white);
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .section-assistance h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 14px;
+    }
+
+    .section-assistance p {
+      font-size: 1.05rem;
+      color: var(--unhcr-text-light);
+      max-width: 760px;
+      margin: 0 auto 24px;
+      line-height: 1.65;
+    }
+
+    /* ---------- Quick Links Grid ---------- */
+    .section-quick-links {
+      padding: 0 0 60px;
+    }
+
+    .quick-links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .quick-link {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--unhcr-white);
+      text-decoration: none;
+    }
+
+    .quick-link img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .quick-link::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      transition: background 0.3s ease;
+    }
+
+    .quick-link:hover img {
+      transform: scale(1.05);
+    }
+
+    .quick-link:hover::after {
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .quick-link span {
+      position: relative;
+      z-index: 1;
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.3;
+      padding: 0 20px;
+      color: var(--unhcr-white);
+      text-decoration: none;
+    }
+
+    /* ---------- Donate Banner ---------- */
+    .section-donate-banner {
+      background: linear-gradient(45deg, #0072bc 0%, #0063a0 100%);
+      color: var(--unhcr-white);
+      padding: 40px 0;
+    }
+
+    .section-donate-banner .container {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .section-donate-banner h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--unhcr-white);
+    }
+
+    .section-donate-banner .btn {
+      justify-self: end;
+    }
+
+    /* ---------- What We Do Section ---------- */
+    .section-what-we-do {
+      background: var(--unhcr-white);
+      padding: 60px 0;
+    }
+
+    .section-what-we-do h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .what-we-do-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .what-we-do-card {
+      background: var(--unhcr-white);
+      border-radius: 8px;
+      padding: 30px 24px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--unhcr-blue);
+      text-align: center;
+    }
+
+    .what-we-do-card .card-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--unhcr-blue);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .what-we-do-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 10px;
+    }
+
+    .what-we-do-card p {
+      font-size: 0.95rem;
+      color: var(--unhcr-text-light);
+      line-height: 1.65;
+    }
+
+    /* ---------- News Section ---------- */
+    .section-news {
+      background: var(--unhcr-gray);
+      padding: 60px 0;
+    }
+
+    .section-news h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .news-card {
+      background: var(--unhcr-white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .news-card .news-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .news-card .news-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .news-card:hover .news-image img {
+      transform: scale(1.05);
+    }
+
+    .news-card .news-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .news-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .news-card h3 a {
+      color: var(--unhcr-navy);
+      text-decoration: none;
+    }
+
+    .news-card h3 a:hover {
+      color: var(--unhcr-blue);
+    }
+
+    .news-card p {
+      font-size: 0.9rem;
+      color: var(--unhcr-text-light);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .news-more {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      background: var(--unhcr-navy);
+      color: var(--unhcr-white);
+      padding: 50px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--unhcr-white);
+    }
+
+    .footer-col p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-col ul a {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .footer-col ul a:hover {
+      color: var(--unhcr-white);
+      text-decoration: underline;
+    }
+
+    .footer-col .btn {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      padding: 8px 18px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-bottom .footer-logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 992px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-image img {
+        height: 240px;
+      }
+
+      .emergency-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .quick-links-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .what-we-do-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-donate-banner .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .section-donate-banner .btn {
+        justify-self: center;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .nav-list.open {
+        display: flex;
+      }
+
+      .nav-list > li > a {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 14px 20px;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .main-nav .container {
+        justify-content: flex-end;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-main .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .emergency-grid,
+      .quick-links-grid,
+      .what-we-do-grid,
+      .news-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-link {
+        height: 220px;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .section-emergencies h2,
+      .section-what-we-do h2,
+      .section-news h2 {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <a href="/donate.html" class="btn btn-yellow" style="padding: 4px 12px; font-size: 0.75rem;" target="_blank" rel="noopener">Donate</a>
+        <a href="/donor-preference-centre.html" target="_blank" rel="noopener">Donor Preference Centre</a>
+        <a href="/need-help.html" target="_blank" rel="noopener">Do you need UNHCR's help?</a>
+        <a href="#">Français</a>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container">
+        <a href="/" class="logo" aria-label="UNHCR Canada home">
+          <img src="/images/logos/unhcr favicon.webp"
+               alt="UNHCR Canada"/>
+          <div class="logo-text">
+            UNHCR Canada
+            <span>The UN Refugee Agency</span>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate</a>
+          <a href="/get-help.html" class="btn btn-secondary" target="_blank" rel="noopener">Get help</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="container">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Work</a></li>
+          <li><a href="#">News and Stories</a></li>
+          <li><a href="#">How to Help</a></li>
+          <li><a href="#">In Canada</a></li>
+          <li class="no-drop"><a href="#">Shop</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== FRAUD ALERT ==================== -->
+  <div class="fraud-alert">
+    <div class="container">
+      <p><strong>Fraud alert:</strong> Individuals are falsely displaying UNHCR Canada's phone number (613-232-0909) to offer resettlement in exchange for money. These persons are fraudsters and do not represent UNHCR. UNHCR services are always free.</p>
+    </div>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1600&q=80"
+           alt="Refugee family" loading="eager" />
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-tag">Emergency Appeal</span>
+        <h1>Yemen Emergency</h1>
+        <p>Escalating violence in Yemen has forced tens of thousands of families from their homes, and thousands more have crossed the sea to Djibouti. UNHCR teams are responding in both countries, but urgent support is needed.</p>
+        <div class="hero-buttons">
+          <a href="/donate.html" class="btn btn-yellow" target="_blank" rel="noopener">Donate Now</a>
+          <a href="#" class="btn btn-outline-light">Learn more</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80"
+             alt="Families displaced by conflict in Yemen" loading="eager" />
+        <div class="hero-image-caption">© UNHCR</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EMERGENCIES ==================== -->
+  <section class="section-emergencies">
+    <div class="container">
+      <h2>Current Emergencies</h2>
+      <div class="emergency-grid">
+
+        <article class="emergency-card">
+          <div class="emergency-image">
+            <img src="https://images.unsplash.com/photo-1523803326055-1345a7c6a5c6?w=600&q=80"
+                 alt="Colombia earthquake aftermath" loading="lazy" />
+          </div>
+          <div class="emergency-body">
+            <h3>Colombia Earthquake</h3>
+            <p>Devastating earthquakes have struck Colombia. UNHCR teams are in Colombia and ready to act, but urgent support is needed to help replenish emergency stocks and scale up assistance as needs emerge.</p>
+            <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate Now</a>
+          </div>
+        </article>
+
+        <article class="emergency-card">
+          <div class="emergency-image">
+            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80"
+                 alt="Venezuela earthquake" loading="lazy" />
+          </div>
+          <div class="emergency-body">
+            <h3>Venezuela Earthquake</h3>
+            <p>Immediate help is needed to provide shelter, safety, and protection for families affected by the earthquake.</p>
+            <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate Now</a>
+          </div>
+        </article>
+
+        <article class="emergency-card">
+          <div class="emergency-image">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80"
+                 alt="DR Congo Ebola outbreak" loading="lazy" />
+          </div>
+          <div class="emergency-body">
+            <h3>Help Stop the Ebola Crisis in DR Congo</h3>
+            <p>A deadly Ebola outbreak is threatening millions of displaced families. Your donation can provide lifesaving health care, hygiene supplies and prevention services to stop the spread.</p>
+            <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate Now</a>
+          </div>
+        </article>
+
+        <article class="emergency-card">
+          <div class="emergency-image">
+            <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80"
+                 alt="Families fleeing Sudan" loading="lazy" />
+          </div>
+          <div class="emergency-body">
+            <h3>Help Families Fleeing the Sudan Crisis</h3>
+            <p>Conflict has forced millions to flee. Your gift provides shelter, protection, and hope.</p>
+            <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate Now</a>
+          </div>
+        </article>
+
+        <article class="emergency-card">
+          <div class="emergency-image">
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=600&q=80"
+                 alt="Yemen emergency" loading="lazy" />
+          </div>
+          <div class="emergency-body">
+            <h3>Yemen Emergency</h3>
+            <p>Escalating violence has forced tens of thousands of families from their homes. UNHCR teams are responding, but urgent support is needed.</p>
+            <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate Now</a>
+          </div>
+        </article>
+
+        <article class="emergency-card">
+          <div class="emergency-image">
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=600&q=80"
+                 alt="Ukraine emergency" loading="lazy" />
+          </div>
+          <div class="emergency-body">
+            <h3>Ukraine Emergency</h3>
+            <p>Millions of people have been forced to flee their homes. UNHCR is on the ground providing lifesaving aid.</p>
+            <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate Now</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ASSISTANCE ==================== -->
+  <section class="section-assistance">
+    <div class="container">
+      <h2>Do you need assistance?</h2>
+      <p>Whether it's to better understand who can claim asylum in Canada or what happens when you claim asylum at the border, discover our helpful resources on how Canada's asylum system works.</p>
+      <a href="#" class="btn btn-outline-dark">Learn more</a>
+    </div>
+  </section>
+
+  <!-- ==================== QUICK LINKS ==================== -->
+  <section class="section-quick-links">
+    <div class="quick-links-grid">
+      <a href="#" class="quick-link">
+        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80" alt="How can I get involved?" loading="lazy" />
+        <span>How can I get involved?</span>
+      </a>
+      <a href="#" class="quick-link">
+        <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=80" alt="Where is help most needed?" loading="lazy" />
+        <span>Where is help most needed?</span>
+      </a>
+      <a href="https://act.unhcr.ca/page/41673/subscribe/1" class="quick-link" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80" alt="Sign-up to news and stories" loading="lazy" />
+        <span>Sign-up to news and stories</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== DONATE BANNER ==================== -->
+  <section class="section-donate-banner">
+    <div class="container">
+      <h2>Our supporters make our work possible – only 1% of UNHCR's budget comes from the UN.</h2>
+      <a href="/donate.html" class="btn btn-yellow" target="_blank" rel="noopener">Donate Today</a>
+    </div>
+  </section>
+
+  <!-- ==================== WHAT WE DO ==================== -->
+  <section class="section-what-we-do">
+    <div class="container">
+      <h2>What we do</h2>
+      <div class="what-we-do-grid">
+        <div class="what-we-do-card">
+          <div class="card-number">72h</div>
+          <h3>What we do</h3>
+          <p>UNHCR relief items can be deployed within 72 hours.</p>
+        </div>
+        <div class="what-we-do-card">
+          <div class="card-number">135</div>
+          <h3>Where we work</h3>
+          <p>UNHCR provides essential services to refugees in 135 countries.</p>
+        </div>
+        <div class="what-we-do-card">
+          <div class="card-number">114M</div>
+          <h3>Who we help</h3>
+          <p>114 million men, women and children displaced by violence, conflict and persecution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NEWS ==================== -->
+  <section class="section-news">
+    <div class="container">
+      <h2>Stay tuned for the latest news from UNHCR in Canada</h2>
+      <div class="news-grid">
+
+        <article class="news-card">
+          <div class="news-image">
+            <img src="https://images.unsplash.com/photo-1523803326055-1345a7c6a5c6?w=600&q=80"
+                 alt="A school principal at 18" loading="lazy" />
+          </div>
+          <div class="news-body">
+            <h3><a href="#">A school principal at 18: This teen helped build a school and hope for refugee children</a></h3>
+            <p>When Abdullah Sarwari was 16 years old, he believed his education had come to an end. His family had fled to Indonesia after years of displacement, joining thousands of refugees waiting for safety and a chance to rebuild their lives.</p>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-image">
+            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80"
+                 alt="Gamechanging Team" loading="lazy" />
+          </div>
+          <div class="news-body">
+            <h3><a href="#">Uprooted to unstoppable: Gamechanging Team, captained by Alphonso Davies, inspires fans and refugees to believe in the possible</a></h3>
+            <p>Ahead of the FIFA 2026 World Cup, UNHCR is announcing a symbolic team of global football players with a refugee or displacement background. This Gamechanging Team embodies hope, courage, resilience and the power of what is possible.</p>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-image">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80"
+                 alt="Lucía in El Salvador" loading="lazy" />
+          </div>
+          <div class="news-body">
+            <h3><a href="#">Turning hardship into hope: A Refugee in El Salvador transforms her experience of displacement into resilience and hope</a></h3>
+            <p>Thanks to support from donors such as the Government of Canada, Lucía was able to rebuild her life far from threats and now contributes to the community that welcomed her.</p>
+          </div>
+        </article>
+
+      </div>
+      <div class="news-more">
+        <a href="#" class="btn btn-outline-dark">More news and stories</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <h3>Donate today</h3>
+          <p>Please help refugees in need.</p>
+          <a href="/donate.html" class="btn btn-outline-light" target="_blank" rel="noopener">Donate today</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay connected</h3>
+          <p>Follow us on</p>
+          <ul>
+            <li><a href="https://www.instagram.com/unhcr_canada/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/company/11377361" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.facebook.com/UNHCRCanada/" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://twitter.com/UNHCRCanada" target="_blank" rel="noopener">Twitter / X</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay informed</h3>
+          <p>Sign up for UNHCR's newsletter to learn more about refugees.</p>
+          <a href="https://act.unhcr.ca/page/41673/subscribe/1" class="btn btn-outline-light" target="_blank" rel="noopener">Subscribe today</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact us</h3>
+          <p>UNHCR Canada<br />280 Albert Street, Suite 401<br />Ottawa, Ontario<br />Canada K1P 5G8</p>
+          <p>1-877-232-0909</p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <img src="/images/logos/unhcr-footer-logo.webp"
+               alt="UNHCR Canada"/>
+        </div>
+        <div class="footer-copy">© 2026 UNHCR Canada</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MOBILE NAV SCRIPT ==================== -->
+  <script>
+    (function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var navList = document.querySelector('.nav-list');
+      if (toggle && navList) {
+        toggle.addEventListener('click', function () {
+          var expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          navList.classList.toggle('open');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

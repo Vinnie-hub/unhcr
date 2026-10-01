@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNHCR, the UN Refugee Agency | UNHCR</title>
+  <meta name="description" content="UNHCR, the UN Refugee Agency, is a global organization dedicated to saving lives and protecting the rights of refugees, forcibly displaced communities and stateless people." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <style>
+    /* ---------- Reset & Base ---------- */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --unhcr-blue: #0072bc;
+      --unhcr-dark-blue: #005a9c;
+      --unhcr-navy: #18375f;
+      --unhcr-light-blue: #8ebeff;
+      --unhcr-pale-blue: #e8f1f8;
+      --unhcr-gray: #f4f5f7;
+      --unhcr-mid-gray: #d8dde3;
+      --unhcr-text: #1e2a35;
+      --unhcr-text-light: #5a6b7b;
+      --unhcr-white: #ffffff;
+      --unhcr-red: #ef4a60;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius: 6px;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--unhcr-text);
+      background: var(--unhcr-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.no-scroll { overflow: hidden; }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--unhcr-blue); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--unhcr-dark-blue); text-decoration: underline; }
+    ul { list-style: none; }
+
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-block; padding: 10px 22px; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.9rem; text-align: center; cursor: pointer;
+      border: 2px solid transparent; transition: all var(--transition);
+      text-decoration: none; line-height: 1.4;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+    .btn-primary { background: var(--unhcr-blue); color: var(--unhcr-white); border-color: var(--unhcr-blue); }
+    .btn-primary:hover { background: var(--unhcr-dark-blue); border-color: var(--unhcr-dark-blue); color: var(--unhcr-white); }
+    .btn-outline-dark { background: transparent; color: var(--unhcr-text); border-color: var(--unhcr-text); }
+    .btn-outline-dark:hover { background: var(--unhcr-text); color: var(--unhcr-white); }
+    .btn-outline-light { background: transparent; color: var(--unhcr-white); border-color: var(--unhcr-white); }
+    .btn-outline-light:hover { background: var(--unhcr-white); color: var(--unhcr-navy); }
+    .btn-secondary { background: var(--unhcr-navy); color: var(--unhcr-white); border-color: var(--unhcr-navy); }
+    .btn-secondary:hover { background: #0f1a25; border-color: #0f1a25; color: var(--unhcr-white); }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      background: var(--unhcr-white); border-bottom: 1px solid var(--unhcr-mid-gray);
+      position: sticky; top: 0; z-index: 1100;   /* sits above the sites panel */
+    }
+    .header-top { background: var(--unhcr-navy); color: var(--unhcr-white); font-size: 0.8rem; padding: 6px 0; }
+    .header-top .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .header-top a { color: var(--unhcr-white); text-decoration: none; font-weight: 500; }
+    .header-top a:hover { text-decoration: underline; }
+    .header-top .lang-links { display: flex; gap: 12px; }
+    .header-top .lang-links a { opacity: 0.8; }
+    .header-top .lang-links a.active { opacity: 1; font-weight: 700; }
+
+    .sites-toggler {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: none; border: none; color: inherit; font: inherit;
+      cursor: pointer; font-weight: 500; padding: 0;
+    }
+    .sites-toggler:hover { text-decoration: underline; }
+    .sites-toggler:focus-visible { outline: 2px solid var(--unhcr-light-blue); outline-offset: 3px; border-radius: 2px; }
+    .sites-toggler .arrow {
+      display: inline-block; width: 8px; height: 8px;
+      border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+      transform: rotate(45deg); transition: transform var(--transition);
+      position: relative; top: -2px;
+    }
+    .sites-toggler[aria-expanded="true"] .arrow {
+      transform: rotate(-135deg); top: 2px;
+    }
+
+    .header-main { padding: 14px 0; }
+    .header-main .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo img { height: 44px; width: auto; }
+    .logo-text { font-size: 0.75rem; font-weight: 700; color: var(--unhcr-navy); letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.2; }
+    .logo-text span { display: block; font-weight: 400; color: var(--unhcr-text-light); font-size: 0.65rem; }
+    .header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .header-actions .btn { padding: 8px 18px; font-size: 0.85rem; }
+
+    /* ---------- Nav ---------- */
+    .main-nav { background: var(--unhcr-navy); position: relative; }
+    .main-nav .container { display: flex; align-items: center; }
+    .nav-list { display: flex; flex-wrap: wrap; gap: 0; width: 100%; }
+    .nav-list > li { position: relative; }
+    .nav-list > li > a {
+      display: block; color: var(--unhcr-white); padding: 14px 18px;
+      font-size: 0.9rem; font-weight: 500; text-decoration: none;
+      transition: background var(--transition);
+    }
+    .nav-list > li > a:hover,
+    .nav-list > li > a.active { background: rgba(255,255,255,0.1); text-decoration: none; }
+    .nav-list > li > a::after {
+      content: ''; display: inline-block; width: 6px; height: 6px;
+      border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+      transform: rotate(45deg); margin-left: 8px; position: relative; top: -2px; opacity: 0.7;
+    }
+    .nav-list > li:last-child > a::after,
+    .nav-list > li.no-drop > a::after { display: none; }
+    .nav-toggle {
+      display: none; background: none; border: none; color: var(--unhcr-white);
+      font-size: 1.6rem; cursor: pointer; padding: 12px 16px;
+    }
+
+    /* =========================================================
+       SITE SWITCHER PANEL
+       — Appears BELOW the site header, does NOT cover it.
+       ========================================================= */
+    .sites-overlay {
+      position: fixed;
+      top: var(--site-header-height, 128px);  /* set dynamically via JS */
+      left: 0; right: 0; bottom: 0;
+      z-index: 1050;                          /* below header (1100), above page */
+      background: var(--unhcr-white);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      border-top: 1px solid var(--unhcr-mid-gray);
+      animation: fadeIn 0.22s ease;
+    }
+    .sites-overlay.open { display: flex; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---- Floating close button (top-right of panel) ---- */
+    .sites-close {
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      z-index: 10;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--unhcr-gray);
+      border: 1.5px solid var(--unhcr-mid-gray);
+      color: var(--unhcr-navy);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700; line-height: 1;
+      transition: all var(--transition);
+    }
+    .sites-close:hover {
+      background: var(--unhcr-navy);
+      border-color: var(--unhcr-navy);
+      color: var(--unhcr-white);
+      transform: rotate(90deg);
+    }
+    .sites-close:focus-visible { outline: 2px solid var(--unhcr-blue); outline-offset: 3px; }
+
+    /* ---- Sticky search bar at top of panel ---- */
+    .sites-search-bar {
+      background: var(--unhcr-white);
+      border-bottom: 1px solid var(--unhcr-mid-gray);
+      flex-shrink: 0;
+      padding: 22px 0;
+      animation: slideDown 0.28s ease;
+    }
+    .sites-search-bar .container { max-width: 1400px; padding: 0 40px; }
+    .sites-search-wrap {
+      position: relative;
+      max-width: 560px;
+      padding-right: 70px; /* space for the close button */
+    }
+    .sites-search-wrap svg {
+      position: absolute; left: 16px; top: 50%;
+      transform: translateY(-50%);
+      width: 20px; height: 20px;
+      color: var(--unhcr-text-light);
+      pointer-events: none;
+    }
+    .sites-search {
+      width: 100%;
+      padding: 14px 18px 14px 48px;
+      border: 1.5px solid var(--unhcr-mid-gray);
+      border-radius: 30px;
+      font-family: inherit; font-size: 1rem;
+      color: var(--unhcr-text);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .sites-search:focus {
+      outline: none; border-color: var(--unhcr-blue);
+      box-shadow: 0 0 0 4px rgba(0,114,188,0.12);
+    }
+
+    /* ---- Scrollable body ---- */
+    .sites-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 36px 40px 60px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--unhcr-mid-gray) transparent;
+    }
+    .sites-body::-webkit-scrollbar { width: 12px; }
+    .sites-body::-webkit-scrollbar-track { background: transparent; }
+    .sites-body::-webkit-scrollbar-thumb {
+      background: var(--unhcr-mid-gray); border-radius: 6px;
+      border: 3px solid var(--unhcr-white);
+    }
+    .sites-body::-webkit-scrollbar-thumb:hover { background: var(--unhcr-text-light); }
+
+    .sites-body-inner { max-width: 1400px; margin: 0 auto; }
+
+    /* ---- Regional sites row ---- */
+    .sites-regional { margin-bottom: 44px; }
+    .sites-regional h2 {
+      font-size: 0.78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--unhcr-text-light);
+      margin-bottom: 18px;
+    }
+    .regional-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+    .regional-card {
+      display: block;
+      padding: 20px 18px;
+      background: var(--unhcr-gray);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--unhcr-navy);
+      font-weight: 600;
+      font-size: 0.92rem;
+      line-height: 1.35;
+      transition: all var(--transition);
+      border: 1.5px solid transparent;
+    }
+    .regional-card:hover {
+      background: var(--unhcr-pale-blue);
+      border-color: var(--unhcr-light-blue);
+      color: var(--unhcr-blue);
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+    .regional-card .regional-arrow {
+      display: block; margin-top: 14px;
+      font-size: 1.1rem; color: var(--unhcr-blue);
+      transition: transform var(--transition);
+    }
+    .regional-card:hover .regional-arrow { transform: translateX(4px); }
+
+    /* ---- Country sections ---- */
+    .sites-countries-header {
+      display: flex; align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--unhcr-mid-gray);
+    }
+    .sites-countries-header h2 {
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--unhcr-navy);
+      letter-spacing: -0.01em;
+    }
+    .sites-countries-header .country-count {
+      font-size: 0.85rem; color: var(--unhcr-text-light);
+      font-weight: 500;
+    }
+
+    .regions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px 40px;
+    }
+
+    .region { min-width: 0; }
+
+    .region-header {
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--unhcr-pale-blue);
+    }
+    .region-link {
+      color: var(--unhcr-navy);
+      text-decoration: none;
+      font-size: 1.02rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      transition: color 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .region-link::after {
+      content: '';
+      display: inline-block; width: 5px; height: 5px;
+      border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+      transform: rotate(-45deg); opacity: 0.5;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    .region-link:hover { color: var(--unhcr-blue); text-decoration: none; }
+    .region-link:hover::after { transform: rotate(-45deg) translateX(3px); opacity: 1; }
+
+    .countries {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 12px;
+      row-gap: 2px;
+      list-style: none;
+    }
+    .country { min-width: 0; }
+    .country a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #2a3b4f;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 7px 10px;
+      border-radius: 6px;
+      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+      line-height: 1.4;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .country a:hover {
+      background: var(--unhcr-pale-blue);
+      color: var(--unhcr-blue);
+      text-decoration: none;
+      transform: translateX(2px);
+    }
+    .flag {
+      font-size: 1.05rem;
+      line-height: 1;
+      width: 20px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    /* Empty state */
+    .sites-empty {
+      display: none; padding: 60px 20px; text-align: center;
+      color: var(--unhcr-text-light); font-size: 1rem;
+    }
+    .sites-empty.visible { display: block; }
+    .sites-empty strong {
+      display: block; font-size: 1.2rem; color: var(--unhcr-navy);
+      margin-bottom: 8px;
+    }
+
+    /* ---------- Alert Banner ---------- */
+    .alert-banner { background: #fde8ea; border-left: 6px solid var(--unhcr-red); padding: 14px 0; font-size: 0.9rem; }
+    .alert-banner .container { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .alert-banner .alert-icon { flex-shrink: 0; width: 24px; height: 24px; }
+    .alert-banner p { flex: 1; margin: 0; color: var(--unhcr-text); }
+    .alert-banner .btn { padding: 6px 16px; font-size: 0.8rem; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative; background: var(--unhcr-navy); color: var(--unhcr-white);
+      overflow: hidden; min-height: 480px; display: flex; align-items: center;
+    }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
+    .hero .container {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+      align-items: center; padding-top: 60px; padding-bottom: 60px;
+    }
+    .hero-content { max-width: 520px; }
+    .hero-tag {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; color: #8ec8f0;
+      margin-bottom: 12px; background: rgba(255,255,255,0.1);
+      padding: 4px 12px; border-radius: 2px;
+    }
+    .hero h1 { font-size: 2.2rem; font-weight: 700; line-height: 1.25; margin-bottom: 18px; }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+    .hero-image { border-radius: 8px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+    .hero-image img { width: 100%; height: 320px; object-fit: cover; }
+    .hero-image-caption {
+      font-size: 0.7rem; color: rgba(255,255,255,0.6);
+      padding: 6px 10px; background: rgba(0,0,0,0.4); text-align: right;
+    }
+
+    /* ---------- Sections ---------- */
+    .section-intro { padding: 60px 0; }
+    .section-intro h2 {
+      font-size: 1.7rem; font-weight: 700; line-height: 1.35;
+      margin-bottom: 32px; color: var(--unhcr-navy); max-width: 820px;
+    }
+    .intro-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .intro-grid .intro-text { font-size: 1.15rem; font-weight: 500; color: var(--unhcr-text); line-height: 1.6; }
+    .intro-grid p { font-size: 0.95rem; color: var(--unhcr-text-light); margin-bottom: 14px; }
+    .intro-grid .btn { margin-bottom: 10px; }
+
+    .section-data { background: var(--unhcr-gray); padding: 60px 0; }
+    .section-data h2 { font-size: 1.7rem; font-weight: 700; color: var(--unhcr-navy); margin-bottom: 24px; }
+    .data-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; }
+    .data-card { background: var(--unhcr-white); border-radius: 8px; padding: 24px; box-shadow: var(--shadow); margin-bottom: 20px; }
+    .data-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--unhcr-navy); margin-bottom: 16px; }
+    .data-card .stat-number { font-size: 2.4rem; font-weight: 800; color: var(--unhcr-blue); line-height: 1.2; margin-bottom: 4px; }
+    .data-card .stat-label { font-size: 0.85rem; color: var(--unhcr-text-light); }
+    .data-card .stat-footer { font-size: 0.75rem; color: var(--unhcr-text-light); margin-top: 12px; border-top: 1px solid var(--unhcr-mid-gray); padding-top: 10px; }
+    .data-card .stat-footer a { color: var(--unhcr-blue); }
+    .data-sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .data-sidebar .data-card { margin-bottom: 0; }
+    .data-cta { text-align: center; margin-top: 24px; }
+
+    .section-help { background: var(--unhcr-pale-blue); padding: 60px 0; text-align: center; }
+    .section-help h2 { font-size: 1.7rem; font-weight: 700; color: var(--unhcr-navy); margin-bottom: 12px; }
+    .section-help h3 { font-size: 1.15rem; font-weight: 500; color: var(--unhcr-text-light); margin-bottom: 24px; max-width: 680px; margin-left: auto; margin-right: auto; }
+    .section-help .btn-outline-dark { border-color: var(--unhcr-navy); color: var(--unhcr-navy); }
+    .section-help .btn-outline-dark:hover { background: var(--unhcr-navy); color: var(--unhcr-white); }
+
+    .section-news { padding: 60px 0; }
+    .section-news h2 { font-size: 1.7rem; font-weight: 700; color: var(--unhcr-navy); margin-bottom: 30px; }
+    .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .news-featured { display: flex; flex-direction: column; }
+    .news-featured .news-image { border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+    .news-featured .news-image img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s ease; }
+    .news-featured:hover .news-image img { transform: scale(1.03); }
+    .news-category { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--unhcr-blue); margin-bottom: 6px; }
+    .news-featured h3 { font-size: 1.3rem; font-weight: 700; line-height: 1.35; margin-bottom: 8px; }
+    .news-featured h3 a { color: var(--unhcr-navy); text-decoration: none; }
+    .news-featured h3 a:hover { color: var(--unhcr-blue); }
+    .news-date { font-size: 0.85rem; color: var(--unhcr-text-light); }
+    .news-list { display: flex; flex-direction: column; gap: 20px; }
+    .news-item { display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: start; padding-bottom: 20px; border-bottom: 1px solid var(--unhcr-mid-gray); }
+    .news-item:last-of-type { border-bottom: none; padding-bottom: 0; }
+    .news-item .news-thumb { border-radius: 6px; overflow: hidden; width: 120px; height: 120px; flex-shrink: 0; }
+    .news-item .news-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+    .news-item:hover .news-thumb img { transform: scale(1.05); }
+    .news-item h3 { font-size: 1rem; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .news-item h3 a { color: var(--unhcr-navy); text-decoration: none; }
+    .news-item h3 a:hover { color: var(--unhcr-blue); }
+    .news-more { margin-top: 24px; }
+
+    .section-emergency { background: var(--unhcr-navy); color: var(--unhcr-white); padding: 60px 0; }
+    .emergency-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center; }
+    .emergency-content .emergency-tag {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; color: #8ec8f0;
+      margin-bottom: 12px; background: rgba(255,255,255,0.1);
+      padding: 4px 12px; border-radius: 2px;
+    }
+    .emergency-content h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 16px; }
+    .emergency-content p { font-size: 0.95rem; color: rgba(255,255,255,0.85); margin-bottom: 12px; }
+    .emergency-content .btn { margin-top: 12px; }
+    .emergency-image { border-radius: 8px; overflow: hidden; }
+    .emergency-image img { width: 100%; height: 360px; object-fit: cover; }
+    .emergency-image-caption { font-size: 0.7rem; color: rgba(255,255,255,0.6); padding: 6px 10px; background: rgba(0,0,0,0.4); text-align: right; }
+    .emergency-stats { display: flex; gap: 24px; margin-top: 24px; flex-wrap: wrap; }
+    .emergency-stats .stat-item { flex: 1; min-width: 120px; }
+    .emergency-stats .stat-amount { font-size: 1.2rem; font-weight: 700; color: var(--unhcr-light-blue); }
+    .emergency-stats .stat-desc { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
+
+    .section-publications { padding: 60px 0; }
+    .section-publications h2 { font-size: 1.7rem; font-weight: 700; color: var(--unhcr-navy); margin-bottom: 30px; }
+    .pub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .pub-card { border: 1px solid var(--unhcr-mid-gray); border-radius: 8px; overflow: hidden; transition: box-shadow var(--transition); background: var(--unhcr-white); }
+    .pub-card:hover { box-shadow: var(--shadow); }
+    .pub-card .pub-image img { width: 100%; height: 220px; object-fit: cover; }
+    .pub-card .pub-body { padding: 16px; }
+    .pub-card .pub-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--unhcr-blue); margin-bottom: 4px; }
+    .pub-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--unhcr-navy); margin-bottom: 6px; }
+    .pub-card h3 a { color: var(--unhcr-navy); text-decoration: none; }
+    .pub-card h3 a:hover { color: var(--unhcr-blue); }
+    .pub-card p { font-size: 0.85rem; color: var(--unhcr-text-light); }
+    .pub-cta { text-align: right; margin-top: 20px; }
+
+    .section-cta-cards { background: var(--unhcr-gray); padding: 60px 0; }
+    .cta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .cta-card { background: var(--unhcr-white); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); transition: transform var(--transition); }
+    .cta-card:hover { transform: translateY(-4px); }
+    .cta-card .cta-image img { width: 100%; height: 200px; object-fit: cover; }
+    .cta-card .cta-body { padding: 18px; }
+    .cta-card .cta-body h3 { font-size: 1rem; font-weight: 700; color: var(--unhcr-navy); margin-bottom: 6px; }
+    .cta-card .cta-body h3 a { color: var(--unhcr-navy); text-decoration: none; }
+    .cta-card .cta-body h3 a:hover { color: var(--unhcr-blue); }
+    .cta-card .cta-body p { font-size: 0.85rem; color: var(--unhcr-text-light); }
+
+    /* ---------- Footer ---------- */
+    .site-footer { background: var(--unhcr-navy); color: var(--unhcr-white); padding: 50px 0 30px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 40px; }
+    .footer-col h3 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; color: var(--unhcr-white); }
+    .footer-col p { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-bottom: 14px; line-height: 1.6; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a { color: rgba(255,255,255,0.8); font-size: 0.9rem; text-decoration: none; transition: color var(--transition); }
+    .footer-col ul a:hover { color: var(--unhcr-white); text-decoration: underline; }
+    .footer-col .btn { margin-top: 6px; font-size: 0.85rem; padding: 8px 18px; }
+
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom .footer-logo img { height: 60px; width: auto; }
+    .footer-bottom .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-bottom .footer-links a { color: rgba(255,255,255,0.7); font-size: 0.85rem; text-decoration: none; }
+    .footer-bottom .footer-links a:hover { color: var(--unhcr-white); }
+    .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1200px) {
+      .regions-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 32px; }
+      .regional-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 992px) {
+      .hero .container { grid-template-columns: 1fr; gap: 28px; }
+      .hero h1 { font-size: 1.8rem; }
+      .hero-image img { height: 240px; }
+      .intro-grid { grid-template-columns: 1fr 1fr; }
+      .data-grid { grid-template-columns: 1fr; }
+      .emergency-grid { grid-template-columns: 1fr; }
+      .pub-grid { grid-template-columns: 1fr 1fr; }
+      .cta-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-list { display: none; flex-direction: column; width: 100%; }
+      .nav-list.open { display: flex; }
+      .nav-list > li > a { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 20px; }
+      .nav-toggle { display: block; }
+      .main-nav .container { justify-content: flex-end; }
+
+      .sites-search-bar .container { padding: 0 24px; }
+      .sites-body { padding: 28px 24px 50px; }
+      .sites-close { top: 16px; right: 20px; width: 38px; height: 38px; }
+    }
+    @media (max-width: 768px) {
+      .header-main .container { flex-direction: column; align-items: flex-start; }
+      .header-actions { width: 100%; justify-content: flex-start; }
+      .news-grid { grid-template-columns: 1fr; }
+      .intro-grid { grid-template-columns: 1fr; }
+      .pub-grid { grid-template-columns: 1fr; }
+      .cta-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.5rem; }
+      .section-intro h2 { font-size: 1.3rem; }
+      .emergency-content h2 { font-size: 1.4rem; }
+      .emergency-stats { flex-direction: column; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+      .regions-grid { grid-template-columns: 1fr; gap: 24px; }
+      .regional-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .sites-search-bar { padding: 16px 0; }
+      .sites-search-bar .container { padding: 0 18px; }
+      .sites-search-wrap { padding-right: 56px; }
+      .sites-body { padding: 24px 18px 40px; }
+
+      .sites-countries-header h2 { font-size: 1.15rem; }
+      .sites-close { top: 14px; right: 16px; width: 36px; height: 36px; font-size: 1rem; }
+    }
+    @media (max-width: 480px) {
+      .news-item { grid-template-columns: 1fr; }
+      .news-item .news-thumb { width: 100%; height: 180px; }
+      .hero-buttons { flex-direction: column; }
+      .hero-buttons .btn { width: 100%; }
+
+      .regional-grid { grid-template-columns: 1fr; }
+      .countries { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-top">
+      <div class="container">
+        <div>UNHCR global website:
+          <button class="sites-toggler" id="sitesToggler" aria-expanded="false" aria-controls="sitesOverlay">
+            Change site <span class="arrow" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="lang-links">
+          <a href="#" class="active">English</a>
+          <a href="#">Français</a>
+          <a href="#">Español</a>
+          <a href="#">عربي</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container">
+        <a href="#" class="logo" aria-label="UNHCR home">
+          <img src="/images/logos/unhcr-logo.svg" alt="UNHCR" />
+          <div class="logo-text">
+            UNHCR
+            <span>The UN Refugee Agency</span>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate</a>
+          <a href="/get-help.html" class="btn btn-secondary" target="_blank" rel="noopener">Get help</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="container">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="/about.html">About UNHCR</a></li>
+          <li><a href="/what-we-do.html">What we do</a></li>
+          <li><a href="/where-we-work.html">Where we work</a></li>
+          <li><a href="/news-and-stories.html">News and stories</a></li>
+          <li class="no-drop"><a href="/get-involved.html">Get involved</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== SITE SWITCHER PANEL (below header) ==================== -->
+  <div class="sites-overlay" id="sitesOverlay" role="dialog" aria-modal="true" aria-labelledby="sitesTitle" hidden>
+
+    <!-- Floating close button (top-right) -->
+    <button class="sites-close" id="sitesClose" aria-label="Close site switcher">✕</button>
+
+    <!-- Sticky search bar -->
+    <div class="sites-search-bar">
+      <div class="container">
+        <div class="sites-search-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input type="search" class="sites-search" id="sitesSearch"
+                 placeholder="Search for a country…" aria-label="Search countries" autocomplete="off" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrollable body -->
+    <div class="sites-body" id="sitesBody">
+      <div class="sites-body-inner">
+
+        <h2 class="sr-only" id="sitesTitle">UNHCR country sites</h2>
+
+        <!-- Regional sites -->
+        <section class="sites-regional" aria-label="Regional sites">
+          <h2>Regional sites</h2>
+          <div class="regional-grid">
+            <a href="/regions/eastern-and-southern-africa" class="regional-card">
+              Eastern &amp; Southern Africa
+              <span class="regional-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="/regions/west-and-central-africa" class="regional-card">
+              West &amp; Central Africa
+              <span class="regional-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="/regions/middle-east-and-north-africa" class="regional-card">
+              Middle East &amp; North Africa
+              <span class="regional-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="/regions/asia-and-pacific" class="regional-card">
+              Asia &amp; Pacific
+              <span class="regional-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="/regions/europe" class="regional-card">
+              Europe
+              <span class="regional-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="/regions/americas" class="regional-card">
+              Americas
+              <span class="regional-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Countries by region -->
+        <section aria-label="Country sites">
+          <div class="sites-countries-header">
+            <h2>Country sites</h2>
+            <span class="country-count" id="countryCount">51 countries</span>
+          </div>
+
+          <div class="regions-grid" id="regionsGrid">
+
+            <!-- Eastern & Southern Africa -->
+            <div class="region">
+              <div class="region-header">
+                <a href="/regions/eastern-and-southern-africa" class="region-link">Eastern &amp; Southern Africa</a>
+              </div>
+              <ul class="countries">
+                <li class="country"><a href="/countries/kenya"><span class="flag">🇰🇪</span> Kenya</a></li>
+                <li class="country"><a href="/countries/uganda"><span class="flag">🇺🇬</span> Uganda</a></li>
+                <li class="country"><a href="/countries/south-sudan"><span class="flag">🇸🇸</span> South Sudan</a></li>
+                <li class="country"><a href="/countries/somalia"><span class="flag">🇸🇴</span> Somalia</a></li>
+                <li class="country"><a href="/countries/ethiopia"><span class="flag">🇪🇹</span> Ethiopia</a></li>
+                <li class="country"><a href="/countries/tanzania"><span class="flag">🇹🇿</span> Tanzania</a></li>
+                <li class="country"><a href="/countries/rwanda"><span class="flag">🇷🇼</span> Rwanda</a></li>
+                <li class="country"><a href="/countries/sudan"><span class="flag">🇸🇩</span> Sudan</a></li>
+                <li class="country"><a href="/countries/zambia"><span class="flag">🇿🇲</span> Zambia</a></li>
+                <li class="country"><a href="/countries/zimbabwe"><span class="flag">🇿🇼</span> Zimbabwe</a></li>
+              </ul>
+            </div>
+
+            <!-- West & Central Africa -->
+            <div class="region">
+              <div class="region-header">
+                <a href="/regions/west-and-central-africa" class="region-link">West &amp; Central Africa</a>
+              </div>
+              <ul class="countries">
+                <li class="country"><a href="/countries/nigeria"><span class="flag">🇳🇬</span> Nigeria</a></li>
+                <li class="country"><a href="/countries/cameroon"><span class="flag">🇨🇲</span> Cameroon</a></li>
+                <li class="country"><a href="/countries/democratic-republic-of-the-congo"><span class="flag">🇨🇩</span> DR Congo</a></li>
+                <li class="country"><a href="/countries/chad"><span class="flag">🇹🇩</span> Chad</a></li>
+                <li class="country"><a href="/countries/central-african-republic"><span class="flag">🇨🇫</span> Central African Rep.</a></li>
+                <li class="country"><a href="/countries/ghana"><span class="flag">🇬🇭</span> Ghana</a></li>
+                <li class="country"><a href="/countries/senegal"><span class="flag">🇸🇳</span> Senegal</a></li>
+                <li class="country"><a href="/countries/mali"><span class="flag">🇲🇱</span> Mali</a></li>
+                <li class="country"><a href="/countries/niger"><span class="flag">🇳🇪</span> Niger</a></li>
+              </ul>
+            </div>
+
+            <!-- Middle East & North Africa -->
+            <div class="region">
+              <div class="region-header">
+                <a href="/regions/middle-east-and-north-africa" class="region-link">Middle East &amp; North Africa</a>
+              </div>
+              <ul class="countries">
+                <li class="country"><a href="/countries/syria"><span class="flag">🇸🇾</span> Syria</a></li>
+                <li class="country"><a href="/countries/lebanon"><span class="flag">🇱🇧</span> Lebanon</a></li>
+                <li class="country"><a href="/countries/jordan"><span class="flag">🇯🇴</span> Jordan</a></li>
+                <li class="country"><a href="/countries/iraq"><span class="flag">🇮🇶</span> Iraq</a></li>
+                <li class="country"><a href="/countries/yemen"><span class="flag">🇾🇪</span> Yemen</a></li>
+                <li class="country"><a href="/countries/egypt"><span class="flag">🇪🇬</span> Egypt</a></li>
+                <li class="country"><a href="/countries/tunisia"><span class="flag">🇹🇳</span> Tunisia</a></li>
+                <li class="country"><a href="/countries/libya"><span class="flag">🇱🇾</span> Libya</a></li>
+              </ul>
+            </div>
+
+            <!-- Asia & Pacific -->
+            <div class="region">
+              <div class="region-header">
+                <a href="/regions/asia-and-pacific" class="region-link">Asia &amp; Pacific</a>
+              </div>
+              <ul class="countries">
+                <li class="country"><a href="/countries/afghanistan"><span class="flag">🇦🇫</span> Afghanistan</a></li>
+                <li class="country"><a href="/countries/pakistan"><span class="flag">🇵🇰</span> Pakistan</a></li>
+                <li class="country"><a href="/countries/bangladesh"><span class="flag">🇧🇩</span> Bangladesh</a></li>
+                <li class="country"><a href="/countries/india"><span class="flag">🇮🇳</span> India</a></li>
+                <li class="country"><a href="/countries/myanmar"><span class="flag">🇲🇲</span> Myanmar</a></li>
+                <li class="country"><a href="/countries/nepal"><span class="flag">🇳🇵</span> Nepal</a></li>
+                <li class="country"><a href="/countries/indonesia"><span class="flag">🇮🇩</span> Indonesia</a></li>
+                <li class="country"><a href="/countries/philippines"><span class="flag">🇵🇭</span> Philippines</a></li>
+              </ul>
+            </div>
+
+            <!-- Europe -->
+            <div class="region">
+              <div class="region-header">
+                <a href="/regions/europe" class="region-link">Europe</a>
+              </div>
+              <ul class="countries">
+                <li class="country"><a href="/countries/ukraine"><span class="flag">🇺🇦</span> Ukraine</a></li>
+                <li class="country"><a href="/countries/germany"><span class="flag">🇩🇪</span> Germany</a></li>
+                <li class="country"><a href="/countries/france"><span class="flag">🇫🇷</span> France</a></li>
+                <li class="country"><a href="/countries/united-kingdom"><span class="flag">🇬🇧</span> UK</a></li>
+                <li class="country"><a href="/countries/italy"><span class="flag">🇮🇹</span> Italy</a></li>
+                <li class="country"><a href="/countries/greece"><span class="flag">🇬🇷</span> Greece</a></li>
+                <li class="country"><a href="/countries/poland"><span class="flag">🇵🇱</span> Poland</a></li>
+                <li class="country"><a href="/countries/turkiye"><span class="flag">🇹🇷</span> Türkiye</a></li>
+              </ul>
+            </div>
+
+            <!-- Americas -->
+            <div class="region">
+              <div class="region-header">
+                <a href="/regions/americas" class="region-link">Americas</a>
+              </div>
+              <ul class="countries">
+                <li class="country"><a href="/countries/colombia"><span class="flag">🇨🇴</span> Colombia</a></li>
+                <li class="country"><a href="/countries/brazil"><span class="flag">🇧🇷</span> Brazil</a></li>
+                <li class="country"><a href="/countries/mexico"><span class="flag">🇲🇽</span> Mexico</a></li>
+                <li class="country"><a href="/countries/united-states"><span class="flag">🇺🇸</span> USA</a></li>
+                <li class="country"><a href="/countries/canada"><span class="flag">🇨🇦</span> Canada</a></li>
+                <li class="country"><a href="/countries/venezuela"><span class="flag">🇻🇪</span> Venezuela</a></li>
+                <li class="country"><a href="/countries/haiti"><span class="flag">🇭🇹</span> Haiti</a></li>
+                <li class="country"><a href="/countries/peru"><span class="flag">🇵🇪</span> Peru</a></li>
+              </ul>
+            </div>
+
+          </div><!-- /regions-grid -->
+
+          <p class="sites-empty" id="sitesEmpty">
+            <strong>No matching countries</strong>
+            Try a different search term or <button type="button" class="btn btn-outline-dark" id="sitesReset" style="margin-left:6px;">clear the search</button>
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ALERT BANNER ==================== -->
+  <div class="alert-banner">
+    <div class="container">
+      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="#1e2a35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <p>Are you a refugee, asylum-seeker or stateless person looking for help? Visit the HELP site to find support and services from UNHCR.</p>
+      <a href="/get-help.html" class="btn btn-secondary" target="_blank" rel="noopener">Visit HELP site</a>
+    </div>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1600&q=80"
+           alt="Refugee family" loading="eager" />
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-tag">Press releases</span>
+        <h1>UNHCR sounds the alarm as 8.3 million risk losing their lifeline</h1>
+        <div class="hero-buttons">
+          <a href="/news-and-stories/press-releases.html" class="btn btn-outline-light">Read more</a>
+          <a href="/news-and-stories.html" class="btn btn-outline-light">More news and stories</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80"
+             alt="A Burundian woman hugs four of her children" loading="eager" />
+        <div class="hero-image-caption">© UNHCR/Ala Kheir</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INTRO ==================== -->
+  <section class="section-intro">
+    <div class="container">
+      <h2>UNHCR helps to save lives and build better futures for the millions of people forced to flee their homes.</h2>
+      <div class="intro-grid">
+        <div>
+          <p class="intro-text">UNHCR, the UN Refugee Agency works to ensure that everybody has the right to seek asylum and find safe refuge, having fled violence, persecution or war at home.</p>
+        </div>
+        <div>
+          <p>Since 1950, we have faced multiple crises on multiple continents, and provided vital protection and assistance to refugees, asylum-seekers, internally displaced and stateless people, many of whom have nobody left to turn to.</p>
+          <p>We help to save lives and build better futures for millions forced from home.</p>
+        </div>
+        <div>
+          <a href="/what-we-do.html" class="btn btn-outline-dark">Learn more about our work</a>
+          <a href="/get-involved.html" class="btn btn-outline-dark">How can I get involved?</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DATA / STATS ==================== -->
+  <section class="section-data">
+    <div class="container">
+      <h2>Key facts and figures</h2>
+      <div class="data-grid">
+        <div>
+          <div class="data-card">
+            <h3>41.6 million people worldwide are refugees.</h3>
+            <div class="stat-number">41.6M</div>
+            <div class="stat-label">Refugees under UNHCR's mandate</div>
+            <div class="stat-footer">
+              As of the end of December 2025<br />
+              Source: <a href="#">UNHCR Global Trends 2025</a>, 11 June 2026<br />
+              The total number of forcibly displaced people worldwide accounts for overlaps between population groups.
+            </div>
+          </div>
+          <div class="data-card">
+            <h3>Most refugees – 68 per cent – are hosted by low- and middle-income countries.</h3>
+            <div class="stat-number">68%</div>
+            <div class="stat-label">Hosted by low- and middle-income countries</div>
+            <div class="stat-footer">
+              As of the end of December 2025<br />
+              Source: <a href="#">UNHCR Global Trends 2025</a>, 11 June 2026
+            </div>
+          </div>
+          <div class="data-cta">
+            <a href="/what-we-do/data-and-publications.html" class="btn btn-outline-dark">Get the latest data and statistics</a>
+          </div>
+        </div>
+        <div class="data-sidebar">
+          <div class="data-card">
+            <h3>Latest from X</h3>
+            <p style="font-size:0.9rem;color:var(--unhcr-text-light);">"Look at the person, not the refugee." Melida's words stayed with me after Aguascalientes, where government, business, academia and civil society are working together to turn opportunity into inclusion. It benefits everyone.</p>
+            <p style="font-size:0.8rem;color:var(--unhcr-text-light);margin-top:8px;">— Barham Salih (@BarhamSalih) September 28, 2026</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HELP ==================== -->
+  <section class="section-help">
+    <div class="container">
+      <h2>Need help?</h2>
+      <h3>Find information and services for refugees, asylum-seekers and stateless persons</h3>
+      <a href="/get-help.html" class="btn btn-outline-dark" target="_blank" rel="noopener">Services for refugees</a>
+    </div>
+  </section>
+
+  <!-- ==================== NEWS ==================== -->
+  <section class="section-news">
+    <div class="container">
+      <h2>Latest from UNHCR</h2>
+      <div class="news-grid">
+
+        <article class="news-featured">
+          <div class="news-image">
+            <img src="https://images.unsplash.com/photo-1523803326055-1345a7c6a5c6?w=800&q=80"
+                 alt="A man gestures while speaking behind a lectern" loading="lazy" />
+          </div>
+          <div class="news-category">Speeches and statements</div>
+          <h3><a href="#">High Commissioner's remarks at the Senate of the Republic of Mexico commemorating 75 years of the Refugee Convention</a></h3>
+          <div class="news-date">29 September 2026</div>
+        </article>
+
+        <div class="news-list">
+          <article class="news-item">
+            <div class="news-thumb">
+              <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&q=80"
+                   alt="A Burundian woman hugs four of her children" loading="lazy" />
+            </div>
+            <div>
+              <div class="news-category">Press releases</div>
+              <h3><a href="#">UNHCR sounds the alarm as 8.3 million risk losing their lifeline</a></h3>
+              <div class="news-date">29 September 2026</div>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <div class="news-thumb">
+              <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&q=80"
+                   alt="A man gestures while speaking behind a desk" loading="lazy" />
+            </div>
+            <div>
+              <div class="news-category">Speeches and statements</div>
+              <h3><a href="#">Statement by the United Nations High Commissioner for Refugees to the United Nations Security Council 2026</a></h3>
+              <div class="news-date">25 September 2026</div>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <div class="news-thumb">
+              <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=400&q=80"
+                   alt="UNHCR logo" loading="lazy" />
+            </div>
+            <div>
+              <div class="news-category">Speeches and statements</div>
+              <h3><a href="#">Remarks by the High Commissioner at the high-level event on the Rohingya crisis</a></h3>
+              <div class="news-date">23 September 2026</div>
+            </div>
+          </article>
+
+          <div class="news-more">
+            <a href="/news-and-stories.html" class="btn btn-outline-dark">More news and stories</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EMERGENCY APPEAL ==================== -->
+  <section class="section-emergency">
+    <div class="container">
+      <div class="emergency-grid">
+        <div class="emergency-content">
+          <span class="emergency-tag">Emergency appeal</span>
+          <h2>Venezuela emergency</h2>
+          <p><strong>A powerful earthquake has struck Venezuela — a country already living through one of the world's largest displacement crises.</strong></p>
+          <p>This disaster hits a population already stretched to a breaking point. Almost 7 million Venezuelans have fled in recent years. Now, for those who remain, a fragile situation has become an emergency — with urgent need for shelter, clean water and protection.</p>
+          <p>UNHCR, the UN Refugee Agency, leads the protection response in Venezuela. Our teams are on the ground delivering shelter and relief to those hit hardest.</p>
+          <p><strong>Please donate today.</strong></p>
+          <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Help now</a>
+        </div>
+        <div class="emergency-image">
+          <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80"
+               alt="Aftermath of an earthquake in La Guaira" loading="lazy" />
+          <div class="emergency-image-caption">© Reuters/Maxwell Briceno</div>
+        </div>
+      </div>
+      <div class="emergency-stats">
+        <div class="stat-item">
+          <div class="stat-amount">US$ 550</div>
+          <div class="stat-desc">can provide blankets, solar lamp, cooking utensils and jerry cans to two families</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-amount">US$ 150</div>
+          <div class="stat-desc">can provide 10 gas cylinders allowing displaced families to cook hot meals</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-amount">US$ 23</div>
+          <div class="stat-desc">can provide 15 blankets to displaced families to help keep them warm</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PUBLICATIONS ==================== -->
+  <section class="section-publications">
+    <div class="container">
+      <h2>Flagship reports and publications</h2>
+      <div class="pub-grid">
+        <div class="pub-card">
+          <div class="pub-image">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80" alt="Global Trends report cover" loading="lazy" />
+          </div>
+          <div class="pub-body">
+            <div class="pub-label">Data</div>
+            <h3><a href="#">Global Trends</a></h3>
+            <p>Latest global figures on forced displacement and statelessness.</p>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-image">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80" alt="Global Report cover" loading="lazy" />
+          </div>
+          <div class="pub-body">
+            <div class="pub-label">Results</div>
+            <h3><a href="#">Global Report</a></h3>
+            <p>UNHCR's annual report outlining its impact in the previous year.</p>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-image">
+            <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=400&q=80" alt="Global Appeal cover" loading="lazy" />
+          </div>
+          <div class="pub-body">
+            <div class="pub-label">Funding</div>
+            <h3><a href="#">Global Appeal</a></h3>
+            <p>UNHCR's projected funding needs for the year ahead.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pub-cta">
+        <a href="#" class="btn btn-outline-dark">View all publications</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA CARDS ==================== -->
+  <section class="section-cta-cards">
+    <div class="container">
+      <div class="cta-grid">
+        <div class="cta-card">
+          <div class="cta-image">
+            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=80" alt="MADE51 bracelet" loading="lazy" />
+          </div>
+          <div class="cta-body">
+            <h3><a href="#">Shop the With Refugees bracelet</a></h3>
+            <p>Show your solidarity with people forced to flee. Each MADE51 refugee-made bracelet includes a $2 donation to UNHCR.</p>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-image">
+            <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=400&q=80" alt="Newsletter icon" loading="lazy" />
+          </div>
+          <div class="cta-body">
+            <h3><a href="#">Subscribe to the UNHCR newsletter</a></h3>
+            <p>Subscribe to our newsletter and become part of a global community that cares about the protection and well-being of refugees.</p>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-image">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&q=80" alt="Refworld" loading="lazy" />
+          </div>
+          <div class="cta-body">
+            <h3><a href="#">UNHCR's global law and policy database</a></h3>
+            <p>Search the leading source of legislation, case law and UNHCR guidance on refugees, stateless and internally displaced persons.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Support our work</h3>
+          <p>Please help refugees in need.</p>
+          <a href="/donate.html" class="btn btn-outline-light" target="_blank" rel="noopener">Donate now</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay connected</h3>
+          <p>Follow us on</p>
+          <ul>
+            <li><a href="https://x.com/refugees" target="_blank" rel="noopener">X</a></li>
+            <li><a href="https://www.facebook.com/UNHCR" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.instagram.com/refugees/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.youtube.com/c/unhcr" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="https://www.tiktok.com/@refugees" target="_blank" rel="noopener">TikTok</a></li>
+            <li><a href="https://www.linkedin.com/company/unhcr/" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay informed</h3>
+          <p>Sign up to our newsletter to learn more about people forced to flee and how you can support them.</p>
+          <a href="#" class="btn btn-outline-light">Subscribe</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact us</h3>
+          <ul>
+            <li><a href="#">Frequently asked questions</a></li>
+            <li><a href="#">Contact UNHCR</a></li>
+            <li><a href="#">Media centre</a></li>
+            <li><a href="#">Report misconduct or abuse</a></li>
+            <li><a href="#">Report a fraudulent site or email</a></li>
+            <li><a href="#">Become a supplier</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <img src="/images/logos/unhcr-footer-logo.webp" alt="UNHCR" />
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy notice</a>
+          <a href="#">Terms and conditions of use</a>
+          <a href="#">Copyright</a>
+        </div>
+        <div class="footer-copy">© UNHCR 2001–<span id="year">2026</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---------- Mobile nav toggle ---------- */
+      var navToggle = document.querySelector('.nav-toggle');
+      var navList = document.querySelector('.nav-list');
+      if (navToggle && navList) {
+        navToggle.addEventListener('click', function () {
+          var expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          navList.classList.toggle('open');
+        });
+      }
+
+      /* ---------- Site switcher ---------- */
+      var openBtn     = document.getElementById('sitesToggler');
+      var overlay     = document.getElementById('sitesOverlay');
+      var closeBtn    = document.getElementById('sitesClose');
+      var searchBox   = document.getElementById('sitesSearch');
+      var regionsGrid = document.getElementById('regionsGrid');
+      var emptyMsg    = document.getElementById('sitesEmpty');
+      var resetBtn    = document.getElementById('sitesReset');
+      var countEl     = document.getElementById('countryCount');
+      var headerEl    = document.getElementById('siteHeader');
+      var lastFocused = null;
+
+      /* Keep the panel positioned below the (sticky) site header */
+      function syncHeaderHeight() {
+        var h = headerEl.offsetHeight;
+        document.documentElement.style.setProperty('--site-header-height', h + 'px');
+      }
+      syncHeaderHeight();
+      window.addEventListener('resize', syncHeaderHeight);
+      // Recompute once fonts/images have settled
+      window.addEventListener('load', syncHeaderHeight);
+
+      function updateCount() {
+        var total = regionsGrid.querySelectorAll('.country').length;
+        countEl.textContent = total + (total === 1 ? ' country' : ' countries');
+      }
+
+      function openSites() {
+        syncHeaderHeight();
+        lastFocused = document.activeElement;
+        overlay.hidden = false;
+        void overlay.offsetWidth; // reflow for animation
+        overlay.classList.add('open');
+        document.body.classList.add('no-scroll');
+        openBtn.setAttribute('aria-expanded', 'true');
+        setTimeout(function () { searchBox.focus(); }, 120);
+      }
+
+      function closeSites() {
+        overlay.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+        openBtn.setAttribute('aria-expanded', 'false');
+        setTimeout(function () {
+          overlay.hidden = true;
+          if (lastFocused && typeof lastFocused.focus === 'function') {
+            lastFocused.focus();
+          }
+          searchBox.value = '';
+          filterCountries('');
+          document.getElementById('sitesBody').scrollTop = 0;
+        }, 200);
+      }
+
+      openBtn.addEventListener('click', function () {
+        if (overlay.classList.contains('open')) closeSites();
+        else openSites();
+      });
+
+      closeBtn.addEventListener('click', closeSites);
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) closeSites();
+      });
+
+      /* ---------- Country search filter ---------- */
+      function filterCountries(query) {
+        var q = (query || '').trim().toLowerCase();
+        var regions = regionsGrid.querySelectorAll('.region');
+        var totalVisible = 0;
+
+        regions.forEach(function (region) {
+          var countryLinks = region.querySelectorAll('.country');
+          var regionTitle = region.querySelector('.region-link').textContent.toLowerCase();
+          var regionMatches = !q || regionTitle.indexOf(q) !== -1;
+          var visibleInRegion = 0;
+
+          countryLinks.forEach(function (li) {
+            var match = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
+            li.style.display = match ? '' : 'none';
+            if (match) visibleInRegion++;
+          });
+
+          if (!q || regionMatches || visibleInRegion > 0) {
+            region.style.display = '';
+            totalVisible += visibleInRegion || (regionMatches ? countryLinks.length : 0);
+          } else {
+            region.style.display = 'none';
+          }
+        });
+
+        if (q) {
+          countEl.textContent = totalVisible + (totalVisible === 1 ? ' result' : ' results');
+        } else {
+          updateCount();
+        }
+
+        emptyMsg.classList.toggle('visible', totalVisible === 0 && q.length > 0);
+      }
+
+      searchBox.addEventListener('input', function () {
+        filterCountries(this.value);
+      });
+
+      resetBtn.addEventListener('click', function () {
+        searchBox.value = '';
+        filterCountries('');
+        searchBox.focus();
+      });
+
+      /* ---------- Init ---------- */
+      updateCount();
+
+      /* ---------- Dynamic copyright year ---------- */
+      var yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    })();
+  </script>
+
+</body>
+</html>

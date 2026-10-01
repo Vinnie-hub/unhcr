@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#E4E8EC"/>
+  <g fill="none" stroke="#0F3D5C" stroke-opacity="0.2" stroke-width="1.5">
+    <line x1="0" y1="0" x2="800" y2="600"/>
+    <line x1="800" y1="0" x2="0" y2="600"/>
+  </g>
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="42" fill="#0F3D5C" opacity="0.85">Gallery photo 6</text>
+</svg>

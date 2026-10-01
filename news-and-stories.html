@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News and stories | UNHCR</title>
+  <meta name="description" content="Read the latest announcements, briefing notes, press releases, speeches, statements and stories from UNHCR, the UN Refugee Agency." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <style>
+    /* ---------- Reset & Base ---------- */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --unhcr-blue: #0072bc;
+      --unhcr-dark-blue: #005a9c;
+      --unhcr-navy: #18375f;
+      --unhcr-light-blue: #8ebeff;
+      --unhcr-pale-blue: #e8f1f8;
+      --unhcr-gray: #f4f5f7;
+      --unhcr-mid-gray: #d8dde3;
+      --unhcr-text: #1e2a35;
+      --unhcr-text-light: #5a6b7b;
+      --unhcr-white: #ffffff;
+      --unhcr-red: #ef4a60;
+      --unhcr-teal: #00b398;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius: 6px;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--unhcr-text);
+      background: var(--unhcr-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    a { color: var(--unhcr-blue); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--unhcr-dark-blue); text-decoration: underline; }
+
+    ul { list-style: none; }
+
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-block; padding: 10px 22px; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.9rem; text-align: center; cursor: pointer;
+      border: 2px solid transparent; transition: all var(--transition);
+      text-decoration: none; line-height: 1.4;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+    .btn-primary { background: var(--unhcr-blue); color: var(--unhcr-white); border-color: var(--unhcr-blue); }
+    .btn-primary:hover { background: var(--unhcr-dark-blue); border-color: var(--unhcr-dark-blue); color: var(--unhcr-white); }
+
+    .btn-outline-dark { background: transparent; color: var(--unhcr-text); border-color: var(--unhcr-text); }
+    .btn-outline-dark:hover { background: var(--unhcr-text); color: var(--unhcr-white); }
+
+    .btn-outline-light { background: transparent; color: var(--unhcr-white); border-color: var(--unhcr-white); }
+    .btn-outline-light:hover { background: var(--unhcr-white); color: var(--unhcr-navy); }
+
+    .btn-secondary { background: var(--unhcr-navy); color: var(--unhcr-white); border-color: var(--unhcr-navy); }
+    .btn-secondary:hover { background: #0f1a25; border-color: #0f1a25; color: var(--unhcr-white); }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      background: var(--unhcr-white); border-bottom: 1px solid var(--unhcr-mid-gray);
+      position: sticky; top: 0; z-index: 1000;
+    }
+
+    .header-top {
+      background: var(--unhcr-navy); color: var(--unhcr-white);
+      font-size: 0.8rem; padding: 6px 0;
+    }
+    .header-top .container {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 8px;
+    }
+    .header-top a { color: var(--unhcr-white); text-decoration: none; font-weight: 500; }
+    .header-top a:hover { text-decoration: underline; }
+    .header-top .lang-links { display: flex; gap: 12px; }
+    .header-top .lang-links a { opacity: 0.8; }
+    .header-top .lang-links a.active { opacity: 1; font-weight: 700; }
+
+    .header-main { padding: 14px 0; }
+    .header-main .container {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo img { height: 44px; width: auto; }
+    .logo-text {
+      font-size: 0.75rem; font-weight: 700; color: var(--unhcr-navy);
+      letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.2;
+    }
+    .logo-text span { display: block; font-weight: 400; color: var(--unhcr-text-light); font-size: 0.65rem; }
+
+    .header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .header-actions .btn { padding: 8px 18px; font-size: 0.85rem; }
+
+    /* ---------- Navigation ---------- */
+    .main-nav { background: var(--unhcr-navy); position: relative; }
+    .main-nav .container { display: flex; align-items: center; }
+
+    .nav-list { display: flex; flex-wrap: wrap; gap: 0; width: 100%; }
+    .nav-list > li { position: relative; }
+    .nav-list > li > a {
+      display: block; color: var(--unhcr-white); padding: 14px 18px;
+      font-size: 0.9rem; font-weight: 500; text-decoration: none;
+      transition: background var(--transition);
+    }
+    .nav-list > li > a:hover, .nav-list > li > a.active { background: rgba(255,255,255,0.1); text-decoration: none; }
+    .nav-list > li > a::after {
+      content: ''; display: inline-block; width: 6px; height: 6px;
+      border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+      transform: rotate(45deg); margin-left: 8px; position: relative;
+      top: -2px; opacity: 0.7;
+    }
+    .nav-list > li:last-child > a::after, .nav-list > li.no-drop > a::after { display: none; }
+
+    .nav-toggle {
+      display: none; background: none; border: none; color: var(--unhcr-white);
+      font-size: 1.6rem; cursor: pointer; padding: 12px 16px;
+    }
+
+    /* ---------- Breadcrumb ---------- */
+    .breadcrumb-bar {
+      background: var(--unhcr-gray);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--unhcr-mid-gray);
+    }
+    .breadcrumb { font-size: 0.85rem; color: var(--unhcr-text-light); }
+    .breadcrumb a { color: var(--unhcr-blue); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb .sep { margin: 0 8px; }
+
+    /* ---------- Hero Slider ---------- */
+    .hero-slider {
+      position: relative;
+      background: var(--unhcr-navy);
+      color: var(--unhcr-white);
+      overflow: hidden;
+      min-height: 520px;
+    }
+    .hero-slide {
+      display: none;
+      position: relative;
+      min-height: 520px;
+      align-items: center;
+    }
+    .hero-slide.active { display: flex; }
+    .hero-slide .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-slide .hero-bg img {
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.35;
+    }
+    .hero-slide .container {
+      position: relative; z-index: 1; padding-top: 60px; padding-bottom: 60px;
+    }
+    .hero-slide .hero-content { max-width: 600px; }
+    .hero-slide .pre-title {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; color: #8ec8f0;
+      margin-bottom: 12px; background: rgba(255,255,255,0.1);
+      padding: 4px 12px; border-radius: 2px;
+    }
+    .hero-slide h2 { font-size: 2.4rem; font-weight: 700; line-height: 1.2; margin-bottom: 18px; }
+    .hero-slide .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .slider-controls {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      z-index: 2;
+      display: flex;
+      gap: 8px;
+    }
+    .slider-controls button {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.4);
+      color: var(--unhcr-white);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slider-controls button:hover {
+      background: var(--unhcr-white);
+      color: var(--unhcr-navy);
+    }
+    .slider-dots {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      gap: 8px;
+    }
+    .slider-dots button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      padding: 0;
+    }
+    .slider-dots button.active {
+      background: var(--unhcr-white);
+      transform: scale(1.3);
+    }
+
+    /* ---------- Section ---------- */
+    .section { padding: 60px 0; }
+    .section-gray { background: var(--unhcr-gray); }
+    .section-pale-blue { background: var(--unhcr-pale-blue); }
+
+    .section h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 24px;
+    }
+
+    /* ---------- Category Tiles ---------- */
+    .category-tiles {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .category-tile {
+      text-align: center;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--unhcr-white);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      text-decoration: none;
+    }
+    .category-tile:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      text-decoration: none;
+    }
+    .category-tile .tile-icon {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      background: var(--unhcr-pale-blue);
+    }
+    .category-tile .tile-label {
+      padding: 12px 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+    }
+
+    /* ---------- Featured Article ---------- */
+    .featured-article {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
+      align-items: center;
+      background: var(--unhcr-white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 48px;
+    }
+    .featured-article .featured-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    .featured-article .featured-content {
+      padding: 32px 32px 32px 0;
+    }
+    .featured-article .news-category {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--unhcr-blue);
+      margin-bottom: 8px;
+    }
+    .featured-article h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .featured-article h3 a { color: var(--unhcr-navy); text-decoration: none; }
+    .featured-article h3 a:hover { color: var(--unhcr-blue); }
+    .featured-article .news-date {
+      font-size: 0.85rem;
+      color: var(--unhcr-text-light);
+      margin-bottom: 16px;
+    }
+    .featured-article p {
+      font-size: 0.95rem;
+      color: var(--unhcr-text-light);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    /* ---------- Article Grid ---------- */
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .article-card {
+      background: var(--unhcr-white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .article-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .article-card .card-image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .article-card:hover .card-image img { transform: scale(1.03); }
+    .article-card .card-body {
+      padding: 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .article-card .news-category {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--unhcr-blue);
+      margin-bottom: 6px;
+    }
+    .article-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 8px;
+      flex: 1;
+    }
+    .article-card h3 a { color: var(--unhcr-navy); text-decoration: none; }
+    .article-card h3 a:hover { color: var(--unhcr-blue); }
+    .article-card .news-date {
+      font-size: 0.8rem;
+      color: var(--unhcr-text-light);
+      margin-top: auto;
+    }
+
+    .load-more-wrapper {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* ---------- Donation CTA ---------- */
+    .donate-cta {
+      text-align: center;
+      padding: 60px 0;
+      background: var(--unhcr-navy);
+      color: var(--unhcr-white);
+    }
+    .donate-cta h2 { color: var(--unhcr-white); margin-bottom: 12px; }
+    .donate-cta p { color: rgba(255,255,255,0.85); margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+    /* ---------- Footer ---------- */
+    .site-footer { background: var(--unhcr-navy); color: var(--unhcr-white); padding: 50px 0 30px; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    .footer-col h3 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; color: var(--unhcr-white); }
+    .footer-col p { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-bottom: 14px; line-height: 1.6; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a { color: rgba(255,255,255,0.8); font-size: 0.9rem; text-decoration: none; transition: color var(--transition); }
+    .footer-col ul a:hover { color: var(--unhcr-white); text-decoration: underline; }
+    .footer-col .btn { margin-top: 6px; font-size: 0.85rem; padding: 8px 18px; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-bottom .footer-logo img { height: 60px; width: auto; }
+    .footer-bottom .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-bottom .footer-links a { color: rgba(255,255,255,0.7); font-size: 0.85rem; text-decoration: none; }
+    .footer-bottom .footer-links a:hover { color: var(--unhcr-white); }
+    .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 992px) {
+      .hero-slide h2 { font-size: 1.8rem; }
+      .category-tiles { grid-template-columns: repeat(3, 1fr); }
+      .featured-article { grid-template-columns: 1fr; }
+      .featured-article .featured-content { padding: 0 24px 24px; }
+      .featured-article .featured-image img { height: 280px; }
+      .article-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-list { display: none; flex-direction: column; width: 100%; }
+      .nav-list.open { display: flex; }
+      .nav-list > li > a { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 20px; }
+      .nav-toggle { display: block; }
+      .main-nav .container { justify-content: flex-end; }
+    }
+
+    @media (max-width: 768px) {
+      .header-main .container { flex-direction: column; align-items: flex-start; }
+      .header-actions { width: 100%; justify-content: flex-start; }
+      .category-tiles { grid-template-columns: repeat(2, 1fr); }
+      .article-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-slide h2 { font-size: 1.5rem; }
+      .featured-article h3 { font-size: 1.3rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-slide h2 { font-size: 1.3rem; }
+      .section { padding: 40px 0; }
+      .category-tiles { grid-template-columns: 1fr; }
+      .hero-slide .hero-buttons { flex-direction: column; }
+      .hero-slide .hero-buttons .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <div>UNHCR global website: <a href="#">Change site <span style="display:inline-block;width:8px;height:8px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);margin-left:4px;position:relative;top:-2px;"></span></a></div>
+        <div class="lang-links">
+          <a href="#" class="active">English</a>
+          <a href="#">Français</a>
+          <a href="#">Español</a>
+          <a href="#">عربي</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container">
+        <a href="/index.html" class="logo" aria-label="UNHCR home">
+          <img src="/images/logos/unhcr-logo.svg"
+               alt="UNHCR"/>
+          <div class="logo-text">
+            UNHCR
+            <span>The UN Refugee Agency</span>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate</a>
+          <a href="/get-help.html" class="btn btn-secondary" target="_blank" rel="noopener">Get help</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="container">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="/about-unhcr.html">About UNHCR</a></li>
+          <li><a href="/what-we-do.html">What we do</a></li>
+          <li><a href="/where-we-work.html">Where we work</a></li>
+          <li><a href="/news-and-stories.html" class="active">News and stories</a></li>
+          <li><a href="/get-involved.html">Get involved</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== BREADCRUMB ==================== -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/index.html">Home</a>
+        <span class="sep">/</span>
+        <span>News and stories</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== HERO SLIDER ==================== -->
+  <section class="hero-slider" aria-label="Featured news slideshow">
+
+    <!-- Slide 1 -->
+    <div class="hero-slide active">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&q=80"
+             alt="Hungarian refugees in Austria, 1956" loading="eager" />
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="pre-title">Press releases</span>
+          <h2>To mark 75 years of the Refugee Convention, 75 global voices unite with UNHCR to launch 'The Promise'</h2>
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-secondary">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1600&q=80"
+             alt="Children carry belongings up a sandy riverbank" loading="lazy" />
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="pre-title">Briefing notes</span>
+          <h2>UNHCR: 75 years on, the Refugee Convention remains a lifeline for millions</h2>
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-secondary">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1600&q=80"
+             alt="A smiling man drawing a pencil portrait" loading="lazy" />
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="pre-title">Stories</span>
+          <h2>UNHCR chief hails refugee courage and Ethiopia's inclusion on World Refugee Day</h2>
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-secondary">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider Controls -->
+    <div class="slider-controls">
+      <button class="prev" aria-label="Previous slide">‹</button>
+      <button class="next" aria-label="Next slide">›</button>
+    </div>
+    <div class="slider-dots">
+      <button class="active" aria-label="Go to slide 1"></button>
+      <button aria-label="Go to slide 2"></button>
+      <button aria-label="Go to slide 3"></button>
+    </div>
+
+  </section>
+
+  <!-- ==================== CATEGORY TILES ==================== -->
+  <section class="section">
+    <div class="container">
+      <h2>Browse by category</h2>
+      <div class="category-tiles">
+  <a href="#" class="category-tile">
+    <div class="tile-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="1.75"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
+        <path d="M18 14h-8"/>
+        <path d="M15 18h-5"/>
+        <path d="M10 6h8v4h-8V6Z"/>
+      </svg>
+    </div>
+    <div class="tile-label">Press releases</div>
+  </a>
+
+  <a href="#" class="category-tile">
+    <div class="tile-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="1.75"
+           stroke-linecap="round" stroke-linejoin="round">
+        <rect width="8" height="4" x="8" y="2" rx="1" ry="1"/>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+        <path d="M9 12h6"/>
+        <path d="M9 16h6"/>
+      </svg>
+    </div>
+    <div class="tile-label">Briefing notes</div>
+  </a>
+
+  <a href="#" class="category-tile">
+    <div class="tile-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="1.75"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 7v14"/>
+        <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>
+      </svg>
+    </div>
+    <div class="tile-label">Stories</div>
+  </a>
+
+  <a href="#" class="category-tile">
+    <div class="tile-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="1.75"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+        <path d="M20 3v4"/>
+        <path d="M22 5h-4"/>
+      </svg>
+    </div>
+    <div class="tile-label">Special features</div>
+  </a>
+
+  <a href="#" class="category-tile">
+    <div class="tile-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="1.75"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19v3"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <rect x="9" y="2" width="6" height="13" rx="3"/>
+      </svg>
+    </div>
+    <div class="tile-label">Statements</div>
+  </a>
+
+  <a href="#" class="category-tile">
+    <div class="tile-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="1.75"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9"/>
+        <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5"/>
+        <circle cx="12" cy="9" r="2"/>
+        <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47"/>
+        <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1"/>
+        <path d="M9.5 18h5"/>
+        <path d="m8 22 4-11 4 11"/>
+      </svg>
+    </div>
+    <div class="tile-label">Media centre</div>
+  </a>
+</div>
+  </section>
+
+  <!-- ==================== LATEST NEWS ==================== -->
+  <section class="section section-gray">
+    <div class="container">
+      <h2>Latest news and stories</h2>
+
+      <!-- Featured Article -->
+      <article class="featured-article">
+        <div class="featured-image">
+          <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=900&q=80"
+               alt="Featured story image" loading="lazy" />
+        </div>
+        <div class="featured-content">
+          <div class="news-category">Press releases</div>
+          <h3><a href="#">UNHCR sounds the alarm as 8.3 million risk losing their lifeline</a></h3>
+          <div class="news-date">29 September 2026</div>
+          <p>UNHCR is warning that critical funding shortfalls could leave millions of refugees without essential life-saving assistance, including shelter, food, water and medical care.</p>
+          <a href="#" class="btn btn-outline-dark">Read more</a>
+        </div>
+      </article>
+
+      <!-- Article Grid -->
+      <div class="article-grid">
+
+        <article class="article-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1523803326055-1345a7c6a5c6?w=600&q=80"
+                 alt="UNHCR marks 75 years of the 1951 Convention" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <div class="news-category">Press releases</div>
+            <h3><a href="#">UNHCR marks 75 years of the 1951 Convention Relating to the Status of Refugees</a></h3>
+            <div class="news-date">28 July 2026</div>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80"
+                 alt="Timely support helps refugee families" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <div class="news-category">Stories</div>
+            <h3><a href="#">Timely support helps refugee families meet urgent needs across Kenya</a></h3>
+            <div class="news-date">16 July 2026</div>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80"
+                 alt="Support from the British People" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <div class="news-category">Stories</div>
+            <h3><a href="#">Support from the British People helps sustain life-saving services in Kakuma</a></h3>
+            <div class="news-date">22 April 2026</div>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80"
+                 alt="High Commissioner's remarks" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <div class="news-category">Speeches and statements</div>
+            <h3><a href="#">High Commissioner's remarks at the Senate of the Republic of Mexico</a></h3>
+            <div class="news-date">29 September 2026</div>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=600&q=80"
+                 alt="Statement to the UN Security Council" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <div class="news-category">Speeches and statements</div>
+            <h3><a href="#">Statement by the High Commissioner for Refugees to the UN Security Council 2026</a></h3>
+            <div class="news-date">25 September 2026</div>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80"
+                 alt="Rohingya crisis high-level event" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <div class="news-category">Speeches and statements</div>
+            <h3><a href="#">Remarks by the High Commissioner at the high-level event on the Rohingya crisis</a></h3>
+            <div class="news-date">23 September 2026</div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="load-more-wrapper">
+        <a href="#" class="btn btn-outline-dark">Load more stories</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DONATE CTA ==================== -->
+  <section class="donate-cta">
+    <div class="container">
+      <h2>Stay informed about the issues that matter</h2>
+      <p>Your support helps UNHCR continue to protect and assist people forced to flee around the world.</p>
+      <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate now</a>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <h3>Support our work</h3>
+          <p>Please help refugees in need.</p>
+          <a href="/donate.html" class="btn btn-outline-light" target="_blank" rel="noopener">Donate now</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay connected</h3>
+          <p>Follow us on</p>
+          <ul>
+            <li><a href="https://x.com/refugees" target="_blank" rel="noopener">X</a></li>
+            <li><a href="https://www.facebook.com/UNHCR" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.instagram.com/refugees/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.youtube.com/c/unhcr" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="https://www.tiktok.com/@refugees" target="_blank" rel="noopener">TikTok</a></li>
+            <li><a href="https://www.linkedin.com/company/unhcr/" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay informed</h3>
+          <p>Sign up to our newsletter to learn more about people forced to flee and how you can support them.</p>
+          <a href="#" class="btn btn-outline-light">Subscribe</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact us</h3>
+          <ul>
+            <li><a href="#">Frequently asked questions</a></li>
+            <li><a href="#">Contact UNHCR</a></li>
+            <li><a href="#">Media centre</a></li>
+            <li><a href="#">Report misconduct or abuse</a></li>
+            <li><a href="#">Report a fraudulent site or email</a></li>
+            <li><a href="#">Become a supplier</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <img src="/images/logos/unhcr-footer-logo.webp"
+               alt="UNHCR"/>
+        </div>
+        <div class="footer-links">
+          <a href="/privacy.html">Privacy notice</a>
+          <a href="#">Terms and conditions of use</a>
+          <a href="#">Copyright</a>
+        </div>
+        <div class="footer-copy">© UNHCR 2001–2026</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    // Mobile nav toggle
+    (function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var navList = document.querySelector('.nav-list');
+      if (toggle && navList) {
+        toggle.addEventListener('click', function () {
+          var expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          navList.classList.toggle('open');
+        });
+      }
+    })();
+
+    // Hero slider
+    (function () {
+      var slides = document.querySelectorAll('.hero-slide');
+      var dots = document.querySelectorAll('.slider-dots button');
+      var prev = document.querySelector('.slider-controls .prev');
+      var next = document.querySelector('.slider-controls .next');
+      var current = 0;
+      var total = slides.length;
+
+      function show(index) {
+        slides.forEach(function (s, i) { s.classList.toggle('active', i === index); });
+        dots.forEach(function (d, i) { d.classList.toggle('active', i === index); });
+        current = index;
+      }
+
+      if (prev) prev.addEventListener('click', function () { show((current - 1 + total) % total); });
+      if (next) next.addEventListener('click', function () { show((current + 1) % total); });
+      dots.forEach(function (d, i) { d.addEventListener('click', function () { show(i); }); });
+
+      // Auto-advance every 7 seconds
+      setInterval(function () { show((current + 1) % total); }, 7000);
+    })();
+  </script>
+
+</body>
+</html>

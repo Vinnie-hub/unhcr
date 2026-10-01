@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNHCR Data | UNHCR</title>
+  <meta name="description" content="Access UNHCR's key data reports, platforms, and tools. Explore the latest statistics and trends on refugees, asylum-seekers, displaced, and stateless people." />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="UNHCR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="UNHCR Data | UNHCR" />
+  <meta property="og:description" content="Access UNHCR's key data reports, platforms, and tools. Explore the latest statistics and trends on refugees, asylum-seekers, displaced, and stateless people." />
+  <meta property="og:image" content="images/logos/share-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------- Reset & Base ---------- */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --unhcr-blue: #0072bc;
+      --unhcr-dark-blue: #005a9c;
+      --unhcr-navy: #18375f;
+      --unhcr-light-blue: #8ebeff;
+      --unhcr-pale-blue: #e8f1f8;
+      --unhcr-gray: #f4f5f7;
+      --unhcr-mid-gray: #d8dde3;
+      --unhcr-text: #1e2a35;
+      --unhcr-text-light: #5a6b7b;
+      --unhcr-white: #ffffff;
+      --unhcr-red: #ef4a60;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius: 6px;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      color: var(--unhcr-text);
+      background: var(--unhcr-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--unhcr-blue); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--unhcr-dark-blue); text-decoration: underline; }
+    ul { list-style: none; }
+
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-block; padding: 10px 22px; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.9rem; text-align: center; cursor: pointer;
+      border: 2px solid transparent; transition: all var(--transition);
+      text-decoration: none; line-height: 1.4;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+    .btn-primary { background: var(--unhcr-blue); color: var(--unhcr-white); border-color: var(--unhcr-blue); }
+    .btn-primary:hover { background: var(--unhcr-dark-blue); border-color: var(--unhcr-dark-blue); color: var(--unhcr-white); }
+    .btn-secondary { background: var(--unhcr-navy); color: var(--unhcr-white); border-color: var(--unhcr-navy); }
+    .btn-secondary:hover { background: #0f1a25; border-color: #0f1a25; color: var(--unhcr-white); }
+    .btn-outline-dark { background: transparent; color: var(--unhcr-text); border-color: var(--unhcr-text); }
+    .btn-outline-dark:hover { background: var(--unhcr-text); color: var(--unhcr-white); }
+    .btn-outline-light { background: transparent; color: var(--unhcr-white); border-color: var(--unhcr-white); }
+    .btn-outline-light:hover { background: var(--unhcr-white); color: var(--unhcr-navy); }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      background: var(--unhcr-white); border-bottom: 1px solid var(--unhcr-mid-gray);
+      position: sticky; top: 0; z-index: 1000;
+    }
+    .header-top { background: var(--unhcr-navy); color: var(--unhcr-white); font-size: 0.8rem; padding: 6px 0; }
+    .header-top .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .header-top a { color: var(--unhcr-white); text-decoration: none; font-weight: 500; }
+    .header-top a:hover { text-decoration: underline; }
+    .header-top .lang-links { display: flex; gap: 12px; }
+    .header-top .lang-links a { opacity: 0.8; }
+    .header-top .lang-links a.active { opacity: 1; font-weight: 700; }
+
+    .header-main { padding: 14px 0; }
+    .header-main .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .logo-text span { display: block; font-weight: 400; color: var(--unhcr-text-light); font-size: 0.65rem; }
+    .header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .header-actions .btn { padding: 8px 18px; font-size: 0.85rem; }
+
+    /* ---------- Nav ---------- */
+    .main-nav { background: var(--unhcr-navy); position: relative; }
+    .main-nav .container { display: flex; align-items: center; }
+    .nav-list { display: flex; flex-wrap: wrap; gap: 0; width: 100%; }
+    .nav-list > li { position: relative; }
+    .nav-list > li > a {
+      display: block; color: var(--unhcr-white); padding: 14px 18px;
+      font-size: 0.9rem; font-weight: 500; text-decoration: none;
+      transition: background var(--transition);
+    }
+    .nav-list > li > a:hover,
+    .nav-list > li > a.active { background: rgba(255,255,255,0.1); text-decoration: none; }
+    .nav-list > li > a::after {
+      content: ''; display: inline-block; width: 6px; height: 6px;
+      border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+      transform: rotate(45deg); margin-left: 8px; position: relative; top: -2px; opacity: 0.7;
+    }
+    .nav-list > li.no-drop > a::after { display: none; }
+    .nav-toggle {
+      display: none; background: none; border: none; color: var(--unhcr-white);
+      font-size: 1.6rem; cursor: pointer; padding: 12px 16px;
+    }
+
+    /* ---------- Breadcrumbs ---------- */
+    .breadcrumbs-bar { background: var(--unhcr-gray); border-bottom: 1px solid var(--unhcr-mid-gray); padding: 12px 0; }
+    .breadcrumb { display: flex; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--unhcr-text-light); align-items: center; }
+    .breadcrumb a { color: var(--unhcr-blue); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb .sep { color: var(--unhcr-text-light); opacity: 0.6; }
+
+    /* ---------- Page Header ---------- */
+    .page-header { background: var(--unhcr-navy); color: var(--unhcr-white); padding: 50px 0; }
+    .page-header h1 { font-size: 2.2rem; font-weight: 700; line-height: 1.2; }
+    .page-header .page-kicker {
+      display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: #8ec8f0; background: rgba(255,255,255,0.1);
+      padding: 4px 12px; border-radius: 2px; margin-bottom: 14px;
+    }
+
+    /* ---------- Intro with Sidebar ---------- */
+    .section-intro-page { padding: 50px 0; }
+    .intro-grid { display: grid; grid-template-columns: 240px 1fr; gap: 40px; }
+
+    .subnav { position: sticky; top: 100px; align-self: start; }
+    .subnav h2 {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--unhcr-text-light); margin-bottom: 14px;
+    }
+    .subnav ul { display: flex; flex-direction: column; gap: 2px; }
+    .subnav ul a {
+      display: block; padding: 8px 12px; border-radius: var(--radius);
+      color: var(--unhcr-text); font-size: 0.9rem; text-decoration: none;
+      border-left: 3px solid transparent; transition: all var(--transition);
+    }
+    .subnav ul a:hover {
+      background: var(--unhcr-pale-blue); color: var(--unhcr-navy);
+      border-left-color: var(--unhcr-blue); text-decoration: none;
+    }
+
+    .intro-body p { font-size: 1rem; line-height: 1.75; margin-bottom: 1em; color: var(--unhcr-text); }
+    .intro-body strong { color: var(--unhcr-navy); }
+
+    /* ---------- Card Grids ---------- */
+    .section-cards { background: var(--unhcr-gray); padding: 60px 0; }
+    .section-cards.white { background: var(--unhcr-white); }
+    .section-cards h2 {
+      font-size: 1.6rem; font-weight: 700; color: var(--unhcr-navy);
+      margin-bottom: 12px;
+    }
+    .section-cards .section-lede {
+      font-size: 1rem; color: var(--unhcr-text-light); margin-bottom: 30px;
+      max-width: 720px;
+    }
+
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    .data-card {
+      background: var(--unhcr-white); border-radius: 8px; overflow: hidden;
+      box-shadow: var(--shadow); transition: transform var(--transition);
+      display: flex; flex-direction: column;
+    }
+    .data-card:hover { transform: translateY(-4px); }
+    .data-card .data-image img { width: 100%; height: 200px; object-fit: cover; }
+    .data-card .data-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .data-card h3 {
+      font-size: 1.1rem; font-weight: 700; color: var(--unhcr-navy);
+      margin-bottom: 10px; line-height: 1.35;
+    }
+    .data-card h3 a { color: var(--unhcr-navy); text-decoration: none; }
+    .data-card h3 a:hover { color: var(--unhcr-blue); }
+    .data-card ul { list-style: disc; padding-left: 20px; }
+    .data-card ul li {
+      font-size: 0.88rem; color: var(--unhcr-text-light);
+      margin-bottom: 6px; line-height: 1.5;
+    }
+    .data-card .data-link {
+      display: inline-block; margin-top: auto; padding-top: 14px;
+      font-size: 0.85rem; font-weight: 600; color: var(--unhcr-blue);
+    }
+    .data-card .data-link:hover { text-decoration: underline; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 992px) {
+      .page-header h1 { font-size: 1.7rem; }
+      .intro-grid { grid-template-columns: 1fr; }
+      .subnav { position: static; }
+      .subnav ul { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+      .subnav ul a { border-left: none; border-bottom: 2px solid transparent; padding: 6px 12px; }
+      .subnav ul a:hover { border-left-color: transparent; border-bottom-color: var(--unhcr-blue); }
+      .card-grid { grid-template-columns: 1fr 1fr; }
+      .nav-list { display: none; flex-direction: column; width: 100%; }
+      .nav-list.open { display: flex; }
+      .nav-list > li > a { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 20px; }
+      .nav-toggle { display: block; }
+      .main-nav .container { justify-content: flex-end; }
+    }
+    @media (max-width: 768px) {
+      .header-main .container { flex-direction: column; align-items: flex-start; }
+      .header-actions { width: 100%; justify-content: flex-start; }
+      .card-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr !important; }
+      .page-header h1 { font-size: 1.5rem; }
+    }
+
+    /* ---------- Footer ---------- */
+    .site-footer { background: var(--unhcr-navy); color: var(--unhcr-white); padding: 50px 0 30px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 40px; }
+    .footer-col h3 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; color: var(--unhcr-white); }
+    .footer-col p { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-bottom: 14px; line-height: 1.6; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a { color: rgba(255,255,255,0.8); font-size: 0.9rem; text-decoration: none; transition: color var(--transition); }
+    .footer-col ul a:hover { color: var(--unhcr-white); text-decoration: underline; }
+    .footer-col .btn { margin-top: 6px; font-size: 0.85rem; padding: 8px 18px; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-bottom .footer-logo img {
+      height: 40px;
+      width: auto;
+    }
+    .footer-logo-mark .logo-mark { background: var(--unhcr-white); color: var(--unhcr-navy); }
+    .footer-bottom .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-bottom .footer-links a { color: rgba(255,255,255,0.7); font-size: 0.85rem; text-decoration: none; }
+    .footer-bottom .footer-links a:hover { color: var(--unhcr-white); }
+    .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <div>UNHCR global website: <a href="#">Change site ▾</a></div>
+        <div class="lang-links">
+          <a href="#" class="active">English</a>
+          <a href="#">Français</a>
+          <a href="#">Español</a>
+          <a href="#">عربي</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container">
+        <a href="/index.html" class="logo" aria-label="UNHCR home">
+          <img src="/images/logos/unhcr-logo.svg"
+               alt="UNHCR" />
+          <div class="logo-text">
+            UNHCR
+            <span>The UN Refugee Agency</span>
+          </div>
+        </a>
+        <div class="header-actions">
+          <a href="/donate.html" class="btn btn-primary">Donate</a>
+          <a href="/get-help.html" class="btn btn-secondary">Get help</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="container">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="/about.html">About UNHCR</a></li>
+          <li class="no-drop"><a href="/what-we-do.html" class="active">What we do</a></li>
+          <li><a href="/where-we-work.html">Where we work</a></li>
+          <li><a href="/news-and-stories.html">News and stories</a></li>
+          <li class="no-drop"><a href="/get-involved.html">Get involved</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== BREADCRUMBS ==================== -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/what-we-do.html">What we do</a>
+        <span class="sep">/</span>
+        <a href="/what-we-do/data-and-publications.html">Data and publications</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE HEADER ==================== -->
+  <section class="page-header">
+    <div class="container">
+      <span class="page-kicker">Data and statistics</span>
+      <h1>UNHCR Data</h1>
+    </div>
+  </section>
+
+  <!-- ==================== INTRO WITH SIDEBAR ==================== -->
+  <section class="section-intro-page">
+    <div class="container">
+      <div class="intro-grid">
+
+        <!-- Sub navigation -->
+        <aside class="subnav" aria-label="In this section">
+          <h2>In this section:</h2>
+          <ul>
+            <li><a href="#">Data protection</a></li>
+            <li><a href="#">Global public API</a></li>
+            <li><a href="#">Statistical partnerships</a></li>
+            <li><a href="#">Data blog</a></li>
+            <li><a href="#">Forced Displacement Survey</a></li>
+          </ul>
+        </aside>
+
+        <!-- Intro body -->
+        <div class="intro-body">
+          <p>At UNHCR we work with data and statistics, which are helping us to understand important information to save, protect and improve the lives of refugees, other forcibly displaced and stateless people. Based on good data, we can make informed decisions around our work and better plan for future operations. Data also allows us to demonstrate accountability to beneficiaries, governments, partners and donors in a tangible and comparable way.</p>
+
+          <p><strong>Our vision, strategic priorities and key actions are outlined in our <a href="#">Data Transformation Strategy</a>.</strong></p>
+
+          <p>The collection and use of refugee data are mandated by the 1951 Refugee Convention and by the <a href="#">Statute of the Office of the High Commissioner for Refugees</a>. The confidentiality of refugee data and related information is highly respected by UNHCR and our partners and the processing and protection of personal data are anchored in <a href="#">UNHCR's Data Protection Policy</a>. To learn more about the collection of refugee data read the <a href="#">Registration and Identity Management Guidelines</a>.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN DATA PUBLICATIONS ==================== -->
+  <section class="section-cards">
+    <div class="container">
+      <h2>UNHCR main data publications</h2>
+      <p class="section-lede">Flagship reports and datasets covering forced displacement, funding, and global trends.</p>
+
+      <div class="card-grid">
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/RF1436183.jpg"
+                 alt="Afghan families returning through the Torkham border"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">Global Trends report</a></h3>
+            <ul>
+              <li>Key trends and latest numbers of refugees, asylum-seekers, internally displaced and stateless people worldwide.</li>
+              <li>Latest numbers of people who have returned to their countries or areas of origin.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/RF1466127.jpg"
+                 alt="A smiling woman carries her baby boy on her back in front of a UNHCR tent"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">Global Report</a></h3>
+            <ul>
+              <li>Latest key results and achievements of UNHCR's work, including details about major refugee operations worldwide.</li>
+              <li>Contributions from top donors and funding figures for programmes.</li>
+              <li>Budget and expenditures.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/RF1428247.jpg"
+                 alt="More than 41,000 Sudanese refugees flee across the Chad border in 2025"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">Global Appeal</a></h3>
+            <ul>
+              <li>UNHCR's financial requirements for the coming year.</li>
+              <li>Priorities and budget activities for the next annual period.</li>
+              <li>Global strategic priorities.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/RF1447528.jpg"
+                 alt="A family of four refugee returnees stand in front of their partially-collapsed home in Daraa, southern Syria"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">Mid-Year Trends report</a></h3>
+            <ul>
+              <li>Statistical data on global displacement trends from January to June each year.</li>
+              <li>Selected forecast on how displacement trends may look in the year ahead.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/indicator-report.jpg"
+                 alt="A wall painting in blue and pink shades picturing the head of a woman looking up towards the sky"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">Global Compact on Refugees Indicator report</a></h3>
+            <ul>
+              <li>Progress across the four GCR objectives, such as assisting refugee-hosting countries with lower incomes and increasing refugees' access to education, economic inclusion, resettlement, and complementary pathways.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PLATFORMS AND TOOLS ==================== -->
+  <section class="section-cards white">
+    <div class="container">
+      <h2>Platforms and tools</h2>
+      <p class="section-lede">Data management systems and statistical databases help us and our partners to improve our work, optimize our resources and make informed evidence-based decisions. Find a selection of platforms and tools below:</p>
+
+      <div class="card-grid">
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/refugee-statistics.jpg"
+                 alt="Refugee Population Statistics"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">Refugee population statistics database</a></h3>
+            <p style="font-size:0.9rem;color:var(--unhcr-text-light);">The database provides statistics on global forced displacement, including about UNHCR's populations of concern from 1951 until today.</p>
+          </div>
+        </article>
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/global-focus.jpg"
+                 alt="Global Focus UNHCR"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">Planning, funding and results</a></h3>
+            <p style="font-size:0.9rem;color:var(--unhcr-text-light);">This section provides key financial reports – including the Global Appeal and Global Report – and up-to-date information on flexible funding, underfunding, budget, expenditure and donor contributions.</p>
+          </div>
+        </article>
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/operational-data-portal.jpg"
+                 alt="UNHCR Operational Data Portal"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">Operational Data Portal</a></h3>
+            <p style="font-size:0.9rem;color:var(--unhcr-text-light);">Inter-agency coordination portal showing operational information about selected current emergencies.</p>
+          </div>
+        </article>
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/microdata.jpg"
+                 alt="Microdata Library"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">Microdata library</a></h3>
+            <p style="font-size:0.9rem;color:var(--unhcr-text-light);">The Microdata library provides access to microdata containing information at the individual level about refugees and other persons of concern to UNHCR.</p>
+          </div>
+        </article>
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/handbooks.jpg"
+                 alt="Handbooks and toolkits"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">Handbooks and toolkits</a></h3>
+            <p style="font-size:0.9rem;color:var(--unhcr-text-light);">This page gathers all recent handbooks and toolkits issued by UNHCR. They provide guidance, practical tools and resources on key topics related to UNHCR's work worldwide.</p>
+          </div>
+        </article>
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/clifdew-grid.jpg"
+                 alt="Screenshot of the CLIFDEW-GRID modelling system with a map of Africa"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">CLIFDEW-GRID</a></h3>
+            <p style="font-size:0.9rem;color:var(--unhcr-text-light);">An early warning grid-based risk modelling system that aims to help countries better predict and respond to climate-induced forced displacement.</p>
+          </div>
+        </article>
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/sociosat.jpg"
+                 alt="Aerial view of Farchana refugee camp, eastern Chad"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">From space to settlements: SocioSAT</a></h3>
+            <p style="font-size:0.9rem;color:var(--unhcr-text-light);">An innovative project that combines earth observation and machine learning to estimate socioeconomic conditions in refugee, IDP and host community settlements.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VISUALIZING DATA ==================== -->
+  <section class="section-cards">
+    <div class="container">
+      <h2>Visualizing data on displacement</h2>
+      <p class="section-lede">Storymaps and interactive visualizations bringing displacement data to life.</p>
+
+      <div class="card-grid">
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/drc-uprooted.jpg"
+                 alt="Democratic Republic of the Congo: Fleeing inter-ethnic violence in Ituri province"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">Uprooted in their own land</a></h3>
+            <p style="font-size:0.9rem;color:var(--unhcr-text-light);">Forced to flee their homes but remaining in their countries, the internally displaced are among the world's most vulnerable people.</p>
+          </div>
+        </article>
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/rohingya.jpg"
+                 alt="Bangladesh: Kutupalong extension site nears completion"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">Rohingya refugee emergency at a glance</a></h3>
+            <p style="font-size:0.9rem;color:var(--unhcr-text-light);">The influx to Bangladesh is one of the largest and fastest-growing refugee crises in decades.</p>
+          </div>
+        </article>
+
+        <article class="data-card">
+          <div class="data-image">
+            <img src="images/data/covid-kenya.jpg"
+                 alt="Kenya: UNHCR distributes hygiene kits and firewood during COVID-19 crisis"
+                 loading="lazy" />
+          </div>
+          <div class="data-body">
+            <h3><a href="#">COVID-19 and refugees</a></h3>
+            <p style="font-size:0.9rem;color:var(--unhcr-text-light);">The maps, stats and facts on how the pandemic has impeded efforts to protect the displaced and affected their access to basic rights.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <h3>Support our work</h3>
+          <p>Please help refugees in need.</p>
+          <a href="https://donate.unhcr.org/int/en/general" class="btn btn-outline-light" target="_blank" rel="noopener">Donate now</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay connected</h3>
+          <p>Follow us on</p>
+          <ul>
+            <li><a href="https://x.com/refugees" target="_blank" rel="noopener">X</a></li>
+            <li><a href="https://www.facebook.com/UNHCR" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.instagram.com/refugees/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.youtube.com/c/unhcr" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="https://www.tiktok.com/@refugees" target="_blank" rel="noopener">TikTok</a></li>
+            <li><a href="https://www.linkedin.com/company/unhcr/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.threads.net/@refugees" target="_blank" rel="noopener">Threads</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay informed</h3>
+          <p>Sign up to our newsletter to learn more about people forced to flee and how you can support them.</p>
+          <a href="/get-involved/sign-and-stay-informed.html" class="btn btn-outline-light">Subscribe</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact us</h3>
+          <ul>
+            <li><a href="#">Frequently asked questions</a></li>
+            <li><a href="#">Contact UNHCR</a></li>
+            <li><a href="#">Media centre</a></li>
+            <li><a href="#">Report misconduct or abuse</a></li>
+            <li><a href="#">Report a fraudulent site or email</a></li>
+            <li><a href="#">Become a supplier</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <img src="/images/logos/unhcr-footer-logo.webp"
+               alt="UNHCR"/>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy notice</a>
+          <a href="#">Terms and conditions of use</a>
+          <a href="#">Copyright</a>
+        </div>
+        <div class="footer-copy">© UNHCR 2001–<span id="year">2026</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    (function () {
+      // Mobile nav toggle
+      var toggle = document.querySelector('.nav-toggle');
+      var navList = document.querySelector('.nav-list');
+      if (toggle && navList) {
+        toggle.addEventListener('click', function () {
+          var expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          navList.classList.toggle('open');
+        });
+      }
+      // Dynamic year
+      var yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+</body>
+</html>

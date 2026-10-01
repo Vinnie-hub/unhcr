@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en-af" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help Renew Hope For Venezuelan Refugees | UNHCR Africa</title>
+  <meta name="description" content="Millions of Venezuelans have fled their homes. Your donation provides shelter, healthcare and protection for Venezuelan families forced to flee." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    /* ---------- Reset & Base ---------- */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --unhcr-blue: #0072bc;
+      --unhcr-dark-blue: #005a9c;
+      --unhcr-navy: #1a2a3a;
+      --unhcr-gray: #f4f5f7;
+      --unhcr-mid-gray: #d8dde3;
+      --unhcr-text: #1e2a35;
+      --unhcr-text-light: #5a6b7b;
+      --unhcr-white: #ffffff;
+      --unhcr-pale-blue: #e8f1f8;
+      --unhcr-green: #00b398;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius: 6px;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      --transition: 0.2s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--unhcr-text);
+      background: var(--unhcr-gray);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: var(--unhcr-blue);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    a:hover {
+      color: var(--unhcr-dark-blue);
+      text-decoration: underline;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-align: center;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all var(--transition);
+      text-decoration: none;
+      line-height: 1.4;
+      font-family: var(--font);
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--unhcr-blue);
+      color: var(--unhcr-white);
+      border-color: var(--unhcr-blue);
+    }
+
+    .btn-primary:hover {
+      background: var(--unhcr-dark-blue);
+      border-color: var(--unhcr-dark-blue);
+      color: var(--unhcr-white);
+    }
+
+    .btn-block {
+      display: block;
+      width: 100%;
+    }
+
+    .btn-lg {
+      padding: 16px 28px;
+      font-size: 1.05rem;
+    }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      background: var(--unhcr-white);
+      border-bottom: 1px solid var(--unhcr-mid-gray);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-main {
+      padding: 14px 0;
+    }
+
+    .header-main .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      display: block;
+      font-weight: 400;
+      color: var(--unhcr-text-light);
+      font-size: 0.65rem;
+    }
+
+    .secure-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--unhcr-green);
+    }
+
+    .secure-badge svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ---------- Page Layout ---------- */
+    .page-layout {
+      padding: 40px 0 60px;
+    }
+
+    .donate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ---------- Campaign Panel (left) ---------- */
+    .campaign-panel {
+      background: var(--unhcr-white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .campaign-image {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+    }
+
+    .campaign-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .campaign-image-caption {
+      position: absolute;
+      inset: auto 0 0 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+      color: var(--unhcr-white);
+      padding: 50px 24px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .campaign-body {
+      padding: 28px 28px 32px;
+    }
+
+    .campaign-body h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .campaign-body p {
+      font-size: 0.95rem;
+      color: var(--unhcr-text-light);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .campaign-body strong {
+      color: var(--unhcr-text);
+    }
+
+    .campaign-highlight {
+      background: var(--unhcr-pale-blue);
+      border-left: 4px solid var(--unhcr-blue);
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 18px 0;
+      font-size: 0.95rem;
+      color: var(--unhcr-text);
+      font-weight: 500;
+    }
+
+    /* ---------- Donation Form (right) ---------- */
+    .donation-card {
+      background: var(--unhcr-white);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: sticky;
+      top: 100px;
+    }
+
+    .donation-header {
+      background: var(--unhcr-navy);
+      color: var(--unhcr-white);
+      padding: 20px 28px;
+    }
+
+    .donation-header h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .donation-header p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .donation-body {
+      padding: 24px 28px 28px;
+    }
+
+    /* ---------- Step Indicator ---------- */
+    .steps {
+      display: flex;
+      gap: 0;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--unhcr-mid-gray);
+      padding-bottom: 16px;
+    }
+
+    .step {
+      flex: 1;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--unhcr-text-light);
+      padding: 0 4px;
+      position: relative;
+    }
+
+    .step.active {
+      color: var(--unhcr-blue);
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--unhcr-mid-gray);
+      color: var(--unhcr-text-light);
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-right: 6px;
+    }
+
+    .step.active .step-num {
+      background: var(--unhcr-blue);
+      color: var(--unhcr-white);
+    }
+
+    /* ---------- Frequency Toggle ---------- */
+    .frequency-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-bottom: 22px;
+      background: var(--unhcr-gray);
+      border-radius: var(--radius);
+      padding: 4px;
+    }
+
+    .frequency-toggle input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .frequency-toggle label {
+      display: block;
+      text-align: center;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--unhcr-text-light);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .frequency-toggle input[type="radio"]:checked + label {
+      background: var(--unhcr-white);
+      color: var(--unhcr-blue);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .frequency-toggle label:hover {
+      color: var(--unhcr-blue);
+    }
+
+    /* ---------- Amount Grid ---------- */
+    .amount-label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--unhcr-text);
+      margin-bottom: 10px;
+    }
+
+    .amount-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .amount-grid input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .amount-grid label {
+      display: block;
+      text-align: center;
+      padding: 14px 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--unhcr-navy);
+      background: var(--unhcr-white);
+      border: 2px solid var(--unhcr-mid-gray);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .amount-grid label:hover {
+      border-color: var(--unhcr-blue);
+      color: var(--unhcr-blue);
+    }
+
+    .amount-grid input[type="radio"]:checked + label {
+      background: var(--unhcr-pale-blue);
+      border-color: var(--unhcr-blue);
+      color: var(--unhcr-blue);
+    }
+
+    /* ---------- Custom Amount ---------- */
+    .custom-amount-wrapper {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .custom-amount-wrapper .currency-symbol {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--unhcr-text-light);
+      pointer-events: none;
+    }
+
+    .custom-amount-wrapper input[type="text"] {
+      width: 100%;
+      padding: 14px 16px 14px 52px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--unhcr-navy);
+      background: var(--unhcr-white);
+      border: 2px solid var(--unhcr-mid-gray);
+      border-radius: var(--radius);
+      font-family: var(--font);
+      transition: all var(--transition);
+    }
+
+    .custom-amount-wrapper input[type="text"]:focus {
+      outline: none;
+      border-color: var(--unhcr-blue);
+      box-shadow: 0 0 0 3px rgba(0, 114, 188, 0.12);
+    }
+
+    .custom-amount-wrapper input[type="text"]::placeholder {
+      font-weight: 400;
+      color: var(--unhcr-text-light);
+    }
+
+    /* ---------- Currency Select ---------- */
+    .currency-select-wrapper {
+      margin-bottom: 20px;
+    }
+
+    .currency-select-wrapper label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--unhcr-text);
+      margin-bottom: 8px;
+    }
+
+    .currency-select-wrapper select {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--unhcr-navy);
+      background: var(--unhcr-white);
+      border: 2px solid var(--unhcr-mid-gray);
+      border-radius: var(--radius);
+      font-family: var(--font);
+      cursor: pointer;
+      transition: all var(--transition);
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235a6b7b' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+
+    .currency-select-wrapper select:focus {
+      outline: none;
+      border-color: var(--unhcr-blue);
+      box-shadow: 0 0 0 3px rgba(0, 114, 188, 0.12);
+    }
+
+    /* ---------- Impact Box ---------- */
+    .impact-box {
+      background: var(--unhcr-pale-blue);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      margin-bottom: 22px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--unhcr-text);
+    }
+
+    .impact-box strong {
+      color: var(--unhcr-blue);
+    }
+
+    /* ---------- Donate Button ---------- */
+    .donate-submit {
+      margin-bottom: 18px;
+    }
+
+    /* ---------- Trust Signals ---------- */
+    .trust-signals {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--unhcr-text-light);
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .trust-signals .row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .trust-signals svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      color: var(--unhcr-green);
+    }
+
+    /* ---------- Payment Methods ---------- */
+    .payment-methods {
+      border-top: 1px solid var(--unhcr-mid-gray);
+      padding-top: 18px;
+      text-align: center;
+    }
+
+    .payment-methods p {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--unhcr-text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+
+    .payment-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .payment-logos .card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      padding: 0 10px;
+      background: var(--unhcr-white);
+      border: 1px solid var(--unhcr-mid-gray);
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      letter-spacing: 0.03em;
+    }
+
+    /* ---------- Donor Promise ---------- */
+    .donor-promise {
+      background: var(--unhcr-white);
+      border-radius: 10px;
+      padding: 28px;
+      margin-top: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .donor-promise h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 12px;
+    }
+
+    .donor-promise p {
+      font-size: 0.95rem;
+      color: var(--unhcr-text-light);
+      line-height: 1.7;
+    }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      background: var(--unhcr-navy);
+      color: var(--unhcr-white);
+      padding: 40px 0 24px;
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .footer-logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--unhcr-white);
+      text-decoration: underline;
+    }
+
+    .footer-contact {
+      text-align: right;
+    }
+
+    .footer-contact p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 6px;
+    }
+
+    .footer-contact a {
+      color: var(--unhcr-white);
+      font-weight: 600;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 992px) {
+      .donate-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .donation-card {
+        position: static;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-contact {
+        text-align: center;
+      }
+
+      .footer-links {
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-main .container {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .campaign-body {
+        padding: 22px 20px 26px;
+      }
+
+      .donation-body {
+        padding: 20px 20px 24px;
+      }
+
+      .donation-header {
+        padding: 18px 20px;
+      }
+
+      .amount-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .steps {
+        font-size: 0.75rem;
+      }
+
+      .step span:not(.step-num) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .amount-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .campaign-image {
+        height: 220px;
+      }
+
+      .campaign-image-caption {
+        padding: 30px 18px 16px;
+        font-size: 0.9rem;
+      }
+
+      .campaign-body h1 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="header-main">
+      <div class="container">
+        <a href="#" class="logo" aria-label="UNHCR Africa home">
+          <img src="https://www.unhcr.org/themes/custom/unhcr/images/logo/EN-UNHCR-Blue.svg"
+               alt="UNHCR"
+               onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/UNHCR.svg/320px-UNHCR.svg.png';" />
+          <div class="logo-text">
+            UNHCR Africa
+            <span>The UN Refugee Agency</span>
+          </div>
+        </a>
+
+        <div class="secure-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          Secure Donation
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN ==================== -->
+  <main class="page-layout">
+    <div class="container">
+      <div class="donate-grid">
+
+        <!-- ============ Campaign Panel ============ -->
+        <div class="campaign-panel">
+          <div class="campaign-image">
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1200&q=80"
+                 alt="Venezuelan family forced to flee their home" loading="eager" />
+            <div class="campaign-image-caption">
+              We need your help to continue providing life-saving protection to Venezuelan families forced to flee their homes
+            </div>
+          </div>
+
+          <div class="campaign-body">
+            <h1>Help Renew Hope For Venezuelan Refugees</h1>
+
+            <p><strong>Millions of children, women and men from Venezuela have fled to nearby countries to seek safety from violence, insecurity, lack of food and medicine, and increasing poverty.</strong> Many of these people are vulnerable and in need of urgent protection.</p>
+
+            <p>More than 5 million Venezuelans have left their country so far, and the majority are hosted in the region. This is the biggest displacement in Latin America's recent history.</p>
+
+            <div class="campaign-highlight">
+              The impact of the COVID-19 pandemic is dramatic, and it has pushed Venezuelans into a spiral of poverty and despair. <strong>We need your help.</strong>
+            </div>
+
+            <p>UNHCR is on the ground responding to their needs as the numbers continue to increase unabated. We are working to ensure the most vulnerable are protected with shelter, health care and documents that will allow them to access services, so they are not living in precarious situations, exposed and at risk.</p>
+
+            <p>But we can't do this alone.</p>
+
+            <p><strong>Please help by donating today.</strong></p>
+          </div>
+        </div>
+
+        <!-- ============ Donation Form ============ -->
+        <div class="donation-card">
+          <div class="donation-header">
+            <h2>Make a Donation</h2>
+            <p>Your gift provides life-saving support to Venezuelan families</p>
+          </div>
+
+          <div class="donation-body">
+
+            <!-- Step Indicator -->
+            <div class="steps">
+              <div class="step active">
+                <span class="step-num">1</span>
+                <span>Amount</span>
+              </div>
+              <div class="step">
+                <span class="step-num">2</span>
+                <span>Details</span>
+              </div>
+              <div class="step">
+                <span class="step-num">3</span>
+                <span>Payment</span>
+              </div>
+            </div>
+
+            <form id="donation-form" novalidate>
+
+              <!-- Frequency -->
+              <div class="frequency-toggle" role="radiogroup" aria-label="Donation frequency">
+                <input type="radio" name="frequency" id="frequency-once" value="once" checked />
+                <label for="frequency-once">Give Once</label>
+
+                <input type="radio" name="frequency" id="frequency-monthly" value="monthly" />
+                <label for="frequency-monthly">Monthly</label>
+              </div>
+
+              <!-- Amount -->
+              <span class="amount-label">Choose an amount</span>
+              <div class="amount-grid" role="radiogroup" aria-label="Donation amount">
+                <input type="radio" name="amount" id="amount-50" value="50" checked />
+                <label for="amount-50">US$ 50</label>
+
+                <input type="radio" name="amount" id="amount-100" value="100" />
+                <label for="amount-100">US$ 100</label>
+
+                <input type="radio" name="amount" id="amount-300" value="300" />
+                <label for="amount-300">US$ 300</label>
+              </div>
+
+              <!-- Custom Amount -->
+              <div class="custom-amount-wrapper">
+                <span class="currency-symbol" id="currency-symbol">US$</span>
+                <input type="text" id="custom-amount" name="custom_amount" placeholder="Enter your own amount" inputmode="numeric" autocomplete="transaction-amount" aria-label="Custom donation amount" />
+              </div>
+
+              <!-- Currency -->
+              <div class="currency-select-wrapper">
+                <label for="currency">Choose your currency</label>
+                <select id="currency" name="currency">
+                  <option value="USD" selected>United States Dollar (US$)</option>
+                  <option value="ZAR">South African Rand (R)</option>
+                  <option value="KES">Kenyan Shilling (Ksh)</option>
+                  <option value="NGN">Nigerian Naira (₦)</option>
+                  <option value="GHS">Ghanaian Cedi (GH₵)</option>
+                  <option value="XOF">West African CFA Franc (CFA)</option>
+                </select>
+              </div>
+
+              <!-- Impact Box -->
+              <div class="impact-box" id="impact-box">
+                <strong>US$ 50</strong> can provide an emergency shelter kit to a family forced to flee.
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" class="btn btn-primary btn-lg btn-block donate-submit">
+                Donate Now
+              </button>
+
+              <!-- Trust Signals -->
+              <div class="trust-signals">
+                <div class="row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>100% secure payment</span>
+                </div>
+                <div class="row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Your donation is tax-deductible where applicable</span>
+                </div>
+              </div>
+
+              <!-- Payment Methods -->
+              <div class="payment-methods">
+                <p>Secure payment methods</p>
+                <div class="payment-logos">
+                  <span class="card">VISA</span>
+                  <span class="card">Mastercard</span>
+                  <span class="card">AMEX</span>
+                  <span class="card">PayPal</span>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============ Donor Promise ============ -->
+      <div class="donor-promise">
+        <h2>Our Donor Promise</h2>
+        <p>If you have any questions about your donation or our work, please contact us at <a href="mailto:africa@unhcr.org">africa@unhcr.org</a> — we promise to reply as soon as we can. Your personal data will be used in line with our <a href="https://www.unhcr.org/privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>. You have the right to withdraw your consent at any time.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-logo">
+          <img src="https://www.unhcr.org/themes/custom/unhcr/images/logo/EN-UNHCR-White.svg"
+               alt="UNHCR"
+               onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/UNHCR.svg/320px-UNHCR.svg.png';" />
+          <p class="footer-copy">© UNHCR 2026</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="mailto:africa@unhcr.org">Contact us</a>
+          <a href="https://www.unhcr.org/donations-frequently-asked-questions" target="_blank" rel="noopener">Donors FAQ</a>
+          <a href="https://www.unhcr.org/accessibility" target="_blank" rel="noopener">Accessibility</a>
+          <a href="https://www.unhcr.org/privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>
+        </div>
+
+        <div class="footer-contact">
+          <p>Questions about your donation?</p>
+          <a href="mailto:africa@unhcr.org">africa@unhcr.org</a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      // Currency symbols for the custom amount field
+      var currencySymbols = {
+        USD: 'US$',
+        ZAR: 'R',
+        KES: 'Ksh',
+        NGN: '\u20A6',
+        GHS: 'GH\u20B5',
+        XOF: 'CFA'
+      };
+
+      // Impact messages per currency+amount tier
+      var impactMessages = {
+        USD: {
+          50: 'can provide an emergency shelter kit to a family forced to flee.',
+          100: 'can provide blankets, solar lamps and cooking utensils for two families.',
+          300: 'can provide cash assistance to help a displaced family meet urgent needs for a month.'
+        },
+        ZAR: {
+          50: 'can provide an emergency shelter kit to a family forced to flee.',
+          100: 'can provide blankets, solar lamps and cooking utensils for two families.',
+          300: 'can provide cash assistance to help a displaced family meet urgent needs for a month.'
+        },
+        KES: {
+          50: 'can provide an emergency shelter kit to a family forced to flee.',
+          100: 'can provide blankets, solar lamps and cooking utensils for two families.',
+          300: 'can provide cash assistance to help a displaced family meet urgent needs for a month.'
+        }
+      };
+
+      var currencySelect = document.getElementById('currency');
+      var currencySymbol = document.getElementById('currency-symbol');
+      var customAmount = document.getElementById('custom-amount');
+      var amountRadios = document.querySelectorAll('input[name="amount"]');
+      var impactBox = document.getElementById('impact-box');
+      var form = document.getElementById('donation-form');
+
+      // Update currency symbol when currency changes
+      currencySelect.addEventListener('change', function () {
+        var cur = this.value;
+        currencySymbol.textContent = currencySymbols[cur] || 'US$';
+        updateImpact();
+      });
+
+      // Clear custom amount when a preset is selected
+      amountRadios.forEach(function (radio) {
+        radio.addEventListener('change', function () {
+          if (this.checked) {
+            customAmount.value = '';
+          }
+          updateImpact();
+        });
+      });
+
+      // Clear preset selection when typing a custom amount
+      customAmount.addEventListener('input', function () {
+        if (this.value.trim() !== '') {
+          amountRadios.forEach(function (radio) { radio.checked = false; });
+        }
+        updateImpact();
+      });
+
+      // Update the impact message based on the current selection
+      function updateImpact() {
+        var cur = currencySelect.value;
+        var amount = getSelectedAmount();
+        var messages = impactMessages[cur] || impactMessages.USD;
+
+        // Find the closest message tier
+        var tier = 50;
+        if (amount >= 300) tier = 300;
+        else if (amount >= 100) tier = 100;
+
+        var msg = messages[tier] || messages[50];
+        var symbol = currencySymbols[cur] || 'US$';
+
+        if (amount > 0) {
+          impactBox.innerHTML = '<strong>' + symbol + ' ' + amount + '</strong> ' + msg;
+        } else {
+          impactBox.innerHTML = 'Choose an amount to see the impact of your gift.';
+        }
+      }
+
+      // Get the currently selected amount (preset or custom)
+      function getSelectedAmount() {
+        var custom = parseFloat(customAmount.value);
+        if (!isNaN(custom) && custom > 0) return custom;
+
+        for (var i = 0; i < amountRadios.length; i++) {
+          if (amountRadios[i].checked) {
+            return parseFloat(amountRadios[i].value);
+          }
+        }
+        return 0;
+      }
+
+      // Handle form submission (preview only — plug in your real payment gateway here)
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var amount = getSelectedAmount();
+        var cur = currencySelect.value;
+        var freq = document.querySelector('input[name="frequency"]:checked').value;
+
+        if (amount <= 0) {
+          alert('Please choose or enter a donation amount.');
+          return;
+        }
+
+        // In production, this is where you'd hand off to your payment provider
+        alert(
+          'Thank you for your generosity!\n\n' +
+          'Frequency: ' + (freq === 'monthly' ? 'Monthly' : 'One-off') + '\n' +
+          'Amount: ' + currencySymbols[cur] + ' ' + amount + ' ' + cur + '\n\n' +
+          '(This is a demo — connect your payment gateway to process this donation.)'
+        );
+      });
+
+      // Initial impact message
+      updateImpact();
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About UNHCR | UNHCR</title>
+  <meta name="description" content="UNHCR, the UN Refugee Agency, protects people forced to flee because of conflict and persecution. We save lives, protect rights and help build better futures." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <style>
+    /* ---------- Reset & Base ---------- */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --unhcr-blue: #0072bc;
+      --unhcr-dark-blue: #005a9c;
+      --unhcr-navy: #18375f;
+      --unhcr-light-blue: #8ebeff;
+      --unhcr-pale-blue: #e8f1f8;
+      --unhcr-gray: #f4f5f7;
+      --unhcr-mid-gray: #d8dde3;
+      --unhcr-text: #1e2a35;
+      --unhcr-text-light: #5a6b7b;
+      --unhcr-white: #ffffff;
+      --unhcr-red: #ef4a60;
+      --unhcr-teal: #00b398;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius: 6px;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--unhcr-text);
+      background: var(--unhcr-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    a { color: var(--unhcr-blue); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--unhcr-dark-blue); text-decoration: underline; }
+
+    ul { list-style: none; }
+
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-block; padding: 10px 22px; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.9rem; text-align: center; cursor: pointer;
+      border: 2px solid transparent; transition: all var(--transition);
+      text-decoration: none; line-height: 1.4;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+    .btn-primary { background: var(--unhcr-blue); color: var(--unhcr-white); border-color: var(--unhcr-blue); }
+    .btn-primary:hover { background: var(--unhcr-dark-blue); border-color: var(--unhcr-dark-blue); color: var(--unhcr-white); }
+
+    .btn-outline-dark { background: transparent; color: var(--unhcr-text); border-color: var(--unhcr-text); }
+    .btn-outline-dark:hover { background: var(--unhcr-text); color: var(--unhcr-white); }
+
+    .btn-outline-light { background: transparent; color: var(--unhcr-white); border-color: var(--unhcr-white); }
+    .btn-outline-light:hover { background: var(--unhcr-white); color: var(--unhcr-navy); }
+
+    .btn-secondary { background: var(--unhcr-navy); color: var(--unhcr-white); border-color: var(--unhcr-navy); }
+    .btn-secondary:hover { background: #0f1a25; border-color: #0f1a25; color: var(--unhcr-white); }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      background: var(--unhcr-white); border-bottom: 1px solid var(--unhcr-mid-gray);
+      position: sticky; top: 0; z-index: 1000;
+    }
+
+    .header-top {
+      background: var(--unhcr-navy); color: var(--unhcr-white);
+      font-size: 0.8rem; padding: 6px 0;
+    }
+    .header-top .container {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 8px;
+    }
+    .header-top a { color: var(--unhcr-white); text-decoration: none; font-weight: 500; }
+    .header-top a:hover { text-decoration: underline; }
+    .header-top .lang-links { display: flex; gap: 12px; }
+    .header-top .lang-links a { opacity: 0.8; }
+    .header-top .lang-links a.active { opacity: 1; font-weight: 700; }
+
+    .header-main { padding: 14px 0; }
+    .header-main .container {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo img { height: 44px; width: auto; }
+    .logo-text {
+      font-size: 0.75rem; font-weight: 700; color: var(--unhcr-navy);
+      letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.2;
+    }
+    .logo-text span { display: block; font-weight: 400; color: var(--unhcr-text-light); font-size: 0.65rem; }
+
+    .header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .header-actions .btn { padding: 8px 18px; font-size: 0.85rem; }
+
+    /* ---------- Navigation ---------- */
+    .main-nav { background: var(--unhcr-navy); position: relative; }
+    .main-nav .container { display: flex; align-items: center; }
+
+    .nav-list { display: flex; flex-wrap: wrap; gap: 0; width: 100%; }
+    .nav-list > li { position: relative; }
+    .nav-list > li > a {
+      display: block; color: var(--unhcr-white); padding: 14px 18px;
+      font-size: 0.9rem; font-weight: 500; text-decoration: none;
+      transition: background var(--transition);
+    }
+    .nav-list > li > a:hover, .nav-list > li > a.active { background: rgba(255,255,255,0.1); text-decoration: none; }
+    .nav-list > li > a::after {
+      content: ''; display: inline-block; width: 6px; height: 6px;
+      border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+      transform: rotate(45deg); margin-left: 8px; position: relative;
+      top: -2px; opacity: 0.7;
+    }
+    .nav-list > li:last-child > a::after, .nav-list > li.no-drop > a::after { display: none; }
+
+    .nav-toggle {
+      display: none; background: none; border: none; color: var(--unhcr-white);
+      font-size: 1.6rem; cursor: pointer; padding: 12px 16px;
+    }
+
+    /* ---------- Breadcrumb ---------- */
+    .breadcrumb-bar {
+      background: var(--unhcr-gray);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--unhcr-mid-gray);
+    }
+    .breadcrumb { font-size: 0.85rem; color: var(--unhcr-text-light); }
+    .breadcrumb a { color: var(--unhcr-blue); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb .sep { margin: 0 8px; }
+
+    /* ---------- Alert Banner ---------- */
+    .alert-banner {
+      background: #fde8ea; border-left: 6px solid var(--unhcr-red);
+      padding: 14px 0; font-size: 0.9rem;
+    }
+    .alert-banner .container {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .alert-banner .alert-icon { flex-shrink: 0; width: 24px; height: 24px; }
+    .alert-banner p { flex: 1; margin: 0; color: var(--unhcr-text); }
+    .alert-banner .btn { padding: 6px 16px; font-size: 0.8rem; }
+
+    /* ---------- Hero ---------- */
+    .hero-about {
+      position: relative;
+      background: var(--unhcr-navy);
+      color: var(--unhcr-white);
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+    }
+    .hero-about .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-about .hero-bg img {
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.35;
+    }
+    .hero-about .container {
+      position: relative; z-index: 1; padding-top: 60px; padding-bottom: 60px;
+    }
+    .hero-about .hero-content { max-width: 600px; }
+    .hero-about .pre-title {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; color: #8ec8f0;
+      margin-bottom: 12px; background: rgba(255,255,255,0.1);
+      padding: 4px 12px; border-radius: 2px;
+    }
+    .hero-about h1 { font-size: 2.6rem; font-weight: 700; line-height: 1.2; margin-bottom: 18px; }
+    .hero-about .intro-text { font-size: 1.15rem; color: rgba(255,255,255,0.9); line-height: 1.6; }
+
+    /* ---------- Main Content Sections ---------- */
+    .section { padding: 60px 0; }
+    .section-gray { background: var(--unhcr-gray); }
+    .section-pale-blue { background: var(--unhcr-pale-blue); }
+    .section-dark { background: var(--unhcr-navy); color: var(--unhcr-white); }
+
+    .section h2 { font-size: 1.7rem; font-weight: 700; color: var(--unhcr-navy); margin-bottom: 24px; }
+    .section h3 { font-size: 1.2rem; font-weight: 600; color: var(--unhcr-navy); margin-bottom: 16px; }
+
+    .section-dark h2, .section-dark h3 { color: var(--unhcr-white); }
+
+    /* In this section sidebar */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .sidebar-nav h2 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--unhcr-text-light);
+      margin-bottom: 16px;
+    }
+    .sidebar-nav ul { display: flex; flex-direction: column; gap: 2px; }
+    .sidebar-nav ul a {
+      display: block;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      color: var(--unhcr-text);
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background var(--transition);
+    }
+    .sidebar-nav ul a:hover, .sidebar-nav ul a.active {
+      background: var(--unhcr-pale-blue);
+      color: var(--unhcr-blue);
+    }
+
+    .about-content .lead {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+    .about-content p {
+      font-size: 0.95rem;
+      color: var(--unhcr-text-light);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .about-content strong { color: var(--unhcr-text); }
+
+    /* Stats/Blurb row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .stat-blurb {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .stat-blurb .stat-icon {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--unhcr-pale-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--unhcr-blue);
+    }
+    .stat-blurb .stat-text .stat-number {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--unhcr-navy);
+      margin-bottom: 4px;
+    }
+    .stat-blurb .stat-text p {
+      font-size: 0.85rem;
+      color: var(--unhcr-text-light);
+      margin: 0;
+    }
+
+    /* Card grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .card {
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--unhcr-white);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .card .card-image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .card:hover .card-image img { transform: scale(1.03); }
+    .card .card-body { padding: 18px; }
+    .card .card-body h3 { font-size: 1rem; font-weight: 700; color: var(--unhcr-navy); margin-bottom: 8px; }
+    .card .card-body h3 a { color: var(--unhcr-navy); text-decoration: none; }
+    .card .card-body h3 a:hover { color: var(--unhcr-blue); }
+    .card .card-body p { font-size: 0.85rem; color: var(--unhcr-text-light); }
+
+    /* Donation CTA */
+    .donate-cta {
+      text-align: center;
+      padding: 60px 0;
+      background: var(--unhcr-navy);
+      color: var(--unhcr-white);
+    }
+    .donate-cta h2 { color: var(--unhcr-white); margin-bottom: 12px; }
+    .donate-cta p { color: rgba(255,255,255,0.85); margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+    /* ---------- Footer ---------- */
+    .site-footer { background: var(--unhcr-navy); color: var(--unhcr-white); padding: 50px 0 30px; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    .footer-col h3 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; color: var(--unhcr-white); }
+    .footer-col p { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-bottom: 14px; line-height: 1.6; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a { color: rgba(255,255,255,0.8); font-size: 0.9rem; text-decoration: none; transition: color var(--transition); }
+    .footer-col ul a:hover { color: var(--unhcr-white); text-decoration: underline; }
+    .footer-col .btn { margin-top: 6px; font-size: 0.85rem; padding: 8px 18px; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-bottom .footer-logo img { height: 60px; width: auto; }
+    .footer-bottom .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-bottom .footer-links a { color: rgba(255,255,255,0.7); font-size: 0.85rem; text-decoration: none; }
+    .footer-bottom .footer-links a:hover { color: var(--unhcr-white); }
+    .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 992px) {
+      .hero-about h1 { font-size: 2rem; }
+      .about-layout { grid-template-columns: 1fr; gap: 32px; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .card-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-list { display: none; flex-direction: column; width: 100%; }
+      .nav-list.open { display: flex; }
+      .nav-list > li > a { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 20px; }
+      .nav-toggle { display: block; }
+      .main-nav .container { justify-content: flex-end; }
+    }
+
+    @media (max-width: 768px) {
+      .header-main .container { flex-direction: column; align-items: flex-start; }
+      .header-actions { width: 100%; justify-content: flex-start; }
+      .stats-row { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-about h1 { font-size: 1.6rem; }
+      .hero-about .intro-text { font-size: 1rem; }
+      .about-content .lead { font-size: 1.2rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-about h1 { font-size: 1.4rem; }
+      .section { padding: 40px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <div>UNHCR global website: <a href="#">Change site <span style="display:inline-block;width:8px;height:8px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);margin-left:4px;position:relative;top:-2px;"></span></a></div>
+        <div class="lang-links">
+          <a href="#" class="active">English</a>
+          <a href="#">Français</a>
+          <a href="#">Español</a>
+          <a href="#">عربي</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container">
+        <a href="/index.html" class="logo" aria-label="UNHCR home">
+          <img src="/images/logos/unhcr-logo.svg"
+               alt="UNHCR"
+               onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/UNHCR.svg/320px-UNHCR.svg.png';" />
+          <div class="logo-text">
+            UNHCR
+            <span>The UN Refugee Agency</span>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate</a>
+          <a href="/get-help.html" class="btn btn-secondary" target="_blank" rel="noopener">Get help</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="container">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="/about.html" class="active">About UNHCR</a></li>
+          <li><a href="/what-we-do.html">What we do</a></li>
+          <li><a href="/where-we-work.html">Where we work</a></li>
+          <li><a href="/news-and-stories.html">News and stories</a></li>
+          <li><a href="/get-involved.html">Get involved</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== BREADCRUMB ==================== -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/index.html">Home</a>
+        <span class="sep">/</span>
+        <span>About UNHCR</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero-about">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1600&q=80"
+           alt="UNHCR staff member helps refugees board a ferry" loading="eager" />
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="pre-title">UNHCR, the UN Refugee Agency</span>
+        <h1>About UNHCR</h1>
+        <p class="intro-text">UNHCR leads international action to protect people forced to flee conflict and persecution and those denied a nationality.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ALERT BANNER ==================== -->
+  <div class="alert-banner">
+    <div class="container">
+      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="#1e2a35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <p>Are you a refugee, asylum-seeker or stateless person looking for help? Visit the HELP site to find support and services from UNHCR.</p>
+      <a href="https://help.unhcr.org/" class="btn btn-secondary" target="_blank" rel="noopener">Visit HELP site</a>
+    </div>
+  </div>
+
+  <!-- ==================== ABOUT CONTENT ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="about-layout">
+
+        <!-- Sidebar -->
+        <nav class="sidebar-nav" aria-label="About UNHCR sections">
+          <h2>In this section:</h2>
+          <ul>
+            <li><a href="#">Who we protect</a></li>
+            <li><a href="#">Planning, funding and results</a></li>
+            <li><a href="#">Our partners</a></li>
+            <li><a href="#">Governance and oversight</a></li>
+          </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="about-content">
+          <p class="lead">Safeguarding the rights and well-being of people forced to flee for over 70 years.</p>
+          <p>UNHCR, the UN Refugee Agency, is a global organization dedicated to saving lives, protecting rights and building a better future for people forced to flee their homes because of conflict and persecution.</p>
+          <p>We lead international action to protect refugees, forcibly displaced communities and stateless people.</p>
+          <p><strong>Our vision is a world where every person forced to flee can build a better future.</strong></p>
+          <p>Formally known as the Office of the High Commissioner for Refugees, UNHCR was established by the General Assembly of the United Nations in 1950 in the aftermath of the Second World War to help the millions of people who had lost their homes.</p>
+          <p>Today, UNHCR works in 122 countries. We provide life-saving assistance, including shelter, food, water and medical care for people forced to flee conflict and persecution, many of whom have nobody left to turn to. We defend their right to reach safety and help them find a place to call home so they can rebuild their lives. Long term, we work with countries to improve and monitor refugee and asylum laws and policies, ensuring human rights are upheld.</p>
+          <p>In everything we do UNHCR considers refugees and those forced to flee as partners, putting those most affected at the centre of planning and decision-making.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STATS ==================== -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-blurb">
+          <div class="stat-icon">🛡️</div>
+          <div class="stat-text">
+            <div class="stat-number">75 years</div>
+            <p><strong>For 75 years UNHCR has been safeguarding the rights of refugees.</strong></p>
+          </div>
+        </div>
+        <div class="stat-blurb">
+          <div class="stat-icon">📍</div>
+          <div class="stat-text">
+            <div class="stat-number">122 countries</div>
+            <p><strong>UNHCR is the world's leading organization protecting people forced to flee, operating in 122 countries.</strong></p>
+          </div>
+        </div>
+        <div class="stat-blurb">
+          <div class="stat-icon">👥</div>
+          <div class="stat-text">
+            <div class="stat-number">129.4 million people</div>
+            <p><strong>UNHCR protects or assists 129.4 million forcibly displaced and stateless people.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MANDATE / CHARTERS ==================== -->
+  <section class="section">
+    <div class="container">
+      <h2>UNHCR mandate and governing charters</h2>
+      <p style="max-width:800px; color:var(--unhcr-text-light); margin-bottom:32px;">UNHCR is mandated by the United Nations to protect and safeguard the rights of refugees. We also support former refugees who have returned to their home country, people displaced within their own country, and people who are stateless or whose nationality is disputed.</p>
+      <p style="max-width:800px; color:var(--unhcr-text-light); margin-bottom:32px;">We are guided by and act as the guardian of the 1951 Refugee Convention and its 1967 Protocol.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80"
+                 alt="Signing of the 1951 Refugee Convention" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3><a href="#">The 1951 Refugee Convention</a></h3>
+            <p>The cornerstone of refugee protection, defining who is a refugee and their rights.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80"
+                 alt="UN Conventions on Statelessness" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3><a href="#">UN Conventions on Statelessness</a></h3>
+            <p>International treaties that protect the rights of stateless people.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80"
+                 alt="The High Commissioner" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3><a href="#">The High Commissioner</a></h3>
+            <p>Leading UNHCR's global mission to protect people forced to flee.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STRATEGIC DIRECTIONS ==================== -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80"
+                 alt="UNHCR Strategic Directions" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3><a href="#">UNHCR Strategic Directions 2022-2026</a></h3>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80"
+                 alt="Beyond Borders" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3><a href="#">Beyond Borders: UNHCR's transformation</a></h3>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80"
+                 alt="UNHCR Statute" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3><a href="#">UNHCR Statute (pdf)</a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DONATE CTA ==================== -->
+  <section class="donate-cta">
+    <div class="container">
+      <h2>Please consider donating today</h2>
+      <p>Your gift can help protect someone forced to flee their home due to conflict or persecution.</p>
+      <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate now</a>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <h3>Support our work</h3>
+          <p>Please help refugees in need.</p>
+          <a href="/donate.html" class="btn btn-outline-light" target="_blank" rel="noopener">Donate now</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay connected</h3>
+          <p>Follow us on</p>
+          <ul>
+            <li><a href="https://x.com/refugees" target="_blank" rel="noopener">X</a></li>
+            <li><a href="https://www.facebook.com/UNHCR" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.instagram.com/refugees/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.youtube.com/c/unhcr" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="https://www.tiktok.com/@refugees" target="_blank" rel="noopener">TikTok</a></li>
+            <li><a href="https://www.linkedin.com/company/unhcr/" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay informed</h3>
+          <p>Sign up to our newsletter to learn more about people forced to flee and how you can support them.</p>
+          <a href="#" class="btn btn-outline-light">Subscribe</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact us</h3>
+          <ul>
+            <li><a href="#">Frequently asked questions</a></li>
+            <li><a href="#">Contact UNHCR</a></li>
+            <li><a href="#">Media centre</a></li>
+            <li><a href="#">Report misconduct or abuse</a></li>
+            <li><a href="#">Report a fraudulent site or email</a></li>
+            <li><a href="#">Become a supplier</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <img src="/images/logos/unhcr-footer-logo.webp"
+               alt="UNHCR" />
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy notice</a>
+          <a href="#">Terms and conditions of use</a>
+          <a href="#">Copyright</a>
+        </div>
+        <div class="footer-copy">© UNHCR 2001–2026</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MOBILE NAV SCRIPT ==================== -->
+  <script>
+    (function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var navList = document.querySelector('.nav-list');
+      if (toggle && navList) {
+        toggle.addEventListener('click', function () {
+          var expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          navList.classList.toggle('open');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
