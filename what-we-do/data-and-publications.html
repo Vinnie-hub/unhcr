@@ -258,6 +258,7 @@
     .footer-bottom .footer-links a:hover { color: var(--unhcr-white); }
     .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
   </style>
+  <link rel="stylesheet" href="/css/header-mobile.css" />
 </head>
 <body>
 
@@ -265,7 +266,7 @@
   <header class="site-header">
     <div class="header-top">
       <div class="container">
-        <div>UNHCR global website: <a href="#">Change site ▾</a></div>
+        <div>UNHCR global website: <a href="/country-sites.html" class="change-site">Change site ▾</a></div>
         <div class="lang-links">
           <a href="#" class="active">English</a>
           <a href="#">Français</a>
@@ -285,21 +286,21 @@
             <span>The UN Refugee Agency</span>
           </div>
         </a>
-        <div class="header-actions">
-          <a href="/donate.html" class="btn btn-primary">Donate</a>
+        <div class="header-right"><div class="header-actions">
+          <a href="/resettlement/contact.html" class="btn btn-primary">Contact</a>
           <a href="/get-help.html" class="btn btn-secondary">Get help</a>
-        </div>
+        </div><button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars" aria-hidden="true"></span></button></div>
       </div>
     </div>
 
     <nav class="main-nav" aria-label="Main navigation">
       <div class="container">
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
         <ul class="nav-list">
           <li><a href="/about.html">About UNHCR</a></li>
           <li class="no-drop"><a href="/what-we-do.html" class="active">What we do</a></li>
           <li><a href="/where-we-work.html">Where we work</a></li>
           <li><a href="/news-and-stories.html">News and stories</a></li>
+          <li><a href="/resettlement/index.html">Resettlement</a></li>
           <li class="no-drop"><a href="/get-involved.html">Get involved</a></li>
         </ul>
       </div>
@@ -595,9 +596,9 @@
       <div class="footer-grid">
 
         <div class="footer-col">
-          <h3>Support our work</h3>
-          <p>Please help refugees in need.</p>
-          <a href="https://donate.unhcr.org/int/en/general" class="btn btn-outline-light" target="_blank" rel="noopener">Donate now</a>
+          <h3>Contact us</h3>
+          <p>Questions about resettlement or legal pathways? Our team is ready to help.</p>
+          <a href="/resettlement/contact.html" class="btn btn-outline-light">Contact us</a>
         </div>
 
         <div class="footer-col">

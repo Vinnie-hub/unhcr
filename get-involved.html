@@ -432,6 +432,7 @@
       .hero-about .hero-buttons .btn { width: 100%; }
     }
   </style>
+  <link rel="stylesheet" href="/css/header-mobile.css" />
 </head>
 <body>
 
@@ -439,7 +440,7 @@
   <header class="site-header">
     <div class="header-top">
       <div class="container">
-        <div>UNHCR global website: <a href="#">Change site <span style="display:inline-block;width:8px;height:8px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);margin-left:4px;position:relative;top:-2px;"></span></a></div>
+        <div>UNHCR global website: <a href="/country-sites.html" class="change-site">Change site <span style="display:inline-block;width:8px;height:8px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);margin-left:4px;position:relative;top:-2px;"></span></a></div>
         <div class="lang-links">
           <a href="#" class="active">English</a>
           <a href="#">Français</a>
@@ -460,21 +461,21 @@
           </div>
         </a>
 
-        <div class="header-actions">
-          <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate</a>
+        <div class="header-right"><div class="header-actions">
+          <a href="/resettlement/contact.html" class="btn btn-primary">Contact</a>
           <a href="/help.html" class="btn btn-secondary" target="_blank" rel="noopener">Get help</a>
-        </div>
+        </div><button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars" aria-hidden="true"></span></button></div>
       </div>
     </div>
 
     <nav class="main-nav" aria-label="Main navigation">
       <div class="container">
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
         <ul class="nav-list">
           <li><a href="/about-unhcr.html">About UNHCR</a></li>
           <li><a href="/what-we-do.html">What we do</a></li>
           <li><a href="/where-we-work.html">Where we work</a></li>
           <li><a href="/news-and-stories.html">News and stories</a></li>
+          <li><a href="/resettlement/index.html">Resettlement</a></li>
           <li><a href="/get-involved.html" class="active">Get involved</a></li>
         </ul>
       </div>
@@ -504,7 +505,7 @@
         <h1>Get involved</h1>
         <p class="intro-text">We work around the clock to protect and assist refugees all over the world. But we need your help.</p>
         <div class="hero-buttons">
-          <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate now</a>
+          <a href="/resettlement/contact.html" class="btn btn-primary">Contact us</a>
         </div>
         <div class="hero-caption">© UNHCR/Sbonga Sibiya</div>
       </div>
@@ -532,7 +533,7 @@
         <div class="about-content">
           <p class="lead">Join us to make a positive impact in the lives of people forced to flee.</p>
           <p>There are many ways you can help UNHCR.</p>
-          <p>One is to <a href="https://donate.unhcr.org/">make a donation</a>, which will go straight towards our worldwide field operations. It's an easy process, and you can give however much you want — everything helps.</p>
+          <p>One is to <a href="/resettlement/contact.html" >Contact us</a>, which will go straight towards our worldwide field operations. It's an easy process, and you can give however much you want — everything helps.</p>
           <p>Another way to help is to raise awareness by joining us on our social networks or helping to fundraise in your local communities.</p>
           <p>We also welcome <a href="#">interns</a> and <a href="#">UN volunteers</a> at our headquarters and elsewhere.</p>
           <p style="text-align:center; margin-top:24px;">
@@ -554,11 +555,11 @@
         <div class="card">
           <div class="card-image">
             <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80"
-                 alt="Donate to UNHCR" loading="lazy" />
+                 alt="Contact UNHCR" loading="lazy" />
           </div>
           <div class="card-body">
-            <h3><a href="https://donate.unhcr.org/int/en/general">❤️ Donate</a></h3>
-            <p>Donating money is an easy process. You can give any amount, and all of it will go straight to helping our field operations around the world.</p>
+            <h3><a href="/resettlement/contact.html" >Contact us</a></h3>
+            <p>Get in touch with our team by phone or through our support website. UNHCR services are always free.</p>
           </div>
         </div>
 
@@ -629,11 +630,11 @@
       <div class="accordion-group">
 
         <details class="accordion-item">
-          <summary>❤️ Donate</summary>
+          <summary>📞 Contact us</summary>
           <div class="accordion-content">
-            <p>Donating money is an easy process. You can give any amount, and all of it will go straight to helping our field operations around the world.</p>
-            <p><a class="btn btn-primary" href="https://donate.unhcr.org/int/en/general">Make a donation</a></p>
-            <p>If you have any questions about making a donation, please visit our <a href="#">frequently asked questions section</a>.</p>
+            <p>Get in touch with our team by phone or through our support website. UNHCR services are always free.</p>
+            <p><a href="/resettlement/contact.html" class="btn btn-primary">Contact us</a></p>
+            <p>Common questions are answered in our <a href="/resettlement/faq.html">frequently asked questions</a>.</p>
           </div>
         </details>
 
@@ -732,9 +733,9 @@
   <!-- ==================== DONATE CTA ==================== -->
   <section class="donate-cta">
     <div class="container">
-      <h2>Please consider donating today</h2>
-      <p>Your gift can help protect someone forced to flee their home due to conflict or persecution.</p>
-      <a href="/donate.html" class="btn btn-primary" target="_blank" rel="noopener">Donate now</a>
+      <h2>Questions? We are here to help</h2>
+      <p>Reach our team for information about resettlement, legal pathways and support.</p>
+      <a href="/resettlement/contact.html" class="btn btn-primary">Contact us</a>
     </div>
   </section>
 
@@ -744,9 +745,9 @@
       <div class="footer-grid">
 
         <div class="footer-col">
-          <h3>Support our work</h3>
-          <p>Please help refugees in need.</p>
-          <a href="/donate.html" class="btn btn-outline-light" target="_blank" rel="noopener">Donate now</a>
+          <h3>Contact us</h3>
+          <p>Questions about resettlement or legal pathways? Our team is ready to help.</p>
+          <a href="/resettlement/contact.html" class="btn btn-outline-light">Contact us</a>
         </div>
 
         <div class="footer-col">
