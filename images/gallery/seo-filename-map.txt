@@ -1,0 +1,29 @@
+Original file -> optimized WebP filename | dimensions | file size
+images/about unhcr out work.jpeg -> about-unhcr-out-work.webp | (1365, 632) | 136,364 bytes
+images/Build better futures.jpeg -> build-better-futures.webp | (700, 525) | 63,304 bytes
+images/opportunity for displaced people.jpeg -> opportunity-for-displaced-people.webp | (880, 479) | 75,002 bytes
+images/Protect human rights.jpeg -> protect-human-rights.webp | (700, 525) | 90,612 bytes
+images/Respond to emergencies.jpeg -> respond-to-emergencies.webp | (700, 525) | 76,802 bytes
+images/Statement by the United Nations High Commissioner.jpeg -> statement-by-the-united-nations-high-commissioner.webp | (1180, 765) | 106,688 bytes
+images/The 1951 Refugee Convention.jpeg -> the-1951-refugee-convention.webp | (1200, 900) | 110,832 bytes
+images/The High Commissioner.jpeg -> the-high-commissioner.webp | (1200, 900) | 234,496 bytes
+images/the high-level event commemorating 75 years of the 1951 Refugee Convention.jpeg -> the-high-level-event-commemorating-75-years-of-the-1951-refugee-convention.webp | (900, 505) | 74,696 bytes
+images/THE UN REFUGEE AGENCY.jpeg -> the-un-refugee-agency.webp | (1400, 650) | 50,598 bytes
+images/the UNHCR Statute.jpeg -> the-unhcr-statute.webp | (1200, 900) | 82,058 bytes
+images/UN Conventions on Statelessness(passport).jpeg -> un-conventions-on-statelessness-passport.webp | (1200, 900) | 121,152 bytes
+images/unchcr resettlement process banner.jpeg -> unchcr-resettlement-process-banner.webp | (1280, 853) | 236,958 bytes
+images/unchr families resettling.jpeg -> unchr-families-resettling.webp | (429, 372) | 42,266 bytes
+images/unchr with different families.jpeg -> unchr-with-different-families.webp | (1280, 853) | 260,692 bytes
+images/unhcr childeren out of school.jpeg -> unhcr-childeren-out-of-school.webp | (1180, 765) | 103,408 bytes
+images/unhcr familie gathering.jpeg -> unhcr-familie-gathering.webp | (414, 309) | 33,452 bytes
+images/unhcr housing resetttling.jpeg -> unhcr-housing-resetttling.webp | (385, 312) | 36,212 bytes
+images/unhcr orphans resettling.jpeg -> unhcr-orphans-resettling.webp | (335, 307) | 28,902 bytes
+images/unhcr refugee resettlement banner.jpeg -> unhcr-refugee-resettlement-banner.webp | (1280, 853) | 182,774 bytes
+images/UNHCR responding to new emergencies.jpeg -> unhcr-responding-to-new-emergencies.webp | (700, 525) | 85,986 bytes
+images/UNHCR responds to rising displacement.jpeg -> unhcr-responds-to-rising-displacement.webp | (1400, 650) | 101,946 bytes
+images/unhcr single mom with 3 children.jpeg -> unhcr-single-mom-with-3-children.webp | (525, 375) | 49,114 bytes
+images/unhcr statue.jpeg -> unhcr-statue.webp | (720, 950) | 173,216 bytes
+images/unhcr tent with a family.jpeg -> unhcr-tent-with-a-family.webp | (1178, 625) | 90,786 bytes
+images/unhcr with a family of 4.jpeg -> unhcr-with-a-family-of-4.webp | (1178, 788) | 228,672 bytes
+images/unhcr with a family of 5.jpeg -> unhcr-with-a-family-of-5.webp | (1280, 932) | 203,872 bytes
+images/UNHCR works in 122 countries.jpeg -> unhcr-works-in-122-countries.webp | (1400, 650) | 71,792 bytes

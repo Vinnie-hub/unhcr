@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/images/logos/unhcr favicon.webp"/>
   <style>
     /* ---------- Reset & Base ---------- */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -465,26 +466,7 @@
     .news-item h3 a:hover { color: var(--unhcr-blue); }
     .news-more { margin-top: 24px; }
 
-    .section-emergency { background: var(--unhcr-navy); color: var(--unhcr-white); padding: 60px 0; }
-    .emergency-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center; }
-    .emergency-content .emergency-tag {
-      display: inline-block; font-size: 0.75rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.12em; color: #8ec8f0;
-      margin-bottom: 12px; background: rgba(255,255,255,0.1);
-      padding: 4px 12px; border-radius: 2px;
-    }
-    .emergency-content h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 16px; }
-    .emergency-content p { font-size: 0.95rem; color: rgba(255,255,255,0.85); margin-bottom: 12px; }
-    .emergency-content .btn { margin-top: 12px; }
-    .emergency-image { border-radius: 8px; overflow: hidden; }
-    .emergency-image img { width: 100%; height: 360px; object-fit: cover; }
-    .emergency-image-caption { font-size: 0.7rem; color: rgba(255,255,255,0.6); padding: 6px 10px; background: rgba(0,0,0,0.4); text-align: right; }
-    .emergency-stats { display: flex; gap: 24px; margin-top: 24px; flex-wrap: wrap; }
-    .emergency-stats .stat-item { flex: 1; min-width: 120px; }
-    .emergency-stats .stat-amount { font-size: 1.2rem; font-weight: 700; color: var(--unhcr-light-blue); }
-    .emergency-stats .stat-desc { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
-
-    .section-publications { padding: 60px 0; }
+    .section-publications { background: var(--unhcr-gray); padding: 60px 0; }
     .section-publications h2 { font-size: 1.7rem; font-weight: 700; color: var(--unhcr-navy); margin-bottom: 30px; }
     .pub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .pub-card { border: 1px solid var(--unhcr-mid-gray); border-radius: 8px; overflow: hidden; transition: box-shadow var(--transition); background: var(--unhcr-white); }
@@ -498,7 +480,7 @@
     .pub-card p { font-size: 0.85rem; color: var(--unhcr-text-light); }
     .pub-cta { text-align: right; margin-top: 20px; }
 
-    .section-cta-cards { background: var(--unhcr-gray); padding: 60px 0; }
+    .section-cta-cards { background: var(--unhcr-white); padding: 60px 0; }
     .cta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .cta-card { background: var(--unhcr-white); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); transition: transform var(--transition); }
     .cta-card:hover { transform: translateY(-4px); }
@@ -841,7 +823,7 @@
   <!-- ==================== HERO ==================== -->
   <section class="hero">
     <div class="hero-bg">
-      <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1600&q=80"
+      <img src="/images/gallery/unhcr-responds-to-rising-displacement.webp"
            alt="Refugee family" loading="eager" />
     </div>
     <div class="container">
@@ -854,7 +836,7 @@
         </div>
       </div>
       <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80"
+        <img src="/images/gallery/build-better-futures.webp"
              alt="A Burundian woman hugs four of her children" loading="eager" />
         <div class="hero-image-caption">© UNHCR/Ala Kheir</div>
       </div>
@@ -938,7 +920,7 @@
 
         <article class="news-featured">
           <div class="news-image">
-            <img src="https://images.unsplash.com/photo-1523803326055-1345a7c6a5c6?w=800&q=80"
+            <img src="/images/gallery/the-high-level-event-commemorating-75-years-of-the-1951-refugee-convention.webp"
                  alt="A man gestures while speaking behind a lectern" loading="lazy" />
           </div>
           <div class="news-category">Speeches and statements</div>
@@ -949,7 +931,7 @@
         <div class="news-list">
           <article class="news-item">
             <div class="news-thumb">
-              <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&q=80"
+              <img src="/images/gallery/unhcr-with-a-family-of-4.webp"
                    alt="A Burundian woman hugs four of her children" loading="lazy" />
             </div>
             <div>
@@ -961,7 +943,7 @@
 
           <article class="news-item">
             <div class="news-thumb">
-              <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&q=80"
+              <img src="/images/gallery/the-high-commissioner.webp"
                    alt="A man gestures while speaking behind a desk" loading="lazy" />
             </div>
             <div>
@@ -973,8 +955,8 @@
 
           <article class="news-item">
             <div class="news-thumb">
-              <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=400&q=80"
-                   alt="UNHCR logo" loading="lazy" />
+              <img src="/images/gallery/unhcr-responds-to-rising-displacement.webp"
+                   alt="UNHCR responds to rising displacement" loading="lazy" />
             </div>
             <div>
               <div class="news-category">Speeches and statements</div>
@@ -991,42 +973,6 @@
     </div>
   </section>
 
-  <!-- ==================== EMERGENCY APPEAL ==================== -->
-  <section class="section-emergency">
-    <div class="container">
-      <div class="emergency-grid">
-        <div class="emergency-content">
-          <span class="emergency-tag">Emergency appeal</span>
-          <h2>Venezuela emergency</h2>
-          <p><strong>A powerful earthquake has struck Venezuela — a country already living through one of the world's largest displacement crises.</strong></p>
-          <p>This disaster hits a population already stretched to a breaking point. Almost 7 million Venezuelans have fled in recent years. Now, for those who remain, a fragile situation has become an emergency — with urgent need for shelter, clean water and protection.</p>
-          <p>UNHCR, the UN Refugee Agency, leads the protection response in Venezuela. Our teams are on the ground delivering shelter and relief to those hit hardest.</p>
-          <p><strong>Contact us to find out how you can help.</strong></p>
-          <a href="/resettlement/contact.html" class="btn btn-primary">Contact us</a>
-        </div>
-        <div class="emergency-image">
-          <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80"
-               alt="Aftermath of an earthquake in La Guaira" loading="lazy" />
-          <div class="emergency-image-caption">© Reuters/Maxwell Briceno</div>
-        </div>
-      </div>
-      <div class="emergency-stats">
-        <div class="stat-item">
-          <div class="stat-amount">US$ 550</div>
-          <div class="stat-desc">can provide blankets, solar lamp, cooking utensils and jerry cans to two families</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-amount">US$ 150</div>
-          <div class="stat-desc">can provide 10 gas cylinders allowing displaced families to cook hot meals</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-amount">US$ 23</div>
-          <div class="stat-desc">can provide 15 blankets to displaced families to help keep them warm</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ==================== PUBLICATIONS ==================== -->
   <section class="section-publications">
     <div class="container">
@@ -1034,7 +980,7 @@
       <div class="pub-grid">
         <div class="pub-card">
           <div class="pub-image">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80" alt="Global Trends report cover" loading="lazy" />
+            <img src="/images/gallery/unhcr-tent-with-a-family.webp" alt="Global Trends report cover" loading="lazy" />
           </div>
           <div class="pub-body">
             <div class="pub-label">Data</div>
@@ -1045,7 +991,7 @@
 
         <div class="pub-card">
           <div class="pub-image">
-            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80" alt="Global Report cover" loading="lazy" />
+            <img src="/images/gallery/unhcr-single-mom-with-3-children.webp" alt="Global Report cover" loading="lazy" />
           </div>
           <div class="pub-body">
             <div class="pub-label">Results</div>
@@ -1056,7 +1002,7 @@
 
         <div class="pub-card">
           <div class="pub-image">
-            <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=400&q=80" alt="Global Appeal cover" loading="lazy" />
+            <img src="/images/gallery/unhcr-orphans-resettling.webp" alt="Global Appeal cover" loading="lazy" />
           </div>
           <div class="pub-body">
             <div class="pub-label">Funding</div>
@@ -1076,33 +1022,39 @@
     <div class="container">
       <div class="cta-grid">
         <div class="cta-card">
-          <div class="cta-image">
-            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=80" alt="MADE51 bracelet" loading="lazy" />
-          </div>
-          <div class="cta-body">
-            <h3><a href="#">Shop the With Refugees bracelet</a></h3>
-            <p>Show your solidarity with people forced to flee. Each MADE51 refugee-made bracelet includes a $2 donation to UNHCR.</p>
-          </div>
+          <a href="#" class="cta-link">
+    <div class="cta-image">
+      <img src="/images/gallery/unchr-families-resettling.webp" alt="MADE51 bracelet" loading="lazy" />
+    </div>
+    <div class="cta-body">
+      <h3>Frequently Asked Questions</h3>
+      <p>Find answers to common questions about our MADE51 bracelets, donations, and how your support helps people forced to flee.</p>
+    </div>
+  </a>
         </div>
 
         <div class="cta-card">
-          <div class="cta-image">
-            <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=400&q=80" alt="Newsletter icon" loading="lazy" />
-          </div>
-          <div class="cta-body">
-            <h3><a href="#">Subscribe to the UNHCR newsletter</a></h3>
-            <p>Subscribe to our newsletter and become part of a global community that cares about the protection and well-being of refugees.</p>
-          </div>
+          <a href="#" class="cta-link">
+            <div class="cta-image">
+              <img src="/images/gallery/unhcr-refugee-resettlement-banner.webp" alt="Newsletter icon" loading="lazy" />
+            </div>
+            <div class="cta-body">
+              <h3>Subscribe to the UNHCR newsletter</h3>
+              <p>Subscribe to our newsletter and become part of a global community that cares about the protection and well-being of refugees.</p>
+            </div>
+          </a>
         </div>
 
         <div class="cta-card">
-          <div class="cta-image">
-            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&q=80" alt="Refworld" loading="lazy" />
-          </div>
-          <div class="cta-body">
-            <h3><a href="#">UNHCR's global law and policy database</a></h3>
-            <p>Search the leading source of legislation, case law and UNHCR guidance on refugees, stateless and internally displaced persons.</p>
-          </div>
+          <a href="#" class="cta-link">
+            <div class="cta-image">
+              <img src="/images/gallery/statement-by-the-united-nations-high-commissioner.webp" alt="Refworld" loading="lazy" />
+            </div>
+            <div class="cta-body">
+              <h3>UNHCR's global law and policy database</h3>
+              <p>Search the leading source of legislation, case law and UNHCR guidance on refugees, stateless and internally displaced persons.</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
