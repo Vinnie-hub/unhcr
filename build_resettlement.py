@@ -4,21 +4,22 @@ Edit the content in PAGES below, then re-run to regenerate the HTML files."""
 import os, html
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-PHONE, PHONE_TEL = "+1 (343) 946-0343", "+13439460343"
-SUPPORT = "support.unhcragencies.org"
-SUPPORT_URL = "https://support.unhcragencies.org"
-WA_NUMBER = "13439460343"  # change here if the WhatsApp number differs from the phone number
-WA_URL = f"https://wa.me/{WA_NUMBER}?text=Hello%20UNHCR%2C%20I%20would%20like%20guidance%20on%20resettlement%20and%20legal%20pathways."
-WA_ICON = '<svg class="wa-ico" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true" fill="currentColor"><path d="M16.04 3C9.4 3 4 8.4 4 15.03c0 2.37.69 4.58 1.88 6.45L4 29l7.7-1.84a12 12 0 0 0 4.34.8C22.68 27.96 28 22.6 28 15.97 28 9.35 22.68 3 16.04 3Zm0 22.1c-1.4 0-2.77-.37-3.97-1.07l-.28-.17-4.57 1.09 1.2-4.45-.19-.3a9.9 9.9 0 0 1-1.52-5.27c0-5.5 4.5-9.97 10.03-9.97 5.52 0 10 4.47 10 9.97 0 5.5-4.48 9.97-10 9.97l-.7.2Zm5.5-7.46c-.3-.15-1.78-.88-2.05-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.6.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.64-.93-2.25-.25-.58-.5-.5-.68-.51h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.1 3.2 5.1 4.48.7.3 1.26.5 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.13-.28-.2-.58-.35Z"/></svg>'
-U = "https://images.unsplash.com/photo-"
+import sys
+sys.path.insert(0, ROOT)
+import site_shell as shell
+import resettlement_hub as hub
+
+REAL_HELP_URL = shell.REAL_HELP_URL  # official UNHCR help site, used instead of any private contact channel
+
+# Local images (no remote hot-linking). Keys are used by the page definitions below.
 IMG = {
-    "a": U + "1593113598332-cd288d649433",
-    "b": U + "1523803326055-1345a7c6a5c6",
-    "c": U + "1469571486292-0ba58a3f068b",
-    "d": U + "1488521787991-ed7bbaae773c",
-    "e": U + "1509099836639-18ba1795216d",
+    "a": "/images/gallery/unhcr-with-a-family-of-5.webp",
+    "b": "/images/gallery/build-better-futures.webp",
+    "c": "/images/gallery/about-unhcr-out-work.webp",
+    "d": "/images/gallery/unhcr-with-a-family-of-4.webp",
+    "e": "/images/gallery/unhcr-tent-with-a-family.webp",
 }
-def img(k, w): return f"{IMG[k]}?w={w}&q=80"
+def img(k, w=None): return IMG.get(k, k)
 
 R = "/resettlement"
 GROUPS = {
@@ -26,8 +27,10 @@ GROUPS = {
         ("What is resettlement?", f"{R}/what-is-resettlement.html"),
         ("Who may be considered?", f"{R}/who-may-be-considered.html"),
         ("How the process works", f"{R}/how-the-process-works.html"),
+        ("Support after arrival", f"{R}/support-after-arrival.html"),
         ("Frequently asked questions", f"{R}/faq.html")]),
     "countries": ("Countries", [
+        ("Canada", f"{R}/countries/canada.html"),
         ("Australia", f"{R}/countries/australia.html"),
         ("Sweden", f"{R}/countries/sweden.html"),
         ("Germany", f"{R}/countries/germany.html"),
@@ -43,111 +46,73 @@ CONTACT = f"{R}/contact.html"
 
 def e(s): return html.escape(s, quote=True)
 
-def nav(current_url, group):
-    out = []
-    for key, (label, items) in GROUPS.items():
-        act = " active" if key == group else ""
-        links = "".join(
-            f'<li><a href="{u}"{" aria-current=\"page\"" if u == current_url else ""}>{e(t)}</a></li>' for t, u in items)
-        out.append(f'<li class="has-sub"><button class="sub-toggle{act}" aria-expanded="false">{e(label)}</button><ul class="sub">{links}</ul></li>')
-    out.append(f'<li><a href="{RIGHTS}"{" class=\"active\" aria-current=\"page\"" if current_url == RIGHTS else ""}>Refugee Rights &amp; Protection</a></li>')
-    out.append(f'<li><a href="{CONTACT}"{" class=\"active\" aria-current=\"page\"" if current_url == CONTACT else ""}>Contact</a></li>')
-    return "".join(out)
-
-def header(url, group):
-    return f'''<a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="header-top"><div class="container">
-    <a class="change-site" href="/country-sites.html">Change site <span class="chev" aria-hidden="true"></span></a>
-    <div class="ht-links">
-      <a href="tel:{PHONE_TEL}">&#9742; {PHONE}</a>
-      <a href="{SUPPORT_URL}" rel="noopener">{SUPPORT}</a>
-    </div>
-  </div></div>
-  <div class="header-main"><div class="container">
-    <a href="{R}/index.html" class="logo" aria-label="UNHCR Resettlement home">
-      <img src="/images/logos/unhcr favicon.webp" alt="UNHCR" width="40" height="40">
-      <div class="logo-text">UNHCR Resettlement<span>The UN Refugee Agency</span></div>
-    </a>
-    <div class="header-right">
-      <div class="header-actions">
-        <a href="{CONTACT}" class="btn btn-primary">Contact</a>
-        <a href="/get-help.html" class="btn btn-dark">Get help</a>
-      </div>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="bars" aria-hidden="true"></span></button>
-    </div>
-  </div></div>
-  <nav class="main-nav" id="primary-nav" aria-label="Resettlement navigation"><div class="container"><ul class="nav-list">{nav(url, group)}<li class="nav-phone"><a href="tel:{PHONE_TEL}">&#9742; Call {PHONE}</a></li><li class="nav-phone nav-wa"><a href="{WA_URL}" target="_blank" rel="noopener">WhatsApp us</a></li></ul></div></nav>
-</header>'''
+def header(url):
+    return shell.header(url)
 
 def footer():
-    def col(group):
-        label, items = GROUPS[group]
-        return f'<div><h3>{e(label)}</h3><ul>' + "".join(f'<li><a href="{u}">{e(t)}</a></li>' for t, u in items) + '</ul></div>'
-    return f'''<footer class="site-footer"><div class="container">
-  <div class="footer-grid">
-    <div><h3>UNHCR Resettlement</h3><p>Information on resettlement and other safe, legal pathways for refugees.</p>
-      <p style="margin-top:10px"><strong>UNHCR services are always free.</strong></p>
-      <p style="margin-top:14px"><a class="btn btn-light btn-sm" href="{CONTACT}">Contact us</a></p></div>
-    {col("understanding")}{col("pathways")}
-    <div><h3>Contact</h3><ul>
-      <li><a href="tel:{PHONE_TEL}">{PHONE}</a></li>
-      <li><a href="{WA_URL}" target="_blank" rel="noopener">WhatsApp us</a></li>
-      <li><a href="{SUPPORT_URL}" rel="noopener">{SUPPORT}</a></li>
-      <li><a href="{RIGHTS}">Refugee Rights &amp; Protection</a></li>
-      <li><a href="{CONTACT}">Contact page</a></li></ul></div>
-  </div>
-  <div class="footer-bottom">
-    <img src="/images/logos/unhcr-footer-logo.webp" alt="UNHCR" height="36">
-    <div><a href="/privacy.html">Privacy notice</a> &nbsp;·&nbsp; &copy; UNHCR 2001–2026</div>
-  </div>
-</div></footer>'''
+    return shell.footer()
 
 def page(p):
     url, group = p["url"], p.get("group")
-    crumbs = [("Home", "/index.html"), ("Resettlement", f"{R}/index.html")]
-    if group: crumbs.append((GROUPS[group][0], None))
+    if "crumbs" in p:
+        crumbs = list(p["crumbs"])
+    else:
+        crumbs = [("Home", "/index.html"), ("Resettlement", f"{R}/index.html")]
+        if group: crumbs.append((GROUPS[group][0], None))
     bc = "".join(f'<li><a href="{u}">{e(t)}</a></li>' if u else f"<li>{e(t)}</li>" for t, u in crumbs)
-    if url != f"{R}/index.html": bc += f'<li aria-current="page">{e(p["crumb"])}</li>'
-    else: bc = '<li><a href="/index.html">Home</a></li><li aria-current="page">Resettlement</li>'
+    bc += f'<li aria-current="page">{e(p["crumb"])}</li>'
     actions = "".join(f'<a class="btn {c}" href="{u}">{e(t)}</a>' for t, u, c in p.get("actions", []))
-    hero = f'''<section class="hero{"" if p.get("big") else " sm"}" style="background-image:url('{img(p["hero"], 1600)}')">
-  <div class="container"><span class="hero-tag">{e(p["tag"])}</span><h1>{e(p["h1"])}</h1><p>{e(p["lead"])}</p>{f'<div class="actions">{actions}</div>' if actions else ""}</div></section>'''
+    hero_bg = img(p["hero"])
+    text = (f'<span class="hero-tag">{e(p["tag"])}</span><h1>{e(p["h1"])}</h1><p>{e(p["lead"])}</p>'
+            + (f'<div class="actions">{actions}</div>' if actions else ""))
+    if p.get("hero_img"):
+        inner = (f'<div class="hero-split"><div>{text}</div><div class="hero-photo"><img src="{p["hero_img"]}" alt="{e(p.get("hero_alt", ""))}" width="405" height="675"></div></div>')
+    else:
+        inner = text
+    hero = f"""<section class="hero{"" if p.get("big") else " sm"}" style="background-image:url('{hero_bg}')">
+  <div class="container">{inner}</div></section>"""
     side = ""
-    if group:
-        label, items = GROUPS[group]
+    side_group = p.get("side") or (GROUPS[group] if group else None)
+    if side_group:
+        label, items = side_group
         side += f'<div class="panel"><h3>{e(label)}</h3><ul>' + "".join(
-            f'<li><a href="{u}"{" aria-current=\"page\"" if u == url else ""}>{e(t)}</a></li>' for t, u in items) + "</ul></div>"
-    side += f'''<div class="panel"><h3>Need to talk to someone?</h3><p style="font-size:.95rem">Call <a href="tel:{PHONE_TEL}">{PHONE}</a> or visit <a href="{SUPPORT_URL}" rel="noopener">{SUPPORT}</a>.</p><p style="font-size:.85rem;color:var(--muted);margin-top:8px">UNHCR never asks for money to process resettlement.</p></div>'''
-    body = f'<div class="layout"><div class="article">{p["body"]}</div><aside class="aside" aria-label="Related">{side}</aside></div>' if p.get("layout", True) else p["body"]
-    cta = p.get("cta", ("Questions about your situation?", "Our team can point you to the right information and services.", "Contact us", CONTACT))
-    return f'''<!DOCTYPE html>
+            f'<li><a href="{u}"' + (' aria-current="page"' if u == url else "") + f'>{e(t)}</a></li>' for t, u in items) + "</ul></div>"
+    side += f"""<div class="panel"><h3>Looking for help?</h3><p style="font-size:.95rem">Read the <a href="{R}/faq.html">FAQ</a> or visit the <a href="/contact.html">contact page</a>. For real-world help, go to <a href="{REAL_HELP_URL}" rel="noopener">help.unhcr.org</a>.</p><p style="font-size:.85rem;color:var(--muted);margin-top:8px">UNHCR never asks for money to process resettlement.</p></div>"""
+    if p.get("raw"):
+        main_body = p["body"]
+    else:
+        inner_body = (f'<div class="layout"><div class="article">{p["body"]}</div><aside class="aside" aria-label="Related">{side}</aside></div>'
+                      if p.get("layout", True) else p["body"])
+        main_body = f'<section class="section"><div class="container">{inner_body}</div></section>'
+    cta = p.get("cta", ("Questions about your situation?", "Read our frequently asked questions or visit the contact page.", "Contact us", "/contact.html"))
+    return f"""<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{e(p["title"])} | UNHCR</title>
+<title>{e(p["title"])} | UNHCR (class project)</title>
 <meta name="description" content="{e(p["lead"])}">
-<meta name="theme-color" content="#1a2a3a">
+<meta name="theme-color" content="#18375f">
 <link rel="icon" href="/images/logos/unhcr favicon.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
+{shell.HEAD_LINKS}
 </head>
 <body>
-{header(url, group)}
+{header(url)}
 <nav class="breadcrumb" aria-label="Breadcrumb"><div class="container"><ol>{bc}</ol></div></nav>
-<main id="main">
+<main>
 {hero}
-<section class="section"><div class="container">{body}</div></section>
+{main_body}
 {p.get("extra", "")}
 <section class="section cta"><div class="container"><h2>{e(cta[0])}</h2><p>{e(cta[1])}</p><a class="btn btn-yellow" href="{cta[3]}">{e(cta[2])}</a></div></section>
 </main>
 {footer()}
-<script src="/js/main.js" defer></script>
+{shell.BODY_SCRIPT}
 </body>
 </html>
-'''
+"""
 
 def facts(rows):
     return '<div class="table-wrap"><table><tbody>' + "".join(f"<tr><th scope='row'>{a}</th><td>{b}</td></tr>" for a, b in rows) + "</tbody></table></div>"
@@ -157,6 +122,7 @@ def steps(items):
 
 def ul(items): return '<ul class="list">' + "".join(f"<li>{i}</li>" for i in items) + "</ul>"
 def call(t, warn=False): return f'<div class="callout{" warn" if warn else ""}">{t}</div>'
+
 
 FREE = call("<strong>Resettlement is always free.</strong> UNHCR does not charge fees, sell places or accept applications through agents. If someone asks you for money, they are not acting for UNHCR.", True)
 CHECK = call("Programmes, quotas and eligibility rules change often. Always confirm current details with the official government source linked on this page.")
@@ -172,20 +138,13 @@ def pathway(slug, name, hero, lead, body):
 
 PAGES = []
 
-PAGES.append(dict(url=f"{R}/index.html", group=None, big=True, crumb="Resettlement", title="Resettlement and safe pathways", tag="UNHCR Resettlement",
-    h1="Safe, legal routes to a new future", hero="a",
-    lead="Resettlement and other legal pathways help refugees who cannot return home or stay safely where they are to rebuild their lives in a new country.",
-    actions=[("What is resettlement?", f"{R}/what-is-resettlement.html", "btn-yellow"), ("Contact us", CONTACT, "btn-light")],
-    layout=False,
-    body=f'''<div class="section-head"><h2>Explore this section</h2><p class="lead">Start with the basics, then find the route that fits your situation.</p></div>
-<div class="grid cols-3">
-<a class="card" href="{R}/what-is-resettlement.html"><img src="{img("b",700)}" alt="" loading="lazy"><div class="card-body"><h3>Understanding Resettlement</h3><p>What it is, who may be considered, how the process works and answers to common questions.</p><span class="more">Learn more &rarr;</span></div></a>
-<a class="card" href="{R}/countries/australia.html"><img src="{img("c",700)}" alt="" loading="lazy"><div class="card-body"><h3>Countries</h3><p>How resettlement works in Australia, Sweden, Germany and the United Kingdom.</p><span class="more">See countries &rarr;</span></div></a>
-<a class="card" href="{R}/pathways/family-reunification.html"><img src="{img("d",700)}" alt="" loading="lazy"><div class="card-body"><h3>Other Legal Pathways</h3><p>Family reunification, humanitarian pathways, education and employment routes.</p><span class="more">View pathways &rarr;</span></div></a>
-<a class="card" href="{RIGHTS}"><img src="{img("e",700)}" alt="" loading="lazy"><div class="card-body"><h3>Refugee Rights &amp; Protection</h3><p>The rights every refugee has under international law, wherever they are.</p><span class="more">Know your rights &rarr;</span></div></a>
-<a class="card" href="{CONTACT}"><img src="{img("a",700)}" alt="" loading="lazy"><div class="card-body"><h3>Contact</h3><p>Call {PHONE} or visit {SUPPORT}.</p><span class="more">Get in touch &rarr;</span></div></a>
-</div><div style="margin-top:28px">{FREE}</div>''',
-    cta=("Need help right now?", "Speak to our team by phone or visit our support site.", "Contact us", CONTACT)))
+PAGES.append(dict(url=f"{R}/index.html", group=None, big=True, raw=True, crumb="Resettlement", title="Resettlement creates new beginnings", tag="UNHCR Resettlement",
+    h1="Resettlement creates new beginnings", hero="b",
+    hero_img="/images/resettlement/mother-and-child.webp", hero_alt="A mother and her smiling child embrace",
+    lead="From crisis to safety. From displacement to opportunity.",
+    actions=[("How the process works", f"{R}/how-the-process-works.html", "btn-yellow"), ("Resettlement countries", f"{R}/countries/canada.html", "btn-light")],
+    body=hub.hub_body(FREE),
+    cta=("Have a question?", "Read our frequently asked questions or visit the contact page.", "Read the FAQ", f"{R}/faq.html")))
 
 PAGES.append(dict(url=f"{R}/what-is-resettlement.html", group="understanding", crumb="What is resettlement?", title="What is resettlement?", tag="Understanding Resettlement",
     h1="What is resettlement?", hero="b",
@@ -218,18 +177,20 @@ PAGES.append(dict(url=f"{R}/who-may-be-considered.html", group="understanding", 
 PAGES.append(dict(url=f"{R}/how-the-process-works.html", group="understanding", crumb="How the process works", title="How the resettlement process works", tag="Understanding Resettlement",
     h1="How the process works", hero="d",
     lead="From registration to arrival, resettlement can take months or years. Here are the main stages.",
-    body=f'''{steps([("Registration","You register with UNHCR or the host government and your details are recorded."),
-("Refugee status","Your claim is assessed (refugee status determination) if you are not already recognised."),
-("Needs assessment","UNHCR staff assess whether resettlement is the right solution and whether you meet submission criteria."),
-("Referral","If suitable, your case is referred to a resettlement country, which may also receive cases through its own selection missions."),
-("Country decision","The country interviews you, runs security and medical checks, and decides whether to accept you."),
-("Travel preparation","Cultural orientation, travel documents and health checks are arranged, typically with IOM."),
-("Arrival and integration","You are received, housed and supported with language, schooling, health care and work.")])}
+    body=f'''{hub.steps6()}
+<p class="tagline" style="margin-top:22px">Resettlement changes lives.</p>
+<h2>The six stages in more detail</h2>
+{steps([("1. Registration","You register with UNHCR or a partner organization and your details are recorded. If you are not already recognised as a refugee, your claim is assessed (refugee status determination)."),
+("2. Assessment &amp; referral","UNHCR staff assess whether resettlement is the right solution and whether you meet the submission criteria. If suitable, your case is referred to a resettlement country."),
+("3. Interviews &amp; screening","The country may interview you. Documents are verified and eligibility, medical and security checks are carried out."),
+("4. Approval","The resettlement country makes the final decision on whether to accept you."),
+("5. Pre-departure arrangements","Travel documents, health checks and cultural orientation are arranged, typically with IOM."),
+("6. Arrival &amp; support","You are received and supported with housing, healthcare, education, employment and community integration.")])}
 <h2>How long does it take?</h2>
 <p>Timelines vary widely by country, case and security situation. Do not rely on anyone who promises a date.</p>
 {FREE}
 {call("<strong>Keep your details current.</strong> Tell UNHCR if your phone number, address or family situation changes so that you can be reached.")}''',
-    cta=("Have a question about the process?", "Find answers to common questions or speak to our team.", "Read the FAQ", f"{R}/faq.html")))
+    cta=("Have a question about the process?", "Find answers to common questions on our FAQ page.", "Read the FAQ", f"{R}/faq.html")))
 
 faqs = [
 ("Can I apply for resettlement directly?","No. UNHCR identifies and refers refugees. Individuals cannot apply to UNHCR for resettlement or choose a destination country."),
@@ -240,8 +201,8 @@ faqs = [
 ("What if I am not selected?","Not being selected does not affect your refugee status or protection. Other pathways, such as family reunification, education or employment routes, may be possible."),
 ("How long does it take?","It varies from months to many years, depending on the country, security checks and available places."),
 ("What is the difference between resettlement and a complementary pathway?","Resettlement is led by UNHCR referral. Pathways such as study or work visas are separate routes you may apply to yourself or through partners."),
-("Who can I trust for information?","Official UNHCR channels and government immigration websites only. See our Contact page for how to verify."),
-("Where can I get help right now?",f"Call <a href='tel:{PHONE_TEL}'>{PHONE}</a>, <a href='{WA_URL}' target='_blank' rel='noopener'>message us on WhatsApp</a> or visit <a href='{SUPPORT_URL}' rel='noopener'>{SUPPORT}</a>.")]
+("Who can I trust for information?","Official UNHCR channels and government immigration websites only. See our <a href='/beware-of-fraud.html'>Beware of fraud</a> page for how to verify."),
+("Where can I get help right now?",f"Visit our <a href='/contact.html'>contact page</a>. For real-world help, go to the official UNHCR help site at <a href='{REAL_HELP_URL}' rel='noopener'>help.unhcr.org</a>.")]
 PAGES.append(dict(url=f"{R}/faq.html", group="understanding", crumb="Frequently asked questions", title="Frequently asked questions", tag="Understanding Resettlement",
     h1="Frequently asked questions", hero="e", lead="Short answers to common questions about resettlement and other pathways.",
     body="".join(f'<details{" open" if i == 0 else ""}><summary>{q}</summary><div class="answer"><p>{a}</p></div></details>' for i, (q, a) in enumerate(faqs)) + FREE))
@@ -285,18 +246,37 @@ PAGES.append(dict(url=RIGHTS, group=None, crumb="Refugee Rights & Protection", t
     body=f'''<h2>Your core rights</h2>{ul(["<strong>Protection from return:</strong> you cannot be sent back to a place where your life or freedom is at risk (non-refoulement).","<strong>Access to asylum</strong> and fair procedures.","<strong>No penalty</strong> for entering irregularly to seek safety.","<strong>Safety and non-discrimination</strong> without distinction of race, religion or nationality.","<strong>Documentation</strong> such as identity and travel papers.","<strong>Basic services:</strong> education, health care and the right to work, in line with the host country’s laws.","<strong>Family unity</strong> wherever possible."])}
 <h2>International law</h2><p>These rights come mainly from the 1951 Refugee Convention and its 1967 Protocol. UNHCR is mandated to protect refugees and help governments uphold the law.</p>
 <h2>Your responsibilities</h2><p>Refugees are expected to respect the laws of the country where they live.</p>
-<h2>If your rights are not respected</h2><p>Contact UNHCR or a local legal aid organisation. Call <a href="tel:{PHONE_TEL}">{PHONE}</a>.</p>{FREE}'''))
+<h2>If your rights are not respected</h2><p>Contact UNHCR or a local legal aid organisation. For real-world help, go to <a href="{REAL_HELP_URL}" rel="noopener">help.unhcr.org</a>.</p>{FREE}'''))
 
-PAGES.append(dict(url=CONTACT, group=None, crumb="Contact", title="Contact", tag="Get in touch", h1="Contact", hero="a",
-    lead="Reach our team by phone, on WhatsApp or through our support website.", layout=False,
-    body=f'''<div class="contact-cards">
-<div class="contact-card"><span class="label">Phone</span><a class="big" href="tel:{PHONE_TEL}">{PHONE}</a><p>Call to ask general questions about resettlement and legal pathways.</p><p style="margin-top:14px"><a class="btn btn-primary" href="tel:{PHONE_TEL}">Call now</a></p></div>
-<div class="contact-card wa"><span class="label">WhatsApp</span><a class="big" href="{WA_URL}" target="_blank" rel="noopener">{PHONE}</a><p>Message us on WhatsApp to ask for guidance on resettlement and legal pathways.</p><p style="margin-top:14px"><a class="btn btn-wa" href="{WA_URL}" target="_blank" rel="noopener">{WA_ICON} Chat on WhatsApp</a></p><p class="wa-note">Never send passwords, bank details or payment. UNHCR services are always free.</p></div>
-<div class="contact-card"><span class="label">Support website</span><a class="big" href="{SUPPORT_URL}" rel="noopener">{SUPPORT}</a><p>Visit our support site for help and updates.</p><p style="margin-top:14px"><a class="btn btn-outline" href="{SUPPORT_URL}" rel="noopener">Visit site</a></p></div></div>
+PAGES.append(dict(url=CONTACT, group=None, crumb="Contact", title="Resettlement contact", tag="Get in touch", h1="Contact", hero="a",
+    lead="Send a general question about this website. In this class project nothing is actually sent.", layout=False,
+    body=f'''<div class="layout"><div class="article"><h2>Send a message</h2>{hub.contact_form()}</div>
+<aside class="aside"><div class="panel"><h3>Official help</h3><p style="font-size:.95rem">People who need protection or information should use the official UNHCR help site: <a href="{REAL_HELP_URL}" rel="noopener">help.unhcr.org</a>.</p></div>
+<div class="panel"><h3>Stay safe from fraud</h3><p style="font-size:.95rem">UNHCR services are always free. Read <a href="/beware-of-fraud.html">how to spot fraud</a>.</p></div></aside></div>
 <div style="margin-top:28px">{FREE}</div>
-<h2 style="margin-top:34px">Before you contact us</h2>{ul(["Have your registration number ready, if you have one.","Keep your own contact details up to date.","Never share passwords or bank details."])}
+<h2 style="margin-top:34px">Before you contact anyone</h2>{ul(["Have your registration number ready, if you have one.","Keep your own contact details up to date.","Never share passwords or bank details."])}
 <p style="margin-top:14px">Common questions are answered in our <a href="{R}/faq.html">FAQ</a>.</p>''',
     cta=("Looking for general answers?", "Read our frequently asked questions.", "Read the FAQ", f"{R}/faq.html")))
+
+PAGES.append(country("canada", "Canada", "a", "Canada resettles refugees through government-assisted and privately sponsored streams, and refugees arrive as permanent residents.",
+    [("Main programme","Refugee and humanitarian resettlement"),("Referrals","UNHCR and other referral partners refer refugees for government-assisted resettlement"),("Community routes","Private sponsorship: groups and organisations in Canada sponsor refugees"),("Decision maker","Immigration, Refugees and Citizenship Canada (IRCC)")],
+    f"<h2>How it works</h2>{ul(['UNHCR refers refugees who meet Canada’s priorities for government-assisted resettlement.','Privately sponsored refugees are supported by a group, organisation or community in Canada, usually for the first year.','Applicants complete interviews, medical and security screening.','Resettled refugees arrive as permanent residents and can access settlement services such as language classes and help finding housing and work.'])}",
+    "https://www.canada.ca/en/immigration-refugees-citizenship.html", "Immigration, Refugees and Citizenship Canada"))
+
+def _sup(title, ic, text):
+    return f'<h2>{title}</h2><div class="support-item" style="flex-direction:row;text-align:left;margin-bottom:6px"><span class="ico">{hub.icon(ic)}</span><span style="font-weight:400;color:var(--text)">{text}</span></div>'
+PAGES.append(dict(url=f"{R}/support-after-arrival.html", group="understanding", crumb="Support after arrival", title="Support after arrival", tag="Understanding Resettlement",
+    h1="Support after arrival", hero="d",
+    lead="Beyond resettlement, ongoing support helps families settle, learn, work and belong.",
+    body=f'''<p class="lead">Refugees are not just survivors, they are future contributors.</p>
+<p>Arriving in a new country is the start of a longer journey. What is offered depends on the country, the programme and the city or town, so always check the official source for the country concerned.</p>
+{_sup("Housing","home","Reception and help finding safe, affordable housing. Many programmes arrange temporary accommodation on arrival.")}
+{_sup("Healthcare","heart","Health screening, registration with health services and access to mental health and specialised care where it is available.")}
+{_sup("Education","book","School places for children, and language classes, training and recognition of qualifications for adults.")}
+{_sup("Employment support","briefcase","Help with CVs, job search, skills training and connecting with employers.")}
+{_sup("Community integration","community","Orientation, mentors, sponsors and local groups that help newcomers build friendships and take part in community life.")}
+{CHECK}''',
+    cta=("See where refugees are resettled", "Explore how resettlement works in each country.", "Resettlement countries", f"{R}/countries/canada.html")))
 
 def main():
     for p in PAGES:

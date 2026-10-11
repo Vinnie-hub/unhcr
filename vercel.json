@@ -3,17 +3,7 @@
   "trailingSlash": false,
   "cleanUrls": true,
   "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "starhelaagencies.com" }],
-      "destination": "https://www.starhelaagencies.com/:path*",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    { "source": "/earn/:name", "destination": "/earn/:name.html" },
-    { "source": "/bonus", "destination": "/bonus.html" },
-    { "source": "/countries/:name", "destination": "/countries/:name.html" }
+    { "source": "/countries/united-state", "destination": "/countries/united-states", "permanent": true }
   ],
   "headers": [
     {
@@ -25,31 +15,12 @@
       ]
     },
     {
-      "source": "/css/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/js/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
+      "source": "/(css|js)/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
     },
     {
       "source": "/(.*)\\.(png|jpg|jpeg|gif|svg|webp|ico)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=2592000, immutable"
-        }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000, immutable" }]
     }
   ]
 }
