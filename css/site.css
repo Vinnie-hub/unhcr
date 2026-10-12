@@ -417,7 +417,7 @@ input,select,textarea,button{max-width:100%;font-family:inherit}
 .btn-wa{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#128c4a;border:2px solid #128c4a;color:#fff}
 .btn-wa:hover{background:#0f7a41;border-color:#0f7a41;color:#fff}
 .btn-wa .wa-ico{flex:none}
-.contact-card .wa-note{margin-top:12px;padding:10px 12px;border-radius:8px;background:#fffbd1;color:#5a4d00;font-size:.82rem;line-height:1.5}
+.contact-card {margin-top:12px;padding:10px 12px;border-radius:8px;background:#fffbd1;color:#5a4d00;font-size:.82rem;line-height:1.5}
 @media (max-width:480px){.contact-card .contact-actions .btn{width:100%}}
 
 /* contact.html form */
@@ -451,6 +451,6 @@ input,select,textarea,button{max-width:100%;font-family:inherit}
 
 /* refinements */
 .wa-float__text{max-width:none;overflow:visible}
-.contact-card .wa-note{order:8;margin-top:14px}
+.contact-card{order:8;margin-top:14px}
 .contact-card .contact-actions{order:9}
 .contact-channels{padding-bottom:8px}

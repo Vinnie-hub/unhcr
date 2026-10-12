@@ -31,18 +31,56 @@
 <main>
 <section class="hero sm" style="background-image:url('/images/gallery/stories-hero.webp')">
   <div class="container"><span class="hero-tag">Get involved</span><h1>Sign up and stay informed</h1><p>Learn more about people forced to flee and how you can support them.</p></div></section>
-<section class="section"><div class="container"><div class="layout"><div class="article"><form class="form" data-demo>
-  <p class="callout warn" style="margin:0">This is a class project demo. Nothing you enter is sent or stored. Please do not enter real details.</p>
-  <label>Email address<input type="email" name="email" autocomplete="email" required></label>
-  <fieldset style="border:0;padding:0;display:grid;gap:8px"><legend style="font-weight:600;color:var(--navy);margin-bottom:6px">I am interested in</legend>
-    <label class="check"><input type="checkbox" checked> Latest news and stories</label>
-    <label class="check"><input type="checkbox"> Emergency updates</label>
-    <label class="check"><input type="checkbox"> Resettlement and pathways</label>
-    <label class="check"><input type="checkbox"> Ways to help</label></fieldset>
+<section class="section"><div class="container"><div class="layout"><div class="article"><form
+  class="form"
+  id="newsletter-form"
+  action="https://formspree.io/f/xjygozzz"
+  method="POST"
+  novalidate
+>
+  <p class="callout warn" style="margin:0">
+    Your details are sent securely via Formspree. Our team will respond within 48 working hours.
+  </p>
+
+  <div id="newsletter-success" class="form-success" role="status" hidden>
+    Thank you — you're subscribed. You'll hear from us soon.
+  </div>
+
+  <div id="newsletter-error" class="form-error" role="alert" hidden></div>
+
+  <label>
+    Email address
+    <input type="email" name="email" autocomplete="email" required>
+  </label>
+
+  <fieldset style="border:0;padding:0;display:grid;gap:8px">
+    <legend style="font-weight:600;color:var(--navy);margin-bottom:6px">I am interested in</legend>
+
+    <label class="check">
+      <input type="checkbox" name="interests" value="Latest news and stories" checked>
+      Latest news and stories
+    </label>
+
+    <label class="check">
+      <input type="checkbox" name="interests" value="Emergency updates">
+      Emergency updates
+    </label>
+
+    <label class="check">
+      <input type="checkbox" name="interests" value="Resettlement and pathways">
+      Resettlement and pathways
+    </label>
+
+    <label class="check">
+      <input type="checkbox" name="interests" value="Ways to help">
+      Ways to help
+    </label>
+  </fieldset>
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
   <button class="btn btn-primary" type="submit">Subscribe</button>
-  <p class="demo-result" role="status" hidden></p>
 </form>
-<p style="margin-top:18px">We would only ever use real sign-ups as described in the <a href="/privacy.html">privacy notice</a>.</p></div><aside class="aside" aria-label="Related"><div class="panel"><h3>Get involved</h3><ul><li><a href="/get-involved.html#ways-to-give">Ways to give</a></li><li><a href="/get-involved/partner-with-us.html">Partner with us</a></li><li><a href="/get-involved/sign-and-stay-informed.html" aria-current="page">Sign up for updates</a></li></ul></div><div class="panel"><h3>Looking for help?</h3><p style="font-size:.95rem">Read the <a href="/resettlement/faq.html">FAQ</a> or visit the <a href="/contact.html">contact page</a>. For real-world help, go to <a href="https://help.unhcr.org" rel="noopener">help.unhcr.org</a>.</p><p style="font-size:.85rem;color:var(--muted);margin-top:8px">UNHCR never asks for money to process resettlement.</p></div></aside></div></div></section>
+<p style="margin-top:18px">We would only ever use real sign-ups as described in the <a href="/privacy.html">privacy notice</a>.</p></div><aside class="aside" aria-label="Related"><div class="panel"><h3>Get involved</h3><ul><li><a href="/get-involved.html#ways-to-give">Ways to give</a></li><li><a href="/get-involved/partner-with-us.html">Partner with us</a></li><li><a href="/get-involved/sign-and-stay-informed.html" aria-current="page">Sign up for updates</a></li></ul></div><div class="panel"><h3>Looking for help?</h3><p style="font-size:.95rem">Read the <a href="/resettlement/faq.html">FAQ</a> or visit the <a href="/contact.html">contact page</a>.<p style="font-size:.85rem;color:var(--muted);margin-top:8px">UNHCR never asks for money to process resettlement.</p></div></aside></div></div></section>
 
 <section class="section cta"><div class="container"><h2>Questions about your situation?</h2><p>Read our frequently asked questions or visit the contact page.</p><a class="btn btn-yellow" href="/contact.html">Contact us</a></div></section>
 </main>

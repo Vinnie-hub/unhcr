@@ -168,6 +168,55 @@
   });
 })();
 
+  (function () {
+    const form = document.getElementById('newsletter-form');
+    const success = document.getElementById('newsletter-success');
+    const error = document.getElementById('newsletter-error');
+    const button = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      success.hidden = true;
+      error.hidden = true;
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const originalText = button.textContent;
+      button.disabled = true;
+      button.textContent = 'Subscribing…';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+
+        if (response.ok) {
+          form.reset();
+          success.hidden = false;
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          const data = await response.json().catch(() => ({}));
+          error.textContent =
+            data?.errors?.map(err => err.message).join(', ') ||
+            'Something went wrong. Please try again.';
+          error.hidden = false;
+        }
+      } catch (err) {
+        error.textContent = 'Network error. Please check your connection and try again.';
+        error.hidden = false;
+      } finally {
+        button.disabled = false;
+        button.textContent = originalText;
+      }
+    });
+  })();
+
 /* ---- Floating WhatsApp button: dismiss for the session ---- */
 (function () {
   'use strict';
