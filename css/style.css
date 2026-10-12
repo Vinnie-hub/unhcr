@@ -162,7 +162,25 @@ details[open] summary{border-bottom:1px solid var(--line)}
 .form textarea{min-height:130px;resize:vertical}
 .form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400}
 .form .check input{min-height:0;width:20px;height:20px;margin-top:3px}
-.demo-result{padding:12px 14px;border-radius:var(--r);background:#e6f6ea;border:1px solid #9bd3a7;color:#14502a}
+.form-success {
+  margin: 16px 0;
+  padding: 12px 16px;
+  border-radius: 6px;
+  background: #e7f6ec;
+  color: #1a6b3c;
+  border: 1px solid #b6e2c4;
+  font-size: 0.95rem;
+}
+
+.form-error {
+  margin: 16px 0;
+  padding: 12px 16px;
+  border-radius: 6px;
+  background: #fdecea;
+  color: #8a1c1c;
+  border: 1px solid #f3c0bc;
+  font-size: 0.95rem;
+}
 .cta{background:var(--blue);color:#fff;text-align:center}
 .cta h2{color:#fff}.cta p{max-width:60ch;margin:0 auto 20px}
 @media (min-width:640px){

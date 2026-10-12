@@ -249,3 +249,208 @@ input,select,textarea,button{max-width:100%;font-family:inherit}
   .alert-banner .container{flex-direction:column;align-items:flex-start;gap:10px}
   .alert-banner .btn{align-self:stretch;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
 }
+/* ==========================================================================
+   Floating WhatsApp button — circular icon, text bubble above, gentle float
+   ========================================================================== */
+.wa-float-wrap{
+  position:fixed;
+  right:max(22px,env(safe-area-inset-right));
+  bottom:max(22px,env(safe-area-inset-bottom));
+  z-index:900;
+  display:flex;flex-direction:column;align-items:center;
+  opacity:0;transform:translateY(16px) scale(.96);
+  animation:wa-float-in .6s cubic-bezier(.2,.9,.3,1.2) 1s forwards;
+}
+.wa-float-wrap.is-hidden{display:none}
+
+/* whole stack gently floats */
+.wa-float-stack{
+  display:flex;flex-direction:column;align-items:center;
+  animation:wa-drift 4.5s ease-in-out infinite;
+  transform-origin:center bottom;
+}
+
+/* ----- speech bubble text above the circle ----- */
+.wa-float__text{
+  position:relative;
+  font:600 .78rem/1.25 var(--sh-font,inherit);
+  color:#0d2b1c;
+  background:#fff;
+  padding:8px 14px;
+  border-radius:14px;
+  box-shadow:0 6px 18px rgba(0,0,0,.14),0 1px 3px rgba(0,0,0,.08);
+  white-space:nowrap;
+  margin-bottom:10px;
+  pointer-events:none;
+  letter-spacing:.15px;
+}
+/* little tail pointing down to the circle */
+.wa-float__text::after{
+  content:"";
+  position:absolute;
+  bottom:-5px;left:50%;
+  width:10px;height:10px;
+  background:#fff;
+  transform:translateX(-50%) rotate(45deg);
+  border-radius:2px;
+  box-shadow:2px 2px 3px rgba(0,0,0,.05);
+}
+
+/* ----- circular button ----- */
+.wa-float{
+  position:relative;
+  display:inline-flex;align-items:center;justify-content:center;
+  width:62px;height:62px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#17a557,#0f7a41);
+  color:#fff;text-decoration:none;
+  box-shadow:0 10px 24px rgba(18,140,74,.38),0 3px 8px rgba(0,0,0,.18);
+  transition:transform .25s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s,background .25s;
+  isolation:isolate;
+}
+/* soft pulsing ring behind the circle */
+.wa-float::before{
+  content:"";
+  position:absolute;inset:0;
+  border-radius:50%;
+  background:#128c4a;
+  opacity:.55;
+  z-index:-1;
+  animation:wa-ring 2.4s ease-out infinite;
+}
+.wa-float:hover{
+  transform:translateY(-3px) scale(1.05);
+  background:linear-gradient(145deg,#1cbb63,#0f7a41);
+  box-shadow:0 16px 32px rgba(18,140,74,.5),0 6px 14px rgba(0,0,0,.2);
+}
+.wa-float:active{transform:scale(.96)}
+.wa-float:focus-visible{outline:3px solid var(--sh-yellow,#faeb00);outline-offset:4px}
+
+.wa-float__icon{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.15));
+}
+.wa-float__icon svg{width:100%;height:100%;display:block}
+
+/* online / pulse dot */
+.wa-float__badge{
+  position:absolute;top:5px;right:5px;
+  width:12px;height:12px;border-radius:50%;
+  background:#ffe14d;
+  box-shadow:0 0 0 2.5px #128c4a, 0 0 8px rgba(255,225,77,.9);
+  animation:wa-pulse 2s infinite;
+}
+
+/* dismiss button */
+.wa-float__dismiss{
+  all:unset;box-sizing:border-box;
+  position:absolute;top:-4px;left:-4px;z-index:3;
+  width:24px;height:24px;border-radius:50%;
+  background:#fff;color:#555;
+  font:700 14px/24px Arial,sans-serif;
+  text-align:center;cursor:pointer;
+  box-shadow:0 2px 6px rgba(0,0,0,.22);
+  opacity:0;transform:scale(.7);
+  transition:opacity .18s,transform .18s,background .18s,color .18s;
+}
+.wa-float-wrap:hover .wa-float__dismiss,
+.wa-float-wrap:focus-within .wa-float__dismiss{opacity:1;transform:scale(1)}
+.wa-float__dismiss:hover{background:#f1f1f1;color:#111}
+.wa-float__dismiss:focus-visible{outline:2px solid #0b3d91;outline-offset:2px}
+
+/* ----- animations ----- */
+@keyframes wa-float-in{
+  to{opacity:1;transform:none}
+}
+@keyframes wa-drift{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+@keyframes wa-ring{
+  0%{transform:scale(1);opacity:.55}
+  100%{transform:scale(1.55);opacity:0}
+}
+@keyframes wa-pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,225,77,.9),0 0 0 2.5px #128c4a}
+  70%{box-shadow:0 0 0 9px rgba(255,225,77,0),0 0 0 2.5px #128c4a}
+  100%{box-shadow:0 0 0 0 rgba(255,225,77,0),0 0 0 2.5px #128c4a}
+}
+
+/* ----- mobile ----- */
+@media (max-width:600px){
+  .wa-float-wrap{right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom))}
+  .wa-float{width:56px;height:56px}
+  .wa-float__icon{width:30px;height:30px}
+  .wa-float__text{font-size:.72rem;padding:6px 11px;margin-bottom:8px}
+  .wa-float__dismiss{opacity:1;transform:none;width:26px;height:26px;line-height:26px}
+}
+
+/* ----- accessibility ----- */
+@media (prefers-reduced-motion:reduce){
+  .wa-float-wrap{animation:none;opacity:1;transform:none}
+  .wa-float-stack{animation:none}
+  .wa-float::before{animation:none;opacity:0}
+  .wa-float__badge{animation:none}
+  .wa-float:hover{transform:none}
+}
+@media print{.wa-float-wrap{display:none}}
+
+/* ==========================================================================
+   Contact page + Get-help page: channel cards, forms, status banners
+   ========================================================================== */
+.contact-cards{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.contact-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+.contact-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:26px 24px 24px;
+  background:#fff;border:1px solid var(--line,#d8dde3);border-top:4px solid var(--blue,#0072bc);border-radius:14px;
+  box-shadow:0 2px 10px rgba(15,39,66,.06);transition:transform .2s,box-shadow .2s}
+.contact-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(15,39,66,.12)}
+.contact-card.wa{border-top-color:#25d366}
+.contact-ico{display:grid;place-items:center;width:48px;height:48px;margin-bottom:14px;border-radius:12px;background:var(--pale,#e8f1f8);color:var(--blue,#0072bc)}
+.contact-card.wa .contact-ico{background:#e6f9ee;color:#128c4a}
+.contact-card .label{font-size:.76rem;letter-spacing:.08em}
+.contact-card .big{color:var(--navy,#18375f);overflow-wrap:anywhere}
+.contact-card .big:hover{color:var(--blue,#0072bc)}
+.contact-card p{margin:0;color:var(--muted,#5a6b7b);font-size:.95rem;line-height:1.6}
+.contact-card .contact-actions{margin-top:auto;padding-top:18px;width:100%}
+.contact-card .contact-actions .btn{min-height:46px}
+.btn-wa{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#128c4a;border:2px solid #128c4a;color:#fff}
+.btn-wa:hover{background:#0f7a41;border-color:#0f7a41;color:#fff}
+.btn-wa .wa-ico{flex:none}
+.contact-card .wa-note{margin-top:12px;padding:10px 12px;border-radius:8px;background:#fffbd1;color:#5a4d00;font-size:.82rem;line-height:1.5}
+@media (max-width:480px){.contact-card .contact-actions .btn{width:100%}}
+
+/* contact.html form */
+.article .form{max-width:none;gap:18px;padding:clamp(20px,4vw,32px);background:#fff;border:1px solid var(--line,#d8dde3);border-radius:14px;box-shadow:0 2px 12px rgba(15,39,66,.06)}
+.article .form label{font-size:.9rem}
+.article .form button[type=submit]{justify-self:start;min-height:48px;padding:12px 30px}
+@media (max-width:600px){.article .form button[type=submit]{justify-self:stretch;width:100%}}
+
+/* shared field polish (both forms) */
+.form input,.form select,.form textarea,.contact-form .form-field input,.contact-form .form-field select,.contact-form .form-field textarea{
+  border-radius:10px;transition:border-color .15s,box-shadow .15s}
+.form input:focus,.form select:focus,.form textarea:focus,
+.contact-form .form-field input:focus,.contact-form .form-field select:focus,.contact-form .form-field textarea:focus{
+  outline:none;border-color:var(--blue,#0072bc);box-shadow:0 0 0 3px rgba(0,114,188,.2)}
+.form .is-invalid,.contact-form .is-invalid{border-color:#c0392b!important;box-shadow:0 0 0 3px rgba(192,57,43,.14)!important}
+.form button:disabled,.contact-form button:disabled{opacity:.7;cursor:progress}
+
+/* status banners */
+.form-success,.form-error{margin:0 0 18px;padding:14px 16px;border-radius:10px;font-size:.95rem;line-height:1.55;text-align:left}
+.form-success{background:#e7f6ec;color:#14502a;border:1px solid #9bd3a7;border-left:5px solid #1a9b53}
+.form-error{background:#fdecea;color:#7a1c1c;border:1px solid #f3c0bc;border-left:5px solid #c0392b}
+.form-success[hidden],.form-error[hidden]{display:none!important}
+.form-success:focus,.form-error:focus{outline:none}
+
+/* get-help.html layout + form card */
+.section-contact .contact-info .contact-details{margin-top:8px;border-radius:14px}
+.section-contact .contact-form{background:#fff;border:1px solid var(--sh-line,#d8dde3);border-radius:14px;box-shadow:0 2px 12px rgba(15,39,66,.07);padding:clamp(20px,4vw,32px)}
+.section-contact .form-submit{min-height:48px;border-radius:999px}
+.section-contact .form-submit:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 14px rgba(15,39,66,.18)}
+@media (max-width:600px){.form-row{grid-template-columns:minmax(0,1fr)}}
+
+/* refinements */
+.wa-float__text{max-width:none;overflow:visible}
+.contact-card .wa-note{order:8;margin-top:14px}
+.contact-card .contact-actions{order:9}
+.contact-channels{padding-bottom:8px}
