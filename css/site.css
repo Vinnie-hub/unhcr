@@ -153,8 +153,12 @@ input,select,textarea,button{max-width:100%;font-family:inherit}
   .sh-top-right .sh-site{padding-right:0}
 }
 @media (max-width:991px){
-  .sh-site,.sh-top-right{display:none}
-  .sh-top-in{min-height:0;padding-top:5px;padding-bottom:5px}
+  .sh-langs{display:none}
+  .sh-top-right:not(:has(.sh-site)){display:none}
+  .sh-top-in{flex-wrap:wrap;min-height:0;padding-top:2px;padding-bottom:2px}
+  .sh-top-in>.sh-site,.sh-top-right{order:-1;margin-left:0}
+  .sh-demo{flex:1 1 100%;padding:2px 0 5px}
+  .sh-change{min-height:36px;font-size:.78rem}
   .sh-top{font-size:.7rem;line-height:1.35}
   .sh-demo{gap:8px}
 }
@@ -227,8 +231,6 @@ input,select,textarea,button{max-width:100%;font-family:inherit}
   .sh-fbottom,.site-footer .footer-bottom{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap}
 }
 
-/* hide the top strip on small screens when it holds nothing visible there */
-@media (max-width:991px){.sh-top:not(:has(.sh-demo)){display:none}}
 
 /* ---------- small-screen fixes for content layouts ---------- */
 .layout>*,.contact-layout>*,.form-row>*,.form-field,.split>*,.dest-grid>*,.hero-split>*{min-width:0}
