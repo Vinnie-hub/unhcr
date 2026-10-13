@@ -1,35 +1,4 @@
-# UNHCR website: class project
-
-A student recreation of the UNHCR website, built for learning purposes.
-**It is not affiliated with, endorsed by or operated by UNHCR.** Every page shows a "Class project demo" bar
-and a footer notice. Forms are demos: nothing is sent or stored. For real help, see https://help.unhcr.org.
-
-Before publishing this beyond coursework, replace the UNHCR name and logo (`LOGO` / `FOOTER_LOGO` in `site_shell.py`).
-
-## Structure
-
-| Path | What it is |
-|------|------------|
-| `site_shell.py` | **One place** for the header, hover mega-menus (`NAV`), footer and demo notice used by every page |
-| `css/site.css`, `js/main.js` | Shell styles and behaviour (hover menus on desktop, accordion on mobile, keyboard support) |
-| `css/style.css` | Content styles for generated pages (hero, cards, steps, forms, country grids) |
-| `resettlement_hub.py` | Resettlement landing-page blocks: six-step process, third-country map, photo tiles, support grid |
-| `build_resettlement.py` | Generates `resettlement/**` |
-| `build_site.py` | Applies the shell to the older pages, fixes links/images, generates about, regions, countries, contact, etc. |
-| `images/resettlement/` | Photo crops taken from the campaign image |
-
-## Editing
-
-- Change a menu item or the footer: edit `site_shell.py`, then run the two commands below.
-- Change resettlement content: edit `build_resettlement.py` / `resettlement_hub.py`, then re-run.
-
-```bash
-python3 build_resettlement.py
-python3 build_site.py
-```
-
-`build_site.py` rewrites the header and footer of the hand-written pages (`index.html`, `about.html`, ...) in place.
-Their body content is left alone. Keep a git commit before running if you have unsaved edits.
+# UNHCR website:
 
 Local preview: `python3 -m http.server 5501` from this folder (links are root-relative, e.g. `/about.html`).
 Deployment: `vercel.json` (clean URLs, security headers).
