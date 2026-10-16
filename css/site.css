@@ -250,27 +250,34 @@ input,select,textarea,button{max-width:100%;font-family:inherit}
   .alert-banner .btn{align-self:stretch;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
 }
 /* ==========================================================================
-   Floating WhatsApp button — circular icon, text bubble above, gentle float
+   Floating WhatsApp button — circular icon at right of text bubble
    ========================================================================== */
 .wa-float-wrap{
   position:fixed;
   right:max(22px,env(safe-area-inset-right));
   bottom:max(22px,env(safe-area-inset-bottom));
   z-index:900;
-  display:flex;flex-direction:column;align-items:center;
-  opacity:0;transform:translateY(16px) scale(.96);
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:10px;
+  opacity:0;
+  transform:translateY(16px) scale(.96);
   animation:wa-float-in .6s cubic-bezier(.2,.9,.3,1.2) 1s forwards;
 }
 .wa-float-wrap.is-hidden{display:none}
 
 /* whole stack gently floats */
 .wa-float-stack{
-  display:flex;flex-direction:column;align-items:center;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:10px;
   animation:wa-drift 4.5s ease-in-out infinite;
   transform-origin:center bottom;
 }
 
-/* ----- speech bubble text above the circle ----- */
+/* ----- speech bubble text----- */
 .wa-float__text{
   position:relative;
   font:600 .78rem/1.25 var(--sh-font,inherit);
@@ -280,30 +287,36 @@ input,select,textarea,button{max-width:100%;font-family:inherit}
   border-radius:14px;
   box-shadow:0 6px 18px rgba(0,0,0,.14),0 1px 3px rgba(0,0,0,.08);
   white-space:nowrap;
-  margin-bottom:10px;
+  margin-bottom:0;
   pointer-events:none;
   letter-spacing:.15px;
 }
-/* little tail pointing down to the circle */
+
 .wa-float__text::after{
   content:"";
   position:absolute;
-  bottom:-5px;left:50%;
+  top:50%;
+  right:-5px;
+  left:auto;
+  bottom:auto;
   width:10px;height:10px;
   background:#fff;
-  transform:translateX(-50%) rotate(45deg);
+  transform:translateY(-50%) rotate(45deg);
   border-radius:2px;
-  box-shadow:2px 2px 3px rgba(0,0,0,.05);
+  box-shadow:2px -2px 3px rgba(0,0,0,.05);
 }
 
 /* ----- circular button ----- */
 .wa-float{
   position:relative;
-  display:inline-flex;align-items:center;justify-content:center;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   width:62px;height:62px;
   border-radius:50%;
   background:linear-gradient(145deg,#17a557,#0f7a41);
-  color:#fff;text-decoration:none;
+  color:#fff;
+  text-decoration:none;
   box-shadow:0 10px 24px rgba(18,140,74,.38),0 3px 8px rgba(0,0,0,.18);
   transition:transform .25s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s,background .25s;
   isolation:isolate;
@@ -311,7 +324,8 @@ input,select,textarea,button{max-width:100%;font-family:inherit}
 /* soft pulsing ring behind the circle */
 .wa-float::before{
   content:"";
-  position:absolute;inset:0;
+  position:absolute;
+  inset:0;
   border-radius:50%;
   background:#128c4a;
   opacity:.55;
@@ -327,7 +341,9 @@ input,select,textarea,button{max-width:100%;font-family:inherit}
 .wa-float:focus-visible{outline:3px solid var(--sh-yellow,#faeb00);outline-offset:4px}
 
 .wa-float__icon{
-  display:inline-flex;align-items:center;justify-content:center;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   width:34px;height:34px;
   filter:drop-shadow(0 1px 1px rgba(0,0,0,.15));
 }
@@ -335,8 +351,10 @@ input,select,textarea,button{max-width:100%;font-family:inherit}
 
 /* online / pulse dot */
 .wa-float__badge{
-  position:absolute;top:5px;right:5px;
-  width:12px;height:12px;border-radius:50%;
+  position:absolute;
+  top:5px;right:5px;
+  width:12px;height:12px;
+  border-radius:50%;
   background:#ffe14d;
   box-shadow:0 0 0 2.5px #128c4a, 0 0 8px rgba(255,225,77,.9);
   animation:wa-pulse 2s infinite;
@@ -344,14 +362,23 @@ input,select,textarea,button{max-width:100%;font-family:inherit}
 
 /* dismiss button */
 .wa-float__dismiss{
-  all:unset;box-sizing:border-box;
-  position:absolute;top:-4px;left:-4px;z-index:3;
-  width:24px;height:24px;border-radius:50%;
-  background:#fff;color:#555;
+  all:unset;
+  box-sizing:border-box;
+  position:absolute;
+  top:-4px;
+  right:-4px;
+  left:auto;
+  z-index:3;
+  width:24px;height:24px;
+  border-radius:50%;
+  background:#fff;
+  color:#555;
   font:700 14px/24px Arial,sans-serif;
-  text-align:center;cursor:pointer;
+  text-align:center;
+  cursor:pointer;
   box-shadow:0 2px 6px rgba(0,0,0,.22);
-  opacity:0;transform:scale(.7);
+  opacity:0;
+  transform:scale(.7);
   transition:opacity .18s,transform .18s,background .18s,color .18s;
 }
 .wa-float-wrap:hover .wa-float__dismiss,
@@ -379,10 +406,13 @@ input,select,textarea,button{max-width:100%;font-family:inherit}
 
 /* ----- mobile ----- */
 @media (max-width:600px){
-  .wa-float-wrap{right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom))}
+  .wa-float-wrap{
+    right:max(16px,env(safe-area-inset-right));
+    bottom:max(16px,env(safe-area-inset-bottom));
+  }
   .wa-float{width:56px;height:56px}
   .wa-float__icon{width:30px;height:30px}
-  .wa-float__text{font-size:.72rem;padding:6px 11px;margin-bottom:8px}
+  .wa-float__text{font-size:.72rem;padding:6px 11px}
   .wa-float__dismiss{opacity:1;transform:none;width:26px;height:26px;line-height:26px}
 }
 
